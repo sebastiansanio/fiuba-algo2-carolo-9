@@ -3,5 +3,6 @@
  */
 
 typedef struct{
-	int i=1
+	int i=1;
+	while (!i)
 }TDiccionario;
