@@ -1,4 +1,4 @@
-#include <diccionario.h>
+
 
 int diccionario ()
 {
