@@ -3,23 +3,39 @@ int Diccionario_Crear(TDiccionario* dicc, int tamanioDato)
 
 
 
-
-/*Es un prototrabajo, el hecho es q todavia no tngo confirmado como funciona la estructura diccionario, sigo dsps*/
-
-void Diccionario_Obtener(TDiccionario dicc, char* clave, void* elem, int tamanioDato)
+int Diccionario_CantidadEntradas(TDiccionario dicc)
 {
-    memcpy(elem,dicc.dicc[buscar_dicc(dicc.dicc,clave,,tamanioDato);
+    int cantidad;
+    cantidad=0;
+    while ((dicc->dicc[cantidad]->clave)<>NULL)
+    {
+        cantidad=cantidad++;
     }
+    return cantidad;
+}
 
 int Diccionario_Existe(TDiccionario dicc, char* clave)
 {
+    if ((dicc->dicc[buscar_dicc(dicc,clave,Diccionario_CantidadEntradas(dicc))]->valor)<>NULL)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
 
+void Diccionario_Obtener(TDiccionario dicc, char* clave, void* elem, int tamanioDato)
+{
+    memcpy(elem,dicc->dicc[buscar_dicc(dicc,clave,Diccionario_CantidadEntradas(dicc))]->valor,tamanioDato);
+    }
 
 int Diccionario_Asignar(TDiccionario* dicc, char* clave, void* elem, int tamanioDato)
 {
     if (dicc[clave]<>Null)
     {
-        memcpy(dicc.clave,elem,tamanioDato);
+        memcpy(dicc->dicc[buscar_dicc(dicc,clave,Diccionario_CantidadEntradas(dicc))]->valor,elem,tamanioDato);
         return 0;
     }
     else
@@ -30,3 +46,7 @@ int Diccionario_Asignar(TDiccionario* dicc, char* clave, void* elem, int tamanio
         }
     }
 }
+
+
+
+
