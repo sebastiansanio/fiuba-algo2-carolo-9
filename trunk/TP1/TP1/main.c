@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv [])
 {
-    printf("Hello world!\n");
+	printf ("Bienvenido al programa de manejo de Propiedades\n");
     menu ();
     return 0;
 }
