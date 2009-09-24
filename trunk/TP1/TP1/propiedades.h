@@ -2,8 +2,7 @@
 #define PROPIEDADES_H_INCLUDED
 
 typedef struct {
-	int i; /* placeholder */
-}TPropiedades;
+	TDiccionario diccionario} TPropiedades;
 
 int Propiedades_Crear(TPropiedades *propiedades);
 
