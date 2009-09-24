@@ -1,8 +1,23 @@
+typedef struct{char clave[tamañoclave];char valor[tamañovalor]} tauxdicc; /*registro con dos campos strings */
+
+typedef struct{tauxdicc dicc[cantidaddeclaves];int tamanoiodato} TDiccionario; /*un vector del tipo anterior+un entero para guardar el tamaño de dato */
+
+# define MaxCantEnt a;          /*Con a perteneciendo a N*/
+
+# define NULL 0;
+
 int Diccionario_Crear(TDiccionario* dicc, int tamanioDato)
 {
 	TDiccionario nuevo_dicc;
-	nuevo_dicc.size_elem=tamanioDato;
+	int i;
+	nuevo_dicc->tamaniodato=tamanioDato;           /*Setea el tamaño dato*/
+	for (i=0,i<=MaxCantEnt,i++)
+	{
+      nuevo_dicc->*(dicc+i)->clave=NULL;              /*Inicializa las posiciones clave y valor en NULL*/
+      nuevo_dicc->*(dicc+i)->valor=NULL;
+	}
 	*dicc=nuevo_dicc;
+	return 0;
 }
 
 int Diccionario_CantidadEntradas(TDiccionario dicc)
@@ -32,7 +47,7 @@ void Diccionario_Obtener(TDiccionario dicc, char* clave, void* elem)
     memcpy(elem,dicc->dicc[buscar_dicc(dicc,* clave,Diccionario_CantidadEntradas(dicc))]->valor,dicc->tamanioDato);         /*Busca el elemento en el diccionario y lo copia en una variable*/
     }
 
-int Diccionario_Asignar(TDiccionario* dicc, char* clave, void* elem, int tamanioDato)
+int Diccionario_Asignar(TDiccionario* dicc, char* clave, void* elem)
 {
     int posicion;
     int NumEnt;
@@ -54,6 +69,30 @@ int Diccionario_Asignar(TDiccionario* dicc, char* clave, void* elem, int tamanio
     }
 }
 
+void Diccionario_Claves(TDiccionario dicc, char* claves[])
+{
+    int i;
+    i=0;
+    while ((dicc->*(dicc+i)->clave)!=NULL)
+    {
+        *(claves+i)=(dicc->*(dicc+i)->clave);                       /*Copia las claves alarreglo*/
+        i=i++;
+    }
+    *(claves+i)=NULL;                                           /*Le asigna a la posición siguiente al ultimo elemento del arreglo NULL, para representar el fin del arreglo*/
+}
 
+void Diccionario_Eliminar(TDiccionario* dicc, char* clave)
+{
+    memcpy(dicc->dicc[buscar_dicc(dicc,* clave,Diccionario_CantidadEntradas(dicc))]->valor,NULL,dicc->tamaniodato);     /*Busca el elemento en el diccionario y le asigna NULL, que representa elemento vacio*/
+    }
 
-
+void Diccionario_Destruir(TDiccionario* dicc)
+{
+	int i;
+	dicc->tamaniodato=0;                            /*Setea el tamanio dato en 0*/
+	for (i=0,i<=MaxCantEnt,i++)
+	{
+	    dicc->*(dicc+i)->clave=NULL;              /*Setea las posiciones clave y valor en NULL*/
+        dicc->*(dicc+i)->valor=NULL;
+	}
+}
