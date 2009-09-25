@@ -4,16 +4,16 @@
 #include <string.h> /* para que esta? */
 int menu ()
 {
-    char op_menu_char; int op_menu_int;
+    char op_menu_char;
+    int op_menu_int;
     TPropiedades propiedades; /* TPropiedades es el TDA que debidamente ser� creado*/
     char nombre;             /* Declar� todas la variables ac�. D�ganme si les parece bien, o si las deber�a declara en el Main.*/
     char nombres [15];
     char valor;
     char valorDefault;
     /* L�neas 11 a la 56 son el t�pico men� que hac�amos en Algo1. D�gname si hay alg� error.*/
-    while (0)/* Este ciclo termina cuando se ingresa la opcion de salir, en virtud de un "return 0". */
-    {
-		printf ("Seleccione la opci�n deseada\n");
+
+    printf ("Seleccione la opci�n deseada\n");
 		printf ("1 Crear Propiedad\n");
 		printf ("2 Cargar Propiedad\n");
 		printf ("3 Guardar Propiedad\n");
@@ -25,7 +25,7 @@ int menu ()
 		printf ("9 Destuir Propiedad\n");
 		printf ("0 Salir Programa\n");
 
-		do
+    do
 		{
 		scanf ("%c",&op_menu_char);
 		op_menu_int=atoi(op_menu_char);
@@ -33,6 +33,8 @@ int menu ()
 		while
 		(op_menu_int > 57 || op_menu_int < 48); /* ASCII de 0-9 == 48-57 . Si estamos fuera del rango repite.*/
 
+    while (op_menu_int > 57 || op_menu_int < 48)/* Este ciclo termina cuando se ingresa la opcion de salir, en virtud de un "return 0". */
+    {                                           /* la idea estaba buena, pero lo optimicé, lo hize como un while clásico, asi es más robusto. además, me parece que antes no entraba al primer ciclo*/
 		switch (op_menu_int)
 		{
 		case 49:
@@ -54,8 +56,31 @@ int menu ()
 		case 57:
 		Propiedades_Destruir(&propiedades);
 		case 48:
-			return 0;
+            return 0;
+
 		} /* cierra el Switch*/
+
+		printf ("Seleccione la opci�n deseada\n");
+		printf ("1 Crear Propiedad\n");
+		printf ("2 Cargar Propiedad\n");
+		printf ("3 Guardar Propiedad\n");
+		printf ("4 Obtener Propiedad\n");
+		printf ("5 Asignar Propiedad\n");
+		printf ("6 Existe Propiedad\n");
+		printf ("7 Nombre Propiedad\n");
+		printf ("8 Eliminar Propiedad\n");
+		printf ("9 Destuir Propiedad\n");
+		printf ("0 Salir Programa\n");
+
+		do
+		{
+		scanf ("%c",&op_menu_char);
+		op_menu_int=atoi(op_menu_char);
+		}
+		while
+		(op_menu_int > 57 || op_menu_int < 49); /* ASCII de 0-9 == 48-57 . Si estamos fuera del rango repite.*/
+
+
 	} /* while */
 	return 0;
 } /* cierra la funci�n menu*/
