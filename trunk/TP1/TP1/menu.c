@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <propiedades.h>
+#include "propiedades.h"
 #include <string.h> /* para que esta? */
 int menu ()
 {
-    char op_menu_char;
+    char* op_menu_char;
     int op_menu_int;
     TPropiedades propiedades; /* TPropiedades es el TDA que debidamente ser� creado*/
     char nombre;             /* Declar� todas la variables ac�. D�ganme si les parece bien, o si las deber�a declara en el Main.*/
-    char nombres [15];
+    char* nombres [15];
     char valor;
     char valorDefault;
+    char* rutaArchivo;
     /* L�neas 11 a la 56 son el t�pico men� que hac�amos en Algo1. D�gname si hay alg� error.*/
 
     printf ("Seleccione la opci�n deseada\n");
@@ -40,9 +41,9 @@ int menu ()
 		case 49:
 		Propiedades_Crear (&propiedades); /* pasa con & porque yo lo declar� como variable y no como puntero a variable*/
 		case 50:
-		Propiedades_Cargar(&propiedades,&rutaArchivo); /* pasa con & porque yo lo declar� como variable y no como puntero a variable*/
+		Propiedades_Cargar(&propiedades,rutaArchivo); /* pasa con & porque yo lo declar� como variable y no como puntero a variable*/
 		case 51:
-		Propiedades_Guardar(propiedades,&rutaArchivo);
+		Propiedades_Guardar(propiedades,rutaArchivo);
 		case 52:
 		Propiedades_Obtener(propiedades,&nombre,&valorDefault,&valor); /* pasa con & porque yo lo declar� como variable y no como puntero a variable*/
 		case 53:
