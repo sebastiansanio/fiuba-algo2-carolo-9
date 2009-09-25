@@ -41,6 +41,7 @@
 		<Unit filename="menu.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="menu.h" />
 		<Unit filename="propiedades.c">
 			<Option compilerVar="CC" />
 		</Unit>
