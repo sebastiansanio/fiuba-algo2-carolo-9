@@ -1,10 +1,80 @@
-typedef struct{char clave[tamañoclave];char valor[tamañovalor]} tauxdicc; /*registro con dos campos strings */
+typedef struct{char clave[tamañoclave];void valor[tamañovalor]} tauxdicc; /*registro con dos campos strings */
 
 typedef struct{tauxdicc dicc[cantidaddeclaves];int tamanoiodato} TDiccionario; /*un vector del tipo anterior+un entero para guardar el tamaño de dato */
 
 # define MaxCantEnt a;          /*Con a perteneciendo a N*/
 
 # define NULL 0;
+
+int Diccionario_CantidadElementos(TDiccionario dicc)
+{
+    int i=0;
+    while ((dicc->dicc[i]->clave[0])!=NULL) /* Recorre las entradas hasta que el primer char de una clave sea NULL */
+    {
+    	i++;
+    }
+    return i;
+}
+
+void bubblesort(TDiccionario* dicc, int cantidad_elem)                  /*Tomado de la codificación del bubble sort en lenguaje PASCAL*/
+{                                                                   /*Precondiciones: Que exista dicc, que clave y cantidad_elem sean validos*/
+	int i,j,cambio,clave;                                       /*Establece las variables auxiliares valor y clave*/
+	void valor;
+	i=0;
+	cambio=0;
+	while ((i<(cantidad_elem-1))&&(cambio))
+	{
+		cambio=1;
+		for (j=0,j<=cantidad_elem-i,j++)
+		{
+			if ((*dicc->dicc[j]->clave)>(*dicc->dicc[j+1]->clave))                  /*Compara cada elemento con su siguiente, haciendo que los mas chicos suban comoburbujas a la posicion superior del arreglo*/
+			{
+				memcpy(valor,dicc->dicc[j]->valor,dicc->tamaniodato);
+				clave=dicc->dicc[j]->clave;
+				memcpy(dicc->dicc[j]->valor,dicc->dicc[j+1]->valor,dicc->tamaniodato);              /*Realiza el intercambio de claves y valor*/
+				dicc->dicc[j]->clave=dicc->dicc[j+1]->valor;
+				memcpy(dicc->dicc[j+1]->valor,valor,dicc->tamaniodato);
+				dicc->dicc[j+1]->clave=clave;
+				cambio=0;
+			}
+		}
+		i=i++;
+	}
+}
+
+int buscar_dicc(TDiccionario dicc,char clave,int cantidad_elem)           /*Tomado de la codificación del binary sort en lenguaje PASCAL*/
+{                                                                         /*Precondiciones: Que exista dicc, que clave y cantidad_elem sean validos y que el arreglo este ordenado de forma descendente*/
+	int ini,medio,fin,terminado;
+	ini=0;
+	fin=cantidad_elem-1;
+	terminado=1;
+	while (!terminado)                                      /*Establce que mientras no haya terminado proceda con lo de abajo*/
+	{
+		if ((clave>(dicc->dicc[fin]->clave))||(clave<(dicc->dicc[ini]->clave)))
+        	{
+			return NULL;                                                                        /*Si el elemento sobrepasa el rango de busqueda deja de buscar*/
+		}
+		else
+		{
+			medio=(ini+fin)/2;
+			if (clave==(dicc->dicc[medio]->clave))                  /*Usando el metodo "dividir y conquistar" parte el problema en 2 buscando en el medio*/
+			{
+				return medio;
+			}
+			else
+			{
+				if (clave>(dicc->dicc[medio]->clave))               /*Si el valor no esta en el medio del bloque, elige un bloque mayor o menor según corresponda*/
+				{
+					ini=medio+1;
+				}
+				else
+				{
+					fin=medio-1;
+				}
+			}
+		}
+	}
+}
 
 int Diccionario_Crear(TDiccionario* dicc, int tamanioDato)
 {
@@ -14,7 +84,7 @@ int Diccionario_Crear(TDiccionario* dicc, int tamanioDato)
 	for (i=0,i<=MaxCantEnt,i++)
 	{
       nuevo_dicc->*(dicc+i)->clave=NULL;              /*Inicializa las posiciones clave y valor en NULL*/
-      nuevo_dicc->*(dicc+i)->valor=NULL;
+      memcpy(nuevo_dicc->dicc[i]->valor,NULL,dicc->tamaniodato);
 	}
 	*dicc=nuevo_dicc;
 	return 0;
@@ -23,7 +93,7 @@ int Diccionario_Crear(TDiccionario* dicc, int tamanioDato)
 int Diccionario_CantidadEntradas(TDiccionario dicc)
 {
     int i=0;
-    while ((dicc.entradas[i].clave[0])!=NULL) /* Recorre las entradas hasta que el primer char de una clave sea NULL */
+    while ((dicc->dicc[i].clave[0])!=NULL) /* Recorre las entradas hasta que el primer char de una clave sea NULL */
     {
     	i++;
     }
@@ -32,7 +102,10 @@ int Diccionario_CantidadEntradas(TDiccionario dicc)
 
 int Diccionario_Existe(TDiccionario dicc, char* clave)
 {
-    if ((dicc->dicc[buscar_dicc(dicc, *clave,Diccionario_CantidadEntradas(dicc))]->valor)!=NULL) /*Comprueba la existencia de un elemnto, buscandolo primero*/
+    int elementos;
+    elementos=Diccionario_CantidadElementos(dicc)                     /*Guarda en elementos la cantidad de los mismos para poder hacer el ordenamiento y la busqueda*/
+    bubblesort (&dicc,elementos);
+    if ((dicc->dicc[buscar_dicc(dicc, *clave,elementos])->valor)!=NULL) /*Comprueba la existencia de un elemnto, buscandolo primero*/
     {
         return 1;
     }
@@ -44,15 +117,19 @@ int Diccionario_Existe(TDiccionario dicc, char* clave)
 
 void Diccionario_Obtener(TDiccionario dicc, char* clave, void* elem)
 {
-    memcpy(elem,dicc->dicc[buscar_dicc(dicc,* clave,Diccionario_CantidadEntradas(dicc))]->valor,dicc->tamanioDato);         /*Busca el elemento en el diccionario y lo copia en una variable*/
+    int elementos;
+    elementos=Diccionario_CantidadElementos(dicc);                               /*Guarda en elementos la cantidad de los mismos para poder hacer el ordenamiento y la busqueda*/
+    bubblesort (&dicc,elementos);                                                   /*Realiza el ordenamiento para poder buscar*/
+    memcpy(elem,dicc->dicc[buscar_dicc(dicc,* clave,elementos)]->valor,dicc->tamanioDato);         /*Busca el elemento en el diccionario y lo copia en una variable*/
     }
 
 int Diccionario_Asignar(TDiccionario* dicc, char* clave, void* elem)
 {
     int posicion;
     int NumEnt;
-    NumEnt=Diccionario_CantidadEntradas(* dicc);            /*Recupera el valor de la cantidad de elemntos*/
-    posicion=buscar_dicc(* dicc,* clave,Diccionario_CantidadEntradas(* dicc));    /*Busca la posiciï¿½n en la que esta la clave*/
+    NumEnt=Diccionario_CantidadElementos(*dicc);            /*Recupera el valor de la cantidad de elemntos*/
+    bubblesort (dicc,NumEnt);                           /*Ordena el arreglo para realizar la busqueda*/
+    posicion=buscar_dicc(*dicc,*clave,NumEnt);    /*Busca la posicion en la que esta la clave*/
     if ((posicion==NULL)&&(NumEnt<MaxCantEnt))
     {                                                                   /*Si la clave no existe, la agrega al final*/
         posicion=NumEnt+1;
@@ -83,8 +160,11 @@ void Diccionario_Claves(TDiccionario dicc, char* claves[])
 
 void Diccionario_Eliminar(TDiccionario* dicc, char* clave)
 {
-    memcpy(dicc->dicc[buscar_dicc(dicc,* clave,Diccionario_CantidadEntradas(dicc))]->valor,NULL,dicc->tamaniodato);     /*Busca el elemento en el diccionario y le asigna NULL, que representa elemento vacio*/
-    }
+    int elementos;
+    elementos=Diccionario_CantidadElementos(*dicc);                               /*Guarda en elementos la cantidad de los mismos para poder hacer el ordenamiento y la busqueda*/
+    bubblesort (dicc,elementos);                                               /*Realiza el ordenamiento para poder buscar*/
+    memcpy(dicc->dicc[buscar_dicc(*dicc,*clave,elementos)]->valor,NULL,dicc->tamaniodato);     /*Busca el elemento en el diccionario y le asigna NULL, que representa elemento vacio*/
+}
 
 void Diccionario_Destruir(TDiccionario* dicc)
 {
@@ -93,6 +173,6 @@ void Diccionario_Destruir(TDiccionario* dicc)
 	for (i=0,i<=MaxCantEnt,i++)
 	{
 	    dicc->*(dicc+i)->clave=NULL;              /*Setea las posiciones clave y valor en NULL*/
-        dicc->*(dicc+i)->valor=NULL;
+        memcpy(dicc->dicc[i]->valor,NULL,dicc->tamaniodato);
 	}
 }
