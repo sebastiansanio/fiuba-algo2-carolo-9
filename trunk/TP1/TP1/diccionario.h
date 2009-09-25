@@ -2,6 +2,7 @@
 #define DICCIONARIO_H_INCLUDED
 #define SIZE_CLAVE 20
 #define SIZE_DICC 20
+#define NULL 0;
 
 typedef struct {
 	char clave[SIZE_CLAVE]={};
