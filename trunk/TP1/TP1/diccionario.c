@@ -29,11 +29,11 @@ void bubblesort(TDiccionario* dicc, int cantidad_elem)                  /*Tomado
 		{
 			if ((*dicc->dicc[j]->clave)>(*dicc->dicc[j+1]->clave))                  /*Compara cada elemento con su siguiente, haciendo que los mas chicos suban comoburbujas a la posicion superior del arreglo*/
 			{
-				memcpy(valor,dicc->dicc[j]->valor,dicc->tamaniodato);
+				memcpy(&valor,&(dicc->dicc[j]->valor),dicc->tamaniodato);
 				clave=dicc->dicc[j]->clave;
-				memcpy(dicc->dicc[j]->valor,dicc->dicc[j+1]->valor,dicc->tamaniodato);              /*Realiza el intercambio de claves y valor*/
-				dicc->dicc[j]->clave=dicc->dicc[j+1]->valor;
-				memcpy(dicc->dicc[j+1]->valor,valor,dicc->tamaniodato);
+				memcpy(&(dicc->dicc[j]->valor),&(dicc->dicc[j+1]->valor),dicc->tamaniodato);              /*Realiza el intercambio de claves y valor*/
+				dicc->dicc[j]->clave=dicc->dicc[j+1]->clave;
+				memcpy(&(dicc->dicc[j+1]->valor),&valor,dicc->tamaniodato);
 				dicc->dicc[j+1]->clave=clave;
 				cambio=0;
 			}
@@ -84,7 +84,7 @@ int Diccionario_Crear(TDiccionario* dicc, int tamanioDato)
 	for (i=0,i<=MaxCantEnt,i++)
 	{
       nuevo_dicc->*(dicc+i)->clave=NULL;              /*Inicializa las posiciones clave y valor en NULL*/
-      memcpy(nuevo_dicc->dicc[i]->valor,NULL,dicc->tamaniodato);
+      memcpy(&(nuevo_dicc->dicc[i]->valor),&NULL,dicc->tamaniodato);
 	}
 	*dicc=nuevo_dicc;
 	return 0;
@@ -93,7 +93,7 @@ int Diccionario_Crear(TDiccionario* dicc, int tamanioDato)
 int Diccionario_CantidadEntradas(TDiccionario dicc)
 {
     int i=0;
-    while ((dicc->dicc[i].clave[0])!=NULL) /* Recorre las entradas hasta que el primer char de una clave sea NULL */
+    while ((dicc->dicc[i]->clave)!=NULL) /* Recorre las entradas hasta que el primer char de una clave sea NULL */
     {
     	i++;
     }
@@ -120,7 +120,7 @@ void Diccionario_Obtener(TDiccionario dicc, char* clave, void* elem)
     int elementos;
     elementos=Diccionario_CantidadElementos(dicc);                               /*Guarda en elementos la cantidad de los mismos para poder hacer el ordenamiento y la busqueda*/
     bubblesort (&dicc,elementos);                                                   /*Realiza el ordenamiento para poder buscar*/
-    memcpy(elem,dicc->dicc[buscar_dicc(dicc,* clave,elementos)]->valor,dicc->tamanioDato);         /*Busca el elemento en el diccionario y lo copia en una variable*/
+    memcpy(elem,&(dicc->dicc[buscar_dicc(dicc,* clave,elementos)]->valor),dicc->tamanioDato);         /*Busca el elemento en el diccionario y lo copia en una variable*/
     }
 
 int Diccionario_Asignar(TDiccionario* dicc, char* clave, void* elem)
@@ -133,11 +133,11 @@ int Diccionario_Asignar(TDiccionario* dicc, char* clave, void* elem)
     if ((posicion==NULL)&&(NumEnt<MaxCantEnt))
     {                                                                   /*Si la clave no existe, la agrega al final*/
         posicion=NumEnt+1;
-        memcpy(dicc->dicc[posicion]->clave,clave,tamanioDato);
+        dicc->dicc[posicion]->clave=clave;
     }
     if (((dicc->dicc[posicion]->valor)!=NULL)||(NumEnt<MaxCantEnt))          /*Se fija si se puede escribir o si diccionario esta lleno*/
     {
-        memcpy(dicc->dicc[posicion]->valor,elem,tamanioDato);
+        memcpy(&(dicc->dicc[posicion]->valor),elem,tamanioDato);
         return 0;
     }
     else
@@ -163,7 +163,7 @@ void Diccionario_Eliminar(TDiccionario* dicc, char* clave)
     int elementos;
     elementos=Diccionario_CantidadElementos(*dicc);                               /*Guarda en elementos la cantidad de los mismos para poder hacer el ordenamiento y la busqueda*/
     bubblesort (dicc,elementos);                                               /*Realiza el ordenamiento para poder buscar*/
-    memcpy(dicc->dicc[buscar_dicc(*dicc,*clave,elementos)]->valor,NULL,dicc->tamaniodato);     /*Busca el elemento en el diccionario y le asigna NULL, que representa elemento vacio*/
+    memcpy(&(dicc->dicc[buscar_dicc(*dicc,*clave,elementos)]->valor),&NULL,dicc->tamaniodato);     /*Busca el elemento en el diccionario y le asigna NULL, que representa elemento vacio*/
 }
 
 void Diccionario_Destruir(TDiccionario* dicc)
@@ -173,6 +173,6 @@ void Diccionario_Destruir(TDiccionario* dicc)
 	for (i=0,i<=MaxCantEnt,i++)
 	{
 	    dicc->*(dicc+i)->clave=NULL;              /*Setea las posiciones clave y valor en NULL*/
-        memcpy(dicc->dicc[i]->valor,NULL,dicc->tamaniodato);
+        memcpy(&(dicc->dicc[i]->valor),&NULL,dicc->tamaniodato);
 	}
 }
