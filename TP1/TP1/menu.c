@@ -11,7 +11,7 @@ int menu ()
     char* nombres [15];
     char valor;
     char valorDefault;
-    char* rutaArchivo;
+    char rutaArchivo [255];
     /* L�neas 11 a la 56 son el t�pico men� que hac�amos en Algo1. D�gname si hay alg� error.*/
 
     printf ("Seleccione la opci�n deseada\n");
@@ -41,7 +41,11 @@ int menu ()
 		case 49:
 		Propiedades_Crear (&propiedades); /* pasa con & porque yo lo declar� como variable y no como puntero a variable*/
 		case 50:
+		printf ("Ingrese el Path (i.e. la dirección del Archivo) de propiedades\n");
+		scanf (rutaArchivo);
 		Propiedades_Cargar(&propiedades,rutaArchivo); /* pasa con & porque yo lo declar� como variable y no como puntero a variable*/
+		printf ("Ingrese el Path (i.e. la dirección del Archivo) de propiedades\n");
+		scanf (rutaArchivo);
 		case 51:
 		Propiedades_Guardar(propiedades,rutaArchivo);
 		case 52:
