@@ -25,23 +25,6 @@ TPropiedades propiedades;
 void* elem;
 char rutaArchivo[30];
 
-int Diccionario_Crear(TDiccionario* dicc, int tamanioDato);
-{return 0;}
-
-void Diccionario_Obtener(TDiccionario dicc, char* clave, void* elem);
-{elem="prueba";}
-
-int Diccionario_Asignar(TDiccionario* dicc, char* clave, void* elem);
-
-int Diccionario_Existe(TDiccionario dicc, char* clave);
-
-void Diccionario_Claves(TDiccionario dicc, char* claves[]);
-
-int Diccionario_CantidadEntradas(TDiccionario dicc);
-
-void Diccionario_Eliminar(TDiccionario* dicc, char* clave);
-
-void Diccionario_Destruir(TDiccionario* dicc);
 
 int Propiedades_Crear(TPropiedades *propiedades);
 {
