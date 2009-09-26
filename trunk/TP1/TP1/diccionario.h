@@ -5,7 +5,7 @@
 #define NULL 0;
 
 typedef struct {
-	char clave[SIZE_CLAVE]={};
+	char clave[SIZE_CLAVE];
 	void *elem;
 }TEntrada;
 typedef struct {

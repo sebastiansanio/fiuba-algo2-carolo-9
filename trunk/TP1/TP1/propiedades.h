@@ -1,8 +1,8 @@
 #ifndef PROPIEDADES_H_INCLUDED
 #define PROPIEDADES_H_INCLUDED
 
-typedef struct {
-	TDiccionario diccionario} TPropiedades;
+typedef struct{
+	TDiccionario diccionario;} TPropiedades;
 
 int Propiedades_Crear(TPropiedades *propiedades);
 

@@ -23,7 +23,7 @@ int Propiedades_Cargar(TPropiedades *propiedades, char *rutaArchivo);
         while (!feof(arch))
         {
             if !(arch==#)
-            fscanf("%s=%s",arch,&auxclave,&auxvalor);
+            fscanf("%s=%s\n",arch,&auxclave,&auxvalor);
             i=Diccionario_asignar(&propiedades.diccionario,&auxclave,&auxvalor);}
             if (i==0)
                 return 0;
@@ -42,7 +42,7 @@ int Propiedades_Guardar(TPropiedades propiedades, char *rutaArchivo);
     Diccionario_claves(propiedades.diccionario,&claves);
     for (int a=0,claves[a],a++){
         Diccionario_obtener(&propiedades.diccionario,claves[a],valor);
-        fprintf("%s=%s",arch,claves[a],valor);
+        fprintf("%s=%s\n",arch,claves[a],valor);
     }
     fclose(arch);
     return 0;
