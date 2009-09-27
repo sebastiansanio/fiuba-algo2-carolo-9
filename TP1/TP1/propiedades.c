@@ -64,7 +64,7 @@ int Propiedades_Obtener(TPropiedades propiedades, char *nombre, char *valorDefau
         }
         else
             {
-            *valor=*valorDefault;
+            valor=*valorDefault;
             return 0;
             }
     }
