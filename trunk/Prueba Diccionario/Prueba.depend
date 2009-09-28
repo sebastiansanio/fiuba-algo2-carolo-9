@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1254162349 c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\prueba diccionario\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<diccionario.h>
+
