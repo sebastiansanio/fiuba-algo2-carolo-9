@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1254068267 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\prueba de propiedades\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
