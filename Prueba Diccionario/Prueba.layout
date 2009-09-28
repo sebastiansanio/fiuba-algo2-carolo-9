@@ -4,10 +4,10 @@
 	<File name="TDiccionario.c" open="1" top="0">
 		<Cursor position="3002" topLine="93"/>
 	</File>
-	<File name="diccionario.h" open="1" top="1">
+	<File name="diccionario.h" open="1" top="0">
 		<Cursor position="146" topLine="0"/>
 	</File>
-	<File name="main.c" open="1" top="0">
-		<Cursor position="4047" topLine="74"/>
+	<File name="main.c" open="1" top="1">
+		<Cursor position="274" topLine="0"/>
 	</File>
 </CodeBlocks_layout_file>

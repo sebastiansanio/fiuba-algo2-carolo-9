@@ -9,7 +9,7 @@ int main(int argv,char* argc[])
 	int tamanioDato;
 	char* elem;
 	char** claves;
-	int i,rta;
+	int i,rta,elem_tam;
 	tamanioDato=25*sizeof(char);
 	printf("Funcion Crear/n");
 	rta=Diccionario_Crear(&dicc,tamanioDato);
@@ -24,7 +24,8 @@ int main(int argv,char* argc[])
     printf("Funcion Asignar/n");
     rta=Diccionario_Asignar(&dicc,"Color(RGB)","69X84X64");
     if (rta==0){
-        rta=Diccionario_Asignar(&dicc,"Tamano","1024X768");
+        elem_tam=1024;
+        rta=Diccionario_Asignar(&dicc,"Tamano",&elem_tam);
         if (rta==0){
             rta=Diccionario_Asignar(&dicc,"Idioma","English(US)");
             rta=Diccionario_Asignar(&dicc,"Idioma","Russkiy");
