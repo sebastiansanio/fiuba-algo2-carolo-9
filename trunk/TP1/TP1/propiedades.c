@@ -38,8 +38,10 @@ int Propiedades_Guardar(TPropiedades propiedades, char *rutaArchivo)
     char valor[SIZE_VALOR];
     int a;
     int b;
+    int i;
     FILE*arch;
     b=Diccionario_CantidadEntradas(propiedades.diccionario);
+    for(i=0;i<b;i++){claves[i]=malloc(SIZE_CLAVE);}
     arch=fopen(rutaArchivo,"wt");
     Diccionario_Claves(propiedades.diccionario,claves);
     for (a=0;a<b;a++)
