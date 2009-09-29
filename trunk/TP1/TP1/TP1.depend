@@ -60,3 +60,34 @@
 	<stdlib.h>
 	<string.h>
 
+1254250419 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"propiedades.h"
+	"diccionario.h"
+	"menu.h"
+
+1254250419 c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp1\propiedades.h
+	"diccionario.h"
+
+1254250419 c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp1\diccionario.h
+
+1254250419 c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp1\menu.h
+
+1254250419 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp1\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"propiedades.h"
+
+1254250419 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp1\propiedades.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"propiedades.h"
+
+1254250419 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp1\diccionario.c
+	"diccionario.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
