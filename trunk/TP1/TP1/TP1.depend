@@ -43,12 +43,12 @@
 
 1254243532 c:\users\sebastián\documents\c\tp1\tp1\menu.h
 
-1254252043 source:c:\users\sebastián\documents\c\tp1\tp1\menu.c
+1254254557 source:c:\users\sebastián\documents\c\tp1\tp1\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"propiedades.h"
 
-1254250302 source:c:\users\sebastián\documents\c\tp1\tp1\propiedades.c
+1254254644 source:c:\users\sebastián\documents\c\tp1\tp1\propiedades.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

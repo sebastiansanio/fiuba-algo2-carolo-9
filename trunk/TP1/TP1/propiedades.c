@@ -83,7 +83,10 @@ int Propiedades_Existe(TPropiedades propiedades, char *nombre)
 }
 
 int Propiedades_Nombres(TPropiedades propiedades, char *nombres[])
-{
+{   int b;
+    int i;
+    b=Diccionario_CantidadEntradas(propiedades.diccionario);
+    for(i=0;i<b;i++){nombres[i]=malloc(SIZE_CLAVE);}
     Diccionario_Claves(propiedades.diccionario,nombres);
     return(Diccionario_CantidadEntradas(propiedades.diccionario));
 }
