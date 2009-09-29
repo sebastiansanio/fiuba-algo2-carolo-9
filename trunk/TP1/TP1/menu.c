@@ -39,7 +39,7 @@ int menu ()
 		{
 		Propiedades_Crear (&propiedades); /* pasa con & porque yo lo declar� como variable y no como puntero a variable*/
 		validaCreacion=0;
-		prinf ("La Propiedad ha sido creada satisfactoriamete\n");
+		printf ("La Propiedad ha sido creada satisfactoriamete\n");
 		break;
 		}
 		case 2:
@@ -47,14 +47,14 @@ int menu ()
 		printf ("Ingrese el Path (i.e. la dirección del Archivo) de propiedades\n");
 		scanf ("%s",rutaArchivo);
 		Propiedades_Cargar(&propiedades,rutaArchivo); /* pasa con & porque yo lo declar� como variable y no como puntero a variable*/
-        prinf ("La Propiedad ha sido cargada satisfactoriamete\n");
+        printf ("La Propiedad ha sido cargada satisfactoriamete\n");
 		break;}
 		case 3:
 		{
 		printf ("Ingrese el Path (i.e. la dirección del Archivo) de propiedades\n");
 		scanf ("%s",rutaArchivo);
 		Propiedades_Guardar(propiedades,rutaArchivo);
-        prinf ("La Propiedad ha sido guardada satisfactoriamete\n");
+        printf ("La Propiedad ha sido guardada satisfactoriamete\n");
 		break;
 		}
 		case 4:
@@ -96,7 +96,7 @@ int menu ()
 		printf("Ingrese nombre de la propiedad\n");
         scanf("%s",nombre);
         Propiedades_Eliminar(&propiedades,nombre);
-        prinf ("La Propiedad ha sido eliminada satisfactoriamete\n");
+        printf ("La Propiedad ha sido eliminada satisfactoriamete\n");
 		break;
 		}
 		case 9:
