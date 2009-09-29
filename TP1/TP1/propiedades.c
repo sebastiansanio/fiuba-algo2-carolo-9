@@ -22,7 +22,7 @@ int Propiedades_Cargar(TPropiedades *propiedades, char *rutaArchivo)
     else{
         while (!feof(arch))
         {
-            fscanf(arch,"%s=%s\n",auxclave,auxvalor);
+            fscanf(arch,"%[^=]=%s\n",auxclave,auxvalor);
             i=Diccionario_Asignar(&propiedades->diccionario,auxclave,auxvalor);
             if (i)	error=1;
         }
