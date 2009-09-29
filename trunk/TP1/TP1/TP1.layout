@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="diccionario.c" open="1" top="0" tabpos="2">
-		<Cursor position="247" topLine="0" />
+	<File name="diccionario.c" open="1" top="1" tabpos="2">
+		<Cursor position="656" topLine="0" />
 	</File>
-	<File name="diccionario.h" open="1" top="1" tabpos="1">
-		<Cursor position="132" topLine="0" />
+	<File name="diccionario.h" open="1" top="0" tabpos="1">
+		<Cursor position="772" topLine="2" />
 	</File>
 	<File name="main.c" open="1" top="0" tabpos="3">
 		<Cursor position="110" topLine="0" />
@@ -14,12 +14,12 @@
 		<Cursor position="2989" topLine="0" />
 	</File>
 	<File name="menu.h" open="1" top="0" tabpos="4">
-		<Cursor position="50" topLine="0" />
+		<Cursor position="73" topLine="0" />
 	</File>
 	<File name="propiedades.c" open="1" top="0" tabpos="6">
-		<Cursor position="591" topLine="0" />
+		<Cursor position="212" topLine="0" />
 	</File>
 	<File name="propiedades.h" open="1" top="0" tabpos="7">
-		<Cursor position="267" topLine="0" />
+		<Cursor position="833" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

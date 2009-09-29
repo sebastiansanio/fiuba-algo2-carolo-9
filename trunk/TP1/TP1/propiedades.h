@@ -25,4 +25,4 @@ void Propiedades_Eliminar(TPropiedades *propiedades, char *nombre);
 
 void Propiedades_Destruir(TPropiedades *propiedades);
 
-#endif // PROPIEDADES_H_INCLUDED
+#endif

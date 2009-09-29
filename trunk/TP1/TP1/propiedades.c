@@ -6,7 +6,7 @@
 int Propiedades_Crear(TPropiedades *propiedades)
 {
 int i;
-i=Diccionario_Crear(&(propiedades->diccionario),SIZE_VALOR);
+i=Diccionario_Crear(&(propiedades->diccionario),sizeof(char)*SIZE_VALOR);
 return i;
 }
 
