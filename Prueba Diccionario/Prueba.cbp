@@ -1,36 +1,33 @@
-<?xml version="1.0"?>
-<!DOCTYPE CodeBlocks_project_file>
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_project_file>
-	<FileVersion major="1" minor="1"/>
+	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Console application"/>
-		<Option makefile="Makefile"/>
-		<Option makefile_is_custom="0"/>
-		<Option compiler="0"/>
+		<Option title="Console application" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
 		<Build>
 			<Target title="default">
-				<Option output="C:\Documents and Settings\Emperor\Mis documentos\Trabajo\Facultad\Algoritmos II\Prueba.exe"/>
-				<Option working_dir="."/>
-				<Option object_output=".objs"/>
-				<Option deps_output=".deps"/>
-				<Option type="1"/>
-				<Option compiler="0"/>
-				<Option projectResourceIncludeDirsRelation="1"/>
+				<Option output="C:\Documents and Settings\Emperor\Mis documentos\Trabajo\Facultad\Algoritmos II\Prueba.exe" prefix_auto="0" extension_auto="0" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option projectResourceIncludeDirsRelation="1" />
 			</Target>
 		</Build>
-		<Unit filename="TDiccionario.c">
-			<Option compilerVar="CC"/>
-			<Option target="default"/>
+		<VirtualTargets>
+			<Add alias="All" targets="default;" />
+		</VirtualTargets>
+		<Unit filename="diccionario.c">
+			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="diccionario.h">
-			<Option compilerVar=""/>
-			<Option compile="0"/>
-			<Option link="0"/>
-			<Option target="default"/>
-		</Unit>
+		<Unit filename="diccionario.h" />
 		<Unit filename="main.c">
-			<Option compilerVar="CC"/>
-			<Option target="default"/>
+			<Option compilerVar="CC" />
 		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

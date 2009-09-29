@@ -1,13 +1,13 @@
-<?xml version="1.0"?>
-<!DOCTYPE CodeBlocks_layout_file>
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<File name="TDiccionario.c" open="1" top="0">
-		<Cursor position="3002" topLine="93"/>
+	<ActiveTarget name="All" />
+	<File name="diccionario.c" open="1" top="0" tabpos="3">
+		<Cursor position="1499" topLine="48" />
 	</File>
-	<File name="diccionario.h" open="1" top="0">
-		<Cursor position="146" topLine="0"/>
+	<File name="diccionario.h" open="1" top="0" tabpos="2">
+		<Cursor position="106" topLine="0" />
 	</File>
-	<File name="main.c" open="1" top="1">
-		<Cursor position="274" topLine="0"/>
+	<File name="main.c" open="1" top="1" tabpos="1">
+		<Cursor position="1351" topLine="34" />
 	</File>
 </CodeBlocks_layout_file>
