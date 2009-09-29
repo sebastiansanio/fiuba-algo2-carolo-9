@@ -43,18 +43,18 @@
 
 1254243532 c:\users\sebastián\documents\c\tp1\tp1\menu.h
 
-1254243245 source:c:\users\sebastián\documents\c\tp1\tp1\menu.c
+1254245630 source:c:\users\sebastián\documents\c\tp1\tp1\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"propiedades.h"
 
-1254243624 source:c:\users\sebastián\documents\c\tp1\tp1\propiedades.c
+1254243973 source:c:\users\sebastián\documents\c\tp1\tp1\propiedades.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"propiedades.h"
 
-1254243669 source:c:\users\sebastián\documents\c\tp1\tp1\diccionario.c
+1254244175 source:c:\users\sebastián\documents\c\tp1\tp1\diccionario.c
 	"diccionario.h"
 	<stdio.h>
 	<stdlib.h>
