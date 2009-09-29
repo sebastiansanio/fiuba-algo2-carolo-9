@@ -1,16 +1,12 @@
-/*
- * Aca hay que implementar las primitivas definidas en propiedades.h
- */
-
-
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "propiedades.h"
 
 int Propiedades_Crear(TPropiedades *propiedades)
 {
 int i;
-i=Diccionario_Crear(&(propiedades->diccionario),sizeof(char)*SIZE_DICC);
+i=Diccionario_Crear(&(propiedades->diccionario),SIZE_VALOR);
 return i;
 }
 
@@ -18,26 +14,27 @@ int Propiedades_Cargar(TPropiedades *propiedades, char *rutaArchivo)
 {
     FILE*arch;
     char auxclave[SIZE_CLAVE];
-    char auxvalor[SIZE_DICC];
-    int i;
+    char auxvalor[SIZE_VALOR];
+    int i=-1, error=0;
     arch=fopen(rutaArchivo,"rt");
     if (arch==NULL)
         return 1;
-    else
+    else{
         while (!feof(arch))
         {
             fscanf(arch,"%s=%s\n",auxclave,auxvalor);
-            i=Diccionario_Asignar(&(propiedades->diccionario),auxclave,&auxvalor);}
-            if (i==0)
-                return 0;
-            else
-                return 2;
-        fclose(arch);
+            i=Diccionario_Asignar(&propiedades->diccionario,auxclave,auxvalor);
+            if (i)	error=1;
+        }
+		fclose(arch);
+		if (error) return 2;
+		return 0;
+	}
 }
 
 int Propiedades_Guardar(TPropiedades propiedades, char *rutaArchivo)
 {
-    char* (claves[SIZE_DICC]);
+    char* claves[SIZE_DICC];
     char valor[SIZE_VALOR];
     int a;
     int b;
@@ -56,23 +53,16 @@ int Propiedades_Guardar(TPropiedades propiedades, char *rutaArchivo)
 
 int Propiedades_Obtener(TPropiedades propiedades, char *nombre, char *valorDefault, char *valor)
 {
-    char elem[SIZE_VALOR];
-    elem[0]=0;
-    Diccionario_Obtener(propiedades.diccionario,nombre,elem);
-    if ((elem[0]==0) && (!(strcmp(valorDefault,"NULL"))))
-        return 1;
-    else
-        if (!(elem[0]==0)){
-            strcpy(valor,elem);
-            return 0;
-        }
-        else
-            {
-            valor=valorDefault;
-            return 0;
-            }
-    }
-
+    if (Diccionario_Existe(propiedades.diccionario,nombre)){
+    	Diccionario_Obtener(propiedades.diccionario,nombre,valor);
+	}else{
+    	if (valorDefault==NULL)
+    		return 1;
+    	else
+    		strcpy(valor,valorDefault);
+	}
+    return 0;
+}
 
 int Propiedades_Asignar(TPropiedades *propiedades, char *nombre, char *valor)
 {
