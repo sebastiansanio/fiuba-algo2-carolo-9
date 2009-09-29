@@ -1,5 +1,10 @@
 #ifndef PROPIEDADES_H_INCLUDED
 #define PROPIEDADES_H_INCLUDED
+#include "diccionario.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
 
 typedef struct{
 	TDiccionario diccionario;} TPropiedades;

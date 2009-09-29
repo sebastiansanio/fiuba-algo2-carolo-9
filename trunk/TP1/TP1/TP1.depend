@@ -1,4 +1,34 @@
 # depslib dependency file v1.0
-1253734805 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp1\tp1\menu.c
+1254185371 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp1\tp1\menu.c
 	<stdio.h>
+	<stdlib.h>
+	"propiedades.h"
+	<string.h>
+
+1253847937 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp1\tp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"propiedades.h"
+	"diccionario.h"
+	"menu.h"
+
+1254163950 c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp1\tp1\propiedades.h
+	"diccionario.h"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+
+1254164798 c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp1\tp1\diccionario.h
+
+1253847857 c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp1\tp1\menu.h
+
+1254185371 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp1\tp1\propiedades.c
+	<stdio.h>
+	<stdlib.h>
+	"propiedades.h"
+
+1254184923 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp1\tp1\diccionario.c
+	"diccionario.h"
+	<stdlib.h>
+	<string.h>
 

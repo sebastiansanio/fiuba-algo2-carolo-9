@@ -3,18 +3,22 @@
  */
 
 
-int Propiedades_Crear(TPropiedades *propiedades);
+#include <stdio.h>
+#include <stdlib.h>
+#include "propiedades.h"
+
+int Propiedades_Crear(TPropiedades *propiedades)
 {
 int i;
-i=Diccionario_Crear(&propiedades.diccionario,sizeof(char)*SIZE_VALOR);
+i=Diccionario_Crear(&(propiedades->diccionario),sizeof(char)*SIZE_DICC);
 return i;
 }
 
-int Propiedades_Cargar(TPropiedades *propiedades, char *rutaArchivo);
+int Propiedades_Cargar(TPropiedades *propiedades, char *rutaArchivo)
 {
     FILE*arch;
     char auxclave[SIZE_CLAVE];
-    char auxvalor[SIZE_VALOR];
+    char auxvalor[SIZE_DICC];
     int i;
     arch=fopen(rutaArchivo,"rt");
     if (arch==NULL)
@@ -23,7 +27,7 @@ int Propiedades_Cargar(TPropiedades *propiedades, char *rutaArchivo);
         while (!feof(arch))
         {
             fscanf(arch,"%s=%s\n",auxclave,auxvalor);
-            i=Diccionario_Asignar(&propiedades.diccionario,auxclave,&auxvalor);}
+            i=Diccionario_Asignar(&(propiedades->diccionario),auxclave,&auxvalor);}
             if (i==0)
                 return 0;
             else
@@ -31,7 +35,7 @@ int Propiedades_Cargar(TPropiedades *propiedades, char *rutaArchivo);
         fclose(arch);
 }
 
-int Propiedades_Guardar(TPropiedades propiedades, char *rutaArchivo);
+int Propiedades_Guardar(TPropiedades propiedades, char *rutaArchivo)
 {
     char* (claves[SIZE_DICC]);
     char valor[SIZE_VALOR];
@@ -50,7 +54,7 @@ int Propiedades_Guardar(TPropiedades propiedades, char *rutaArchivo);
     return 0;
 }
 
-int Propiedades_Obtener(TPropiedades propiedades, char *nombre, char *valorDefault, char *valor);
+int Propiedades_Obtener(TPropiedades propiedades, char *nombre, char *valorDefault, char *valor)
 {
     char elem[SIZE_VALOR];
     elem[0]=0;
@@ -70,33 +74,33 @@ int Propiedades_Obtener(TPropiedades propiedades, char *nombre, char *valorDefau
     }
 
 
-int Propiedades_Asignar(TPropiedades *propiedades, char *nombre, char *valor);
+int Propiedades_Asignar(TPropiedades *propiedades, char *nombre, char *valor)
 {
     int i;
-    i=Diccionario_Asignar(&propiedades.diccionario,nombre,valor);
+    i=Diccionario_Asignar(&(propiedades->diccionario),nombre,valor);
     return i;
 }
 
 
-int Propiedades_Existe(TPropiedades propiedades, char *nombre);
+int Propiedades_Existe(TPropiedades propiedades, char *nombre)
 {
     int i;
     i=Diccionario_Existe(propiedades.diccionario,nombre);
     return i;
 }
 
-int Propiedades_Nombres(TPropiedades propiedades, char *nombres[]);
+int Propiedades_Nombres(TPropiedades propiedades, char *nombres[])
 {
     Diccionario_Claves(propiedades.diccionario,nombres);
     return(Diccionario_CantidadEntradas(propiedades.diccionario));
 }
 
-void Propiedades_Eliminar(TPropiedades *propiedades, char *nombre);
+void Propiedades_Eliminar(TPropiedades *propiedades, char *nombre)
 {
-    Diccionario_Eliminar(&propiedades.diccionario,nombre);
+    Diccionario_Eliminar(&(propiedades->diccionario),nombre);
 }
 
-void Propiedades_Destruir(TPropiedades *propiedades);
+void Propiedades_Destruir(TPropiedades *propiedades)
 {
-    Diccionario_Destruir(&propiedades.diccionario);
+    Diccionario_Destruir(&(propiedades->diccionario));
 }

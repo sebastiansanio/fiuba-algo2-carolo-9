@@ -2,7 +2,7 @@
 #define DICCIONARIO_H_INCLUDED
 #define SIZE_CLAVE 20
 #define SIZE_DICC 20
-#define NULL 0;
+#define SIZE_VALOR 50
 
 typedef struct {
 	char clave[SIZE_CLAVE];
@@ -28,5 +28,6 @@ int Diccionario_CantidadEntradas(TDiccionario dicc);
 void Diccionario_Eliminar(TDiccionario* dicc, char* clave);
 
 void Diccionario_Destruir(TDiccionario* dicc);
+
 
 #endif // DICCIONARIO_H_INCLUDED

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "propiedades.h"
 #include <string.h> /* para que esta? */
+
 int menu ()
 {
     char op_menu_char[10];
@@ -39,13 +40,13 @@ int menu ()
 		case 2:
 		{
 		printf ("Ingrese el Path (i.e. la dirección del Archivo) de propiedades\n");
-		scanf (rutaArchivo);
+		scanf ("%s",rutaArchivo);
 		Propiedades_Cargar(&propiedades,rutaArchivo); /* pasa con & porque yo lo declar� como variable y no como puntero a variable*/
 		break;}
 		case 3:
 		{
 		printf ("Ingrese el Path (i.e. la dirección del Archivo) de propiedades\n");
-		scanf (rutaArchivo);
+		scanf ("%s",rutaArchivo);
 		Propiedades_Guardar(propiedades,rutaArchivo);
 		break;
 		}
@@ -53,7 +54,8 @@ int menu ()
 		{
         printf("Ingrese nombre de la propiedad\n");
         scanf("%s",nombre);
-		Propiedades_Obtener(propiedades,nombre,"NOEXISTE",valor); /* pasa con & porque yo lo declar� como variable y no como puntero a variable*/
+		Propiedades_Obtener(propiedades,nombre,valorDefault,valor); /* pasa con & porque yo lo declar� como variable y no como puntero a variable*/
+		printf (" El valor de la Propiedad es: %s\n",valor);
 		break;
 		}
 		case 5:
@@ -63,13 +65,18 @@ int menu ()
         printf("Ingrese valor de la propiedad\n");
         scanf("%s",valor);
 		Propiedades_Asignar(&propiedades,nombre,valor);
+
 		break;
 		}
 		case 6:
 		{
 		printf("Ingrese nombre de la propiedad\n");
         scanf("%s",nombre);
-		Propiedades_Existe(propiedades,nombre);
+		if (Propiedades_Existe(propiedades,nombre)) {
+		    printf ("La Propiedad existe\n");}
+		    else{
+		        printf ("La propiedad NO existe\n");
+		        };
 		break;
 		}
 		case 7:
