@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1254185371 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp1\tp1\menu.c
+1254193295 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp1\tp1\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"propiedades.h"
