@@ -10,7 +10,7 @@ int main(int argv,char* argc[])
 	char* elem;
 	char** claves;
 	int i,rta,elem_tam;
-	tamanioDato=16*sizeof(char);
+	tamanioDato=20;
 	printf("Funcion Crear/n");
 	rta=Diccionario_Crear(&dicc,tamanioDato);
 	if (rta==0)
@@ -47,7 +47,8 @@ int main(int argv,char* argc[])
         getchar();
         return 1;}
     printf("Funcion Obtener/n");
-    Diccionario_Obtener(dicc,"Idioma",&elem);
+    Diccionario_Obtener(dicc,"Idioma",elem);
+    (char*) elem;
     if (strcmp(elem,"Russkiy")){
         printf("Obtener: Se obtuvo el elemnto correcto. Presione ENTER para continuar./n");
         getchar();
