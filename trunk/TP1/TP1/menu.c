@@ -13,6 +13,9 @@ int menu ()
     char valor[SIZE_VALOR];
     char valorDefault[SIZE_VALOR];
     char rutaArchivo [255];
+    int validaCreacion; /* esta variable esta para que no pinche cuando destruimos una propiedad sin haberla creado antes*/
+
+    validaCreacion=-1;
     /* L�neas 11 a la 56 son el t�pico men� que hac�amos en Algo1. D�gname si hay alg� error.*/
 
     do
@@ -35,6 +38,8 @@ int menu ()
 		case 1:
 		{
 		Propiedades_Crear (&propiedades); /* pasa con & porque yo lo declar� como variable y no como puntero a variable*/
+		validaCreacion=0;
+		prinf ("La Propiedad ha sido creada satisfactoriamete\n");
 		break;
 		}
 		case 2:
@@ -42,12 +47,14 @@ int menu ()
 		printf ("Ingrese el Path (i.e. la dirección del Archivo) de propiedades\n");
 		scanf ("%s",rutaArchivo);
 		Propiedades_Cargar(&propiedades,rutaArchivo); /* pasa con & porque yo lo declar� como variable y no como puntero a variable*/
+        prinf ("La Propiedad ha sido cargada satisfactoriamete\n");
 		break;}
 		case 3:
 		{
 		printf ("Ingrese el Path (i.e. la dirección del Archivo) de propiedades\n");
 		scanf ("%s",rutaArchivo);
 		Propiedades_Guardar(propiedades,rutaArchivo);
+        prinf ("La Propiedad ha sido guardada satisfactoriamete\n");
 		break;
 		}
 		case 4:
@@ -89,11 +96,15 @@ int menu ()
 		printf("Ingrese nombre de la propiedad\n");
         scanf("%s",nombre);
         Propiedades_Eliminar(&propiedades,nombre);
+        prinf ("La Propiedad ha sido eliminada satisfactoriamete\n");
 		break;
 		}
 		case 9:
 		{
+		    if (!(validaCreacion=-1)){
 		Propiedades_Destruir(&propiedades);
+        prinf ("La Propiedad ha sido destruida satisfactoriamete\n");
+		}
 		break;
 		}
 		} /* cierra el Switch*/
