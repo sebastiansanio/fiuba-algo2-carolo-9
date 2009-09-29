@@ -9,7 +9,7 @@ int Diccionario_BuscarPos(TDiccionario dicc, char* clave); /* prototipo */
 int Diccionario_Crear(TDiccionario* dicc, int tamanioDato)
 {
 	int i;
-	dicc->size_elem=tamanioDato;
+	(*dicc).size_elem=tamanioDato;
 	for(i=0; i<SIZE_DICC; i++){
 		(*dicc).entradas[i].clave[0]=0;
 		(*dicc).entradas[i].elem=malloc(tamanioDato); /* Reservo la memoria para todos los elementos */
