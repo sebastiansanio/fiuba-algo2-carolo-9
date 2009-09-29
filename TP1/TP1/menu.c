@@ -3,7 +3,8 @@
 #include "propiedades.h"
 
 int menu ()
-{
+{   int cantidadentradas;
+    int contador;
     char op_menu_char[10];
     int op_menu_int;
     TPropiedades propiedades;
@@ -109,10 +110,11 @@ int menu ()
 			break;
 		}
 		case 7:
-		{
-			Propiedades_Nombres(propiedades,nombres);
-
-
+		{   cantidadentradas=Propiedades_Nombres(propiedades,nombres);
+            for(contador=0;contador<cantidadentradas;contador++){
+            Propiedades_Obtener(propiedades,nombres[contador],valorDefault,valor);
+            printf("%s=%s\n",nombres[contador],valor);
+            }
 			break;
 		}
 		case 8:
