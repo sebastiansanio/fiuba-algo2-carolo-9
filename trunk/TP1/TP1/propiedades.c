@@ -34,7 +34,7 @@ int Propiedades_Cargar(TPropiedades *propiedades, char *rutaArchivo)
 
 int Propiedades_Guardar(TPropiedades propiedades, char *rutaArchivo)
 {
-    char* claves[SIZE_DICC];
+    char* claves[255];
     char valor[SIZE_VALOR];
     int a;
     int b;
@@ -50,6 +50,7 @@ int Propiedades_Guardar(TPropiedades propiedades, char *rutaArchivo)
         fprintf(arch,"%s=%s\n",claves[a],valor);
     }
     fclose(arch);
+    for(i=0;i<b;i++){free(claves[i]);}
     return 0;
 }
 
