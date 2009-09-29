@@ -29,4 +29,4 @@ void Diccionario_Eliminar(TDiccionario* dicc, char* clave);
 void Diccionario_Destruir(TDiccionario* dicc);
 
 
-#endif // DICCIONARIO_H_INCLUDED
+#endif
