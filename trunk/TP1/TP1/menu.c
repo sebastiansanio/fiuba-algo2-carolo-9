@@ -43,20 +43,28 @@ int menu ()
 		}
 		case 2:
 		{
-			printf ("Ingrese la ruta al archivo de propiedades:\n");
+			if(validaCreacion==0){printf ("Ingrese la ruta al archivo de propiedades:\n");
 			scanf ("%s",rutaArchivo);
 			if (!Propiedades_Cargar(&propiedades,rutaArchivo)){
 				printf ("La Propiedad ha sido cargada satisfactoriamente.\n");
+                }
 			}
+			else
+			{   printf("Propiedad no creada");}
+
 			break;
 		}
 		case 3:
 		{
+			if(validaCreacion==0){
 			printf ("Ingrese la ruta al archivo de propiedades:\n");
 			scanf ("%s",rutaArchivo);
 			if (!Propiedades_Guardar(propiedades,rutaArchivo)){
 				printf ("La Propiedad ha sido guardada satisfactoriamete\n");
+                }
 			}
+			else{
+			    printf("Propiedad no ha sido creada");}
 			break;
 		}
 		case 4:
