@@ -113,4 +113,4 @@ int menu ()
 		} /* cierra el Switch*/
 	}while (op_menu_int!=10);
 	return 0;
-} /* cierra la funci�n menu*/
+} /* cierra la función menu*/

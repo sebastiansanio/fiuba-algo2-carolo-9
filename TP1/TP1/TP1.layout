@@ -2,22 +2,22 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="diccionario.c" open="1" top="0" tabpos="2">
-		<Cursor position="44" topLine="0" />
+		<Cursor position="247" topLine="0" />
 	</File>
-	<File name="diccionario.h" open="1" top="0" tabpos="1">
+	<File name="diccionario.h" open="1" top="1" tabpos="1">
 		<Cursor position="132" topLine="0" />
 	</File>
 	<File name="main.c" open="1" top="0" tabpos="3">
 		<Cursor position="110" topLine="0" />
 	</File>
-	<File name="menu.c" open="1" top="1" tabpos="5">
-		<Cursor position="3222" topLine="77" />
+	<File name="menu.c" open="1" top="0" tabpos="5">
+		<Cursor position="2989" topLine="0" />
 	</File>
 	<File name="menu.h" open="1" top="0" tabpos="4">
 		<Cursor position="50" topLine="0" />
 	</File>
 	<File name="propiedades.c" open="1" top="0" tabpos="6">
-		<Cursor position="591" topLine="7" />
+		<Cursor position="591" topLine="0" />
 	</File>
 	<File name="propiedades.h" open="1" top="0" tabpos="7">
 		<Cursor position="267" topLine="0" />
