@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="diccionario.c" open="1" top="0" tabpos="2">
-		<Cursor position="1883" topLine="41" />
+	<File name="diccionario.c" open="0" top="0" tabpos="2">
+		<Cursor position="3893" topLine="106" />
 	</File>
-	<File name="diccionario.h" open="1" top="0" tabpos="1">
-		<Cursor position="772" topLine="2" />
+	<File name="diccionario.h" open="0" top="0" tabpos="1">
+		<Cursor position="774" topLine="9" />
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="3">
-		<Cursor position="110" topLine="0" />
+	<File name="main.c" open="0" top="0" tabpos="3">
+		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="menu.c" open="1" top="1" tabpos="5">
-		<Cursor position="3276" topLine="96" />
+	<File name="menu.c" open="0" top="0" tabpos="5">
+		<Cursor position="4080" topLine="118" />
 	</File>
-	<File name="menu.h" open="1" top="0" tabpos="4">
-		<Cursor position="73" topLine="0" />
+	<File name="menu.h" open="0" top="0" tabpos="4">
+		<Cursor position="75" topLine="0" />
 	</File>
-	<File name="propiedades.c" open="1" top="0" tabpos="6">
-		<Cursor position="2166" topLine="41" />
+	<File name="propiedades.c" open="0" top="0" tabpos="6">
+		<Cursor position="2688" topLine="79" />
 	</File>
-	<File name="propiedades.h" open="1" top="0" tabpos="7">
-		<Cursor position="833" topLine="0" />
+	<File name="propiedades.h" open="0" top="0" tabpos="7">
+		<Cursor position="835" topLine="5" />
 	</File>
 </CodeBlocks_layout_file>
