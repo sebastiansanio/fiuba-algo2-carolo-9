@@ -10,7 +10,7 @@ struct TNodo_Doble *siguiente,*anterior;
 
 typedef struct
 {
-TNodoSimple *primero, *corriente;
+TNodoDoble *primero, *corriente;
 int TamanioDato;
 } TLista_DEC; /*Lista doblemente enlazada */
 
