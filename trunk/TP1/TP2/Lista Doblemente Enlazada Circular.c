@@ -4,9 +4,8 @@
 
 /*PRE: listaDEC no creada */
 /*POST: listaDEC creada */
-int crear_Lista_DEC(TLista_DEC* listaDEC, f_clonar clonador, f_destruir destructor, int TamanioDato)
+int crear_Lista_DEC(TLista_DEC* listaDEC, f_clonar clonador, f_destruir destructor)
 {
-    listaDec->TamanioDato=TamanioDato;
     listaDEC->clonador=clonador;
     listaDEC->destructor=destructor;
     listaDEC->primero = NULL;
@@ -36,19 +35,52 @@ int destruir_Lista_DEC(TLista_DEC* listaDEC)
 }
 
 int insertar_En_Lista_DEC(TLista_DEC* listaDEC, void* elemento, int posicion)
+{
+}
 
+int eliminar_Cte_Lista_DEC(TLista_DEC* listaDEC);
+{
+}
+
+
+/*PRE: listaDEC creada */
+/*POST: Si la lista está vacía devuelve 1, sino guarda en elemento una copia del dato en corriente */
 int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void** elemento)
+{
+    if(listaDEC.corriente)
+        return 1;
+    else
+        {
+            *elemento=listaDEC.clonador(listaDEC.corriente->Elem);
+            return 0;
+        }
+}
+
+
 
 int mover_Cte_Lista_DEC(TLista_DEC* listaDEC, int posicion)
+{
+}
 
+/*PRE: listaDEC creada */
+/*POST: Si la lista está vacía devuelve 1, sino guarda en corriente elemento */
 int modificar_Cte_Lista_DEC(TLista_DEC* listaDEC, void* elemento)
-
+{
+    if(listaDEC->corriente)
+        return 1;
+    else
+        {
+            listaDEC->destructor(listaDEC->corriente->Elem);
+            listaDEC->corriente->Elem=listaDEC->clonador(elemento);
+            return 0;
+        }
+}
 
 /*PRE: listaDEC creada */
 /*POST: Si la lista está vacía devuelve 1, sino devuelve 0 */
 int vacia_Lista_DEC(TLista_DEC* listaDEC)
 {
-    if(listaDEC->primero==NULL)
+    if(listaDEC->primero)
         return 1;
     else
         return 0;
