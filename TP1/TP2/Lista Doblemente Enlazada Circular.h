@@ -28,6 +28,8 @@ int insertar_En_Lista_DEC(TLista_DEC* listaDEC, void* elemento, int posicion);
 
 int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void** elemento);
 
+int eliminar_Cte_Lista_DEC(TLista_DEC* listaDEC);
+
 int mover_Cte_Lista_DEC(TLista_DEC* listaDEC, int posicion);
 
 int modificar_Cte_Lista_DEC(TLista_DEC* listaDEC, void* elemento);
