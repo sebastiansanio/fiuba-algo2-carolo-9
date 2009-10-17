@@ -34,8 +34,12 @@ int destruir_Lista_DEC(TLista_DEC* listaDEC)
     return 0;
 }
 
+/*PRE: listaDEC creada */
+/*POST:  */
 int insertar_En_Lista_DEC(TLista_DEC* listaDEC, void* elemento, int posicion)
 {
+    TNodoDoble *pNodo = (TNodoDoble*) malloc (sizeof (TNodoDoble));
+
 
 }
 
