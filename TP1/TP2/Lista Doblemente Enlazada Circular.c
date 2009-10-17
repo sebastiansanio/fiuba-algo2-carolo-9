@@ -36,6 +36,7 @@ int destruir_Lista_DEC(TLista_DEC* listaDEC)
 
 int insertar_En_Lista_DEC(TLista_DEC* listaDEC, void* elemento, int posicion)
 {
+
 }
 
 /*PRE: listaDEC creada */
@@ -85,7 +86,8 @@ int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void** elemento)
 
 
 /*PRE: listaDEC creada */
-/*POST: Si la lista está vacía devuelve 1,  */
+/*POST: Si la lista está vacía devuelve 1. Si posicion es 0 el corriente pasa al primero, sino el corriente se mueve la cantidad
+en posicion (hacia izquierda o derecha según el signo)  */
 int mover_Cte_Lista_DEC(TLista_DEC* listaDEC, int posicion)
 {
     int i;
