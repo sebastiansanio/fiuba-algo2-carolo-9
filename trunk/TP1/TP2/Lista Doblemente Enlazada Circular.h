@@ -15,7 +15,6 @@ struct TNodo_Doble *siguiente,*anterior;
 typedef struct
 {
 TNodoDoble *primero, *corriente;
-int TamanioDato;
 f_clonar clonador;
 f_destruir destructor;
 } TLista_DEC; /*Lista doblemente enlazada */

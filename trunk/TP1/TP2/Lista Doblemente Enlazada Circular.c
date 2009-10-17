@@ -84,9 +84,25 @@ int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void** elemento)
 }
 
 
-
+/*PRE: listaDEC creada */
+/*POST: Si la lista está vacía devuelve 1,  */
 int mover_Cte_Lista_DEC(TLista_DEC* listaDEC, int posicion)
 {
+    int i;
+    if (!listaDEC->primero)
+        return 1;
+    if (posicion==0)
+        {
+        listaDEC->corriente=listaDEC->primero;
+        return 0;
+        }
+    if (posicion>0)
+        for(i=1;i<=posicion;i++)
+            listaDEC->corriente=listaDEC->corriente->siguiente;
+    else
+        for(i=-1;i>=posicion;i--)
+            listaDEC->corriente=listaDEC->corriente->anterior;
+    return 0;
 }
 
 /*PRE: listaDEC creada */
