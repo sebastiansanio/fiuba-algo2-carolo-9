@@ -38,8 +38,35 @@ int insertar_En_Lista_DEC(TLista_DEC* listaDEC, void* elemento, int posicion)
 {
 }
 
-int eliminar_Cte_Lista_DEC(TLista_DEC* listaDEC);
+/*PRE: listaDEC creada */
+/*POST: Si la lista está vacía devuelve 1, sino elimina el actual elemento corriente y el corriente pasa a ser el siguiente */
+int eliminar_Cte_Lista_DEC(TLista_DEC* listaDEC)
 {
+    TNodo_Doble *pAux;
+    if(!listaDEC->corriente)
+        return 1;
+    else
+        if(!listaDEC->corriente->siguiente)
+            {
+            listaDEC->destructor(listaDEC->corriente->Elem);
+            listaDEC->corriente->anterior->siguiente=listaDEC->corriente->siguiente;
+            listaDEC->corriente->siguiente->anterior=listaDEC->corriente->anterior;
+            pAux=listaDEC->corriente->siguiente;
+            free(listaDEC->corriente);
+            if(listaDEC->corriente==listaDEC->primero)
+                listaDEC->corriente=listaDEC->primero=pAux;
+            else
+                listaDEC->corriente=pAux;
+            return 0;
+            }
+        else
+            {
+            listaDEC->destructor(listaDEC->corriente->Elem);
+            free(listaDEC->corriente);
+            listaDEC->primero=listaDEC->corriente=NULL;
+            return 0;
+            }
+
 }
 
 
@@ -47,7 +74,7 @@ int eliminar_Cte_Lista_DEC(TLista_DEC* listaDEC);
 /*POST: Si la lista está vacía devuelve 1, sino guarda en elemento una copia del dato en corriente */
 int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void** elemento)
 {
-    if(listaDEC.corriente)
+    if(!listaDEC.corriente)
         return 1;
     else
         {
@@ -66,7 +93,7 @@ int mover_Cte_Lista_DEC(TLista_DEC* listaDEC, int posicion)
 /*POST: Si la lista está vacía devuelve 1, sino guarda en corriente elemento */
 int modificar_Cte_Lista_DEC(TLista_DEC* listaDEC, void* elemento)
 {
-    if(listaDEC->corriente)
+    if(!listaDEC->corriente)
         return 1;
     else
         {
