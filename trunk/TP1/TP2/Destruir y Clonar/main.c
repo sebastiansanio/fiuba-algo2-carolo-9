@@ -54,7 +54,7 @@ int modificarCteLDEC(LDEC* ldec, void* elemento);{
 int insertarEnLDEC(LDEC* ldec, void* elemento, int posición);{
     Nodo* pNodo=(Nodo*)malloc(sizeof(Nodo));
     if(!pNodo){return FALTA_MEMORIA;}
-    /*Funcion Clonador*/
+    pNodo->pElemento=ldec->pfClonador(elemento);
     if ((ldec->pPrimero == NULL) || (posicion==PRIMERO) ||
     ((posicion==ANTERIOR) && (ldec->pPrimero==ldec->pCorriente))){
         pNodo->pSiguiente=ldec->pPrimero;
@@ -76,3 +76,28 @@ int insertarEnLDEC(LDEC* ldec, void* elemento, int posición);{
             ldec->pCorriente->pAnterior=pNodo;
             ldec->pCorriente=pNodo;}}
     return ELEMENTO_INSERTADO;}
+
+
+
+
+
+
+void* clonar (void* ACopiar);{
+    TPropiedades* Copiado;
+    char* valor, *valordef/*Innecesaria*/;
+    char* claves[MAXPROP];
+    int resultado,i;
+    resultado=Propiedades_Crear(Copiado);
+    if ((resultado==0)){
+        Propiedades_Nombres((TPropiedades*)ACopiar, claves);
+        for (i=0,i<MAX_PROP,i++){
+        Propiedades_Obtener(*((TPropiedades*)ACopiar),claves[i],valordef,valor);
+        Propiedades_Asignar(Copiado,claves[i],valor);}}
+    else{ resultado=NULL;
+        return (void*)resultado;}
+    return (void*)Copiado;}
+
+
+
+
+
