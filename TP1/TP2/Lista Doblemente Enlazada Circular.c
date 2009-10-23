@@ -31,7 +31,7 @@ int destruir_Lista_DEC(TLista_DEC* listaDEC)
     listaDEC->primero=listaDEC->corriente=NULL;
     listaDEC->destructor=NULL;
     listaDEC->clonador=NULL;
-    return 0;
+    return LISTA_DESTRUIDA;
 }
 
 /*PRE: listaDEC creada */
@@ -80,11 +80,11 @@ int eliminar_Cte_Lista_DEC(TLista_DEC* listaDEC)
 int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void** elemento)
 {
     if(!listaDEC.corriente)
-        return 1;
+        return LISTA_VACIA;
     else
         {
             *elemento=listaDEC.clonador(listaDEC.corriente->Elem);
-            return 0;
+            return ELEMENTO_OBTENIDO;
         }
 }
 
@@ -144,5 +144,36 @@ int es_Primero_Lista_DEC(TLista_DEC* listaDEC)
     else
         return 0;
 }
+
+/*PRE: ldec creada, elemento y posición validos*/
+/*POST: Inserta según posición el elemento en la lista, devuelve FALTA_MEMORIA si no pudo insertar, y ELEMENTO_INSERTADO si pudo*/
+int insertarEnLDEC(LDEC* ldec, void* elemento, int posición);{
+    Nodo* pNodo=(Nodo*)malloc(sizeof(Nodo));
+    if(!pNodo){return FALTA_MEMORIA;}
+    pNodo->pElemento=ldec->pfClonador(elemento);
+    if(!pNodo){
+        free(pNodo);
+        return FALTA_MEMORIA;}
+    if ((ldec->pPrimero == NULL) || (posicion==PRIMERO) ||
+    ((posicion==ANTERIOR) && (ldec->pPrimero==ldec->pCorriente))){
+        pNodo->pSiguiente=ldec->pPrimero;
+        pNodo->pAnterior=ldec->pPrimero->pAnterior;
+        ldec->pPrimero->pAnterior->pSiguiente=pNodo;
+        ldec->pPrimero->pAnterior=pNodo;
+        ldec->pPrimero=ldec->pCorriente=pNodo;}
+    else{
+        if(posicion==SIGUIENTE){
+            pNodo->pSiguiente=ldec->pCorriente->pSiguiente;
+            pNodo->pAnterior=ldec->pCorriente;
+            ldec->pCorriente->pSiguiente->pAnterior=pNodo;
+            ldec->pCorriente->pSiguiente=pNodo;
+            ldec->pCorriente=pNodo;}
+        else{/*ANTERIOR*/
+            pNodo->pSiguiente=ldec->pCorriente;
+            pNodo->pAnterior=ldec->pCorriente->pAnterior;
+            ldec->pCorriente->pAnterior-pSiguiente=pNodo;
+            ldec->pCorriente->pAnterior=pNodo;
+            ldec->pCorriente=pNodo;}}
+    return ELEMENTO_INSERTADO;}
 
 

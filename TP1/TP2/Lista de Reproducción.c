@@ -34,7 +34,10 @@ int guardar_Lista_Reproducción(Lista_Reproducción* listaReproducción, char* nomA
 return 0;
 };
 
+/*PRE: listaReproducción creada*/
+/*POST: listaReproduccion destruida*/
 int destruir_Lista_Reproducción(Lista_Reproducción* listaReproducción)
-{
-return 0;
+{destruir_Lista_DEC(listaReproducción->Canciones);
+Diccionario_Destruir(listaReproducción->Dicc_Alias);
+return LISTA_REPRODUCCIO_DESTRUIDA;
 };
