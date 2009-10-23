@@ -1,7 +1,7 @@
 #ifndef DICCIONARIO_H_INCLUDED
 #define DICCIONARIO_H_INCLUDED
-#define SIZE_CLAVE 5
-#define SIZE_DICC 5
+#define SIZE_CLAVE 12
+#define SIZE_DICC 7
 
 typedef struct {
 	char clave[SIZE_CLAVE];

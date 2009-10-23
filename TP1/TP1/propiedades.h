@@ -1,7 +1,7 @@
 #ifndef PROPIEDADES_H_INCLUDED
 #define PROPIEDADES_H_INCLUDED
 #include "diccionario.h"
-#define SIZE_VALOR 255
+#define SIZE_VALOR 200
 
 typedef struct{
 	TDiccionario diccionario;
