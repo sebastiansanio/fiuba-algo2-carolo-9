@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "Lista Doblemente Enlazada Circular.h"
 
+
 /*PRE: listaDEC no creada */
 /*POST: listaDEC creada */
 int crear_Lista_DEC(TLista_DEC* listaDEC, f_clonar clonador, f_destruir destructor)
@@ -43,7 +44,7 @@ int eliminar_Cte_Lista_DEC(TLista_DEC* listaDEC)
     if(!listaDEC->corriente)
         return LISTA_VACIA;
     else
-        if(!listaDEC->corriente->siguiente)
+        if(listaDEC->corriente->siguiente!=listaDEC->corriente)
             {
             listaDEC->destructor(listaDEC->corriente->Elem);
             listaDEC->corriente->anterior->siguiente=listaDEC->corriente->siguiente;
@@ -89,17 +90,15 @@ int mover_Cte_Lista_DEC(TLista_DEC* listaDEC, int posicion)
     int i;
     if (!listaDEC->primero)
         return LISTA_VACIA;
-    if (posicion==0)
+    if (posicion==Primero)
         {
         listaDEC->corriente=listaDEC->primero;
         return 0;
         }
-    if (posicion>0)
-        for(i=1;i<=posicion;i++)
-            listaDEC->corriente=listaDEC->corriente->siguiente;
+    if (posicion==Siguiente)
+        listaDEC->corriente=listaDEC->corriente->siguiente;
     else
-        for(i=-1;i>=posicion;i--)
-            listaDEC->corriente=listaDEC->corriente->anterior;
+        listaDEC->corriente=listaDEC->corriente->anterior;
     return 0;
 }
 
@@ -139,33 +138,35 @@ int es_Primero_Lista_DEC(TLista_DEC* listaDEC)
 
 /*PRE: ldec creada, elemento y posición validos*/
 /*POST: Inserta según posición el elemento en la lista, devuelve FALTA_MEMORIA si no pudo insertar, y ELEMENTO_INSERTADO si pudo*/
-int insertarEnLDEC(LDEC* ldec, void* elemento, int posición);{
-    Nodo* pNodo=(Nodo*)malloc(sizeof(Nodo));
+int insertar_En_Lista_DEC(TLista_DEC* ldec, void* elemento, int posicion)
+{
+    TNodoDoble* pNodo=(TNodoDoble*)malloc(sizeof(TNodoDoble));
     if(!pNodo){return FALTA_MEMORIA;}
-    pNodo->pElemento=ldec->pfClonador(elemento);
+    pNodo->Elem=ldec->clonador(elemento);
     if(!pNodo){
         free(pNodo);
         return FALTA_MEMORIA;}
-    if ((ldec->pPrimero == NULL) || (posicion==PRIMERO) ||
-    ((posicion==ANTERIOR) && (ldec->pPrimero==ldec->pCorriente))){
-        pNodo->pSiguiente=ldec->pPrimero;
-        pNodo->pAnterior=ldec->pPrimero->pAnterior;
-        ldec->pPrimero->pAnterior->pSiguiente=pNodo;
-        ldec->pPrimero->pAnterior=pNodo;
-        ldec->pPrimero=ldec->pCorriente=pNodo;}
+    if ((ldec->primero == NULL) || (posicion==Primero) ||
+    ((posicion==Anterior) && (ldec->primero==ldec->corriente))){
+        pNodo->siguiente=ldec->primero;
+        pNodo->anterior=ldec->primero->anterior;
+        ldec->primero->anterior->siguiente=pNodo;
+        ldec->primero->anterior=pNodo;
+        ldec->primero=ldec->corriente=pNodo;}
     else{
-        if(posicion==SIGUIENTE){
-            pNodo->pSiguiente=ldec->pCorriente->pSiguiente;
-            pNodo->pAnterior=ldec->pCorriente;
-            ldec->pCorriente->pSiguiente->pAnterior=pNodo;
-            ldec->pCorriente->pSiguiente=pNodo;
-            ldec->pCorriente=pNodo;}
-        else{/*ANTERIOR*/
-            pNodo->pSiguiente=ldec->pCorriente;
-            pNodo->pAnterior=ldec->pCorriente->pAnterior;
-            ldec->pCorriente->pAnterior-pSiguiente=pNodo;
-            ldec->pCorriente->pAnterior=pNodo;
-            ldec->pCorriente=pNodo;}}
-    return ELEMENTO_INSERTADO;}
+        if(posicion==Siguiente){
+            pNodo->siguiente=ldec->corriente->siguiente;
+            pNodo->anterior=ldec->corriente;
+            ldec->corriente->siguiente->anterior=pNodo;
+            ldec->corriente->siguiente=pNodo;
+            ldec->corriente=pNodo;}
+        else{/*Anterior*/
+            pNodo->siguiente=ldec->corriente;
+            pNodo->anterior=ldec->corriente->anterior;
+            ldec->corriente->anterior->siguiente=pNodo;
+            ldec->corriente->anterior=pNodo;
+            ldec->corriente=pNodo;}}
+    return ELEMENTO_INSERTADO;
+}
 
 
