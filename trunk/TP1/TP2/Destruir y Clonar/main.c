@@ -32,7 +32,7 @@ return LISTA_DESTRUIDA;}
 
 
 int destruir (void* Elemento);{
-    TPropiedades*Propiedad=(TPropiedades*Elemento);
+    TPropiedades*Propiedad=(TPropiedades*)Elemento;
     Propiedades_Destruir(Propiedad);
     return ELEMENTO_DESTRUIDO;}
 
@@ -51,31 +51,7 @@ int modificarCteLDEC(LDEC* ldec, void* elemento);{
     return ELEMENTO_COPIADO;}
 
 
-int insertarEnLDEC(LDEC* ldec, void* elemento, int posición);{
-    Nodo* pNodo=(Nodo*)malloc(sizeof(Nodo));
-    if(!pNodo){return FALTA_MEMORIA;}
-    pNodo->pElemento=ldec->pfClonador(elemento);
-    if ((ldec->pPrimero == NULL) || (posicion==PRIMERO) ||
-    ((posicion==ANTERIOR) && (ldec->pPrimero==ldec->pCorriente))){
-        pNodo->pSiguiente=ldec->pPrimero;
-        pNodo->pAnterior=ldec->pPrimero->pAnterior;
-        ldec->pPrimero->pAnterior->pSiguiente=pNodo;
-        ldec->pPrimero->pAnterior=pNodo;
-        ldec->pPrimero=ldec->pCorriente=pNodo;}
-    else{
-        if(posicion==SIGUIENTE){
-            pNodo->pSiguiente=ldec->pCorriente->pSiguiente;
-            pNodo->pAnterior=ldec->pCorriente;
-            ldec->pCorriente->pSiguiente->pAnterior=pNodo;
-            ldec->pCorriente->pSiguiente=pNodo;
-            ldec->pCorriente=pNodo;}
-        else{/*ANTERIOR*/
-            pNodo->pSiguiente=ldec->pCorriente;
-            pNodo->pAnterior=ldec->pCorriente->pAnterior;
-            ldec->pCorriente->pAnterior-pSiguiente=pNodo;
-            ldec->pCorriente->pAnterior=pNodo;
-            ldec->pCorriente=pNodo;}}
-    return ELEMENTO_INSERTADO;}
+
 
 
 

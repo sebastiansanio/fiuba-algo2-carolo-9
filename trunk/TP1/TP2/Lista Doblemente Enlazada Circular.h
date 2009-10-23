@@ -1,5 +1,11 @@
 #ifndef LISTA_DOBLEMENTE_ENLAZADA_CIRCULAR_H_INCLUDED
 #define LISTA_DOBLEMENTE_ENLAZADA_CIRCULAR_H_INCLUDED
+/*Codigos de error*/
+#define FALTA_MEMORIA=1;
+#define LISTA_DESTRUIDA=0;
+#define ELEMENTO_OBTENIDO=0;
+#define LISTA_VACIA=1;
+#define ELEMETNO_INSERTADO=0;
 
 typedef void (*f_destruir)(void*);
 

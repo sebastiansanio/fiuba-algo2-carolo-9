@@ -1,5 +1,7 @@
 #ifndef LISTA_DE_REPRODUCCIÛN_H_INCLUDED
 #define LISTA_DE_REPRODUCCIÛN_H_INCLUDED
+/*Codigos de error*/
+#define LISTA_REPRODUCCIO_DESTRUIDA=0;
 
 typedef struct
 {
