@@ -5,7 +5,11 @@
 #define LISTA_DESTRUIDA=0;
 #define ELEMENTO_OBTENIDO=0;
 #define LISTA_VACIA=1;
-#define ELEMETNO_INSERTADO=0;
+#define ELEMENTO_INSERTADO=0;
+#define LISTA_LLENA=1;
+#define LISTA_SIN_ELEMENTOS=0;
+#define ES_PRIMERO_VERDADERO=1;
+#define ES_PRIMERO_FALSO=0;
 
 typedef void (*f_destruir)(void*);
 
@@ -24,6 +28,12 @@ TNodoDoble *primero, *corriente;
 f_clonar clonador;
 f_destruir destructor;
 } TLista_DEC; /*Lista doblemente enlazada */
+
+enum Posicion
+{
+    Anterior;
+    Primero;
+    Siguiente;};
 
 int crear_Lista_DEC(TLista_DEC* listaDEC, f_clonar clonador, f_destruir destructor, int TamanioDato);
 
