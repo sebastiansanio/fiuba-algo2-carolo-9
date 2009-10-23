@@ -34,22 +34,14 @@ int destruir_Lista_DEC(TLista_DEC* listaDEC)
     return LISTA_DESTRUIDA;
 }
 
-/*PRE: listaDEC creada */
-/*POST:  */
-int insertar_En_Lista_DEC(TLista_DEC* listaDEC, void* elemento, int posicion)
-{
-    TNodoDoble *pNodo = (TNodoDoble*) malloc (sizeof (TNodoDoble));
-
-
-}
 
 /*PRE: listaDEC creada */
-/*POST: Si la lista está vacía devuelve 1, sino elimina el actual elemento corriente y el corriente pasa a ser el siguiente */
+/*POST: Si la lista está vacía devuelve LISTA_VACIA, sino elimina el actual elemento corriente y el corriente pasa a ser el siguiente */
 int eliminar_Cte_Lista_DEC(TLista_DEC* listaDEC)
 {
     TNodo_Doble *pAux;
     if(!listaDEC->corriente)
-        return 1;
+        return LISTA_VACIA;
     else
         if(!listaDEC->corriente->siguiente)
             {
@@ -90,13 +82,13 @@ int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void** elemento)
 
 
 /*PRE: listaDEC creada */
-/*POST: Si la lista está vacía devuelve 1. Si posicion es 0 el corriente pasa al primero, sino el corriente se mueve la cantidad
+/*POST: Si la lista está vacía devuelve LISTA_VACIA. Si posicion es 0 el corriente pasa al primero, sino el corriente se mueve la cantidad
 en posicion (hacia izquierda o derecha según el signo)  */
 int mover_Cte_Lista_DEC(TLista_DEC* listaDEC, int posicion)
 {
     int i;
     if (!listaDEC->primero)
-        return 1;
+        return LISTA_VACIA;
     if (posicion==0)
         {
         listaDEC->corriente=listaDEC->primero;
@@ -112,11 +104,11 @@ int mover_Cte_Lista_DEC(TLista_DEC* listaDEC, int posicion)
 }
 
 /*PRE: listaDEC creada */
-/*POST: Si la lista está vacía devuelve 1, sino guarda en corriente elemento */
+/*POST: Si la lista está vacía devuelve LISTA_VACIA, sino guarda en corriente elemento */
 int modificar_Cte_Lista_DEC(TLista_DEC* listaDEC, void* elemento)
 {
     if(!listaDEC->corriente)
-        return 1;
+        return LISTA_VACIA;
     else
         {
             listaDEC->destructor(listaDEC->corriente->Elem);
@@ -130,9 +122,9 @@ int modificar_Cte_Lista_DEC(TLista_DEC* listaDEC, void* elemento)
 int vacia_Lista_DEC(TLista_DEC* listaDEC)
 {
     if(listaDEC->primero)
-        return 1;
+        return LISTA_LLENA;
     else
-        return 0;
+        return LISTA_SIN_ELEMENTOS;
 }
 
 /*PRE: listaDEC creada y no vacía */
@@ -140,9 +132,9 @@ int vacia_Lista_DEC(TLista_DEC* listaDEC)
 int es_Primero_Lista_DEC(TLista_DEC* listaDEC)
 {
     if(listaDEC->primero==listaDEC->corriente)
-        return 1;
+        return ES_PRIMERO_VERDADERO;
     else
-        return 0;
+        return ES_PRIMERO_FALSO;
 }
 
 /*PRE: ldec creada, elemento y posición validos*/
