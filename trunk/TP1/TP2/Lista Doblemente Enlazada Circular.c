@@ -40,7 +40,7 @@ int destruir_Lista_DEC(TLista_DEC* listaDEC)
 /*POST: Si la lista está vacía devuelve LISTA_VACIA, sino elimina el actual elemento corriente y el corriente pasa a ser el siguiente */
 int eliminar_Cte_Lista_DEC(TLista_DEC* listaDEC)
 {
-    TNodo_Doble *pAux;
+    TNodoDoble *pAux;
     if(!listaDEC->corriente)
         return LISTA_VACIA;
     else
@@ -87,7 +87,6 @@ int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void** elemento)
 en posicion (hacia izquierda o derecha según el signo)  */
 int mover_Cte_Lista_DEC(TLista_DEC* listaDEC, int posicion)
 {
-    int i;
     if (!listaDEC->primero)
         return LISTA_VACIA;
     if (posicion==LDEC_POS_PRI)

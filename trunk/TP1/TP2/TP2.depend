@@ -3,3 +3,25 @@
 	<stdio.h>
 	<stdlib.h>
 
+1256408810 source:c:\users\sebastián\documents\c\tp1\tp2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Lista de Reproduccion.h"
+
+1256408101 c:\users\sebastián\documents\c\tp1\tp2\lista de reproduccion.h
+	"Lista Doblemente Enlazada Circular.h"
+	"propiedades.h"
+	"diccionario.h"
+
+1256408101 c:\users\sebastián\documents\c\tp1\tp2\lista doblemente enlazada circular.h
+
+1256313950 c:\users\sebastián\documents\c\tp1\tp2\propiedades.h
+	"diccionario.h"
+
+1256313950 c:\users\sebastián\documents\c\tp1\tp2\diccionario.h
+
+1256408862 source:c:\users\sebastián\documents\c\tp1\tp2\lista doblemente enlazada circular.c
+	<stdio.h>
+	<stdlib.h>
+	"Lista Doblemente Enlazada Circular.h"
+
