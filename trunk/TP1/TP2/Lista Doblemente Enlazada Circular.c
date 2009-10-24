@@ -90,12 +90,12 @@ int mover_Cte_Lista_DEC(TLista_DEC* listaDEC, int posicion)
     int i;
     if (!listaDEC->primero)
         return LISTA_VACIA;
-    if (posicion==Primero)
+    if (posicion==LDEC_POS_PRI)
         {
         listaDEC->corriente=listaDEC->primero;
         return 0;
         }
-    if (posicion==Siguiente)
+    if (posicion==LDEC_POS_SIG)
         listaDEC->corriente=listaDEC->corriente->siguiente;
     else
         listaDEC->corriente=listaDEC->corriente->anterior;
@@ -146,15 +146,15 @@ int insertar_En_Lista_DEC(TLista_DEC* ldec, void* elemento, int posicion)
     if(!pNodo){
         free(pNodo);
         return FALTA_MEMORIA;}
-    if ((ldec->primero == NULL) || (posicion==Primero) ||
-    ((posicion==Anterior) && (ldec->primero==ldec->corriente))){
+    if ((ldec->primero == NULL) || (posicion==LDEC_POS_PRI) ||
+    ((posicion==LDEC_POS_ANT) && (ldec->primero==ldec->corriente))){
         pNodo->siguiente=ldec->primero;
         pNodo->anterior=ldec->primero->anterior;
         ldec->primero->anterior->siguiente=pNodo;
         ldec->primero->anterior=pNodo;
         ldec->primero=ldec->corriente=pNodo;}
     else{
-        if(posicion==Siguiente){
+        if(posicion==LDEC_POS_SIG){
             pNodo->siguiente=ldec->corriente->siguiente;
             pNodo->anterior=ldec->corriente;
             ldec->corriente->siguiente->anterior=pNodo;
