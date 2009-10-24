@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>  /*libreria de la función sleep. NOTA: Es UNIX no ANSI*/
 #include "Lista de Reproduccion.h"
 #define RES_FOPEN_FAILED 2
 #define RES_OUT_OF_MEM 1
 #define RES_COULD_NOT_CREATE_FILE 3
 #define RES_FILE_EXISTS 4
+#define RES_EMPTY_LIST 5
 
 void* clonar_Propiedades(void* propiedades);
 void destruir_Propiedades(void* propiedades);
@@ -51,8 +53,21 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 }
 
 int reproducir_Lista_Reproduccion(TLista_Reproduccion listaReproduccion, int cantidad)
-{
-return 0;
+{int i,contador;
+void** elemento;
+char* valorDef, *titulo;
+void* clave_del_alias;
+if(mover_Cte_Lista_DEC(&(listaReproduccion.lista),LDEC_POS_PRI)){return RES_EMPTY_LIST;};
+contador=0;
+Diccionario_Obtener(listaReproduccion.dicc_alias,"TITULO",clave_del_alias);
+for (i=0,i<cantidad,i++){
+    obtener_Cte_Lista_DEC(listaReproduccion.lista,elemento);
+    Propiedades_Obtener((TPropiedades)**elemento,(char*)clave_del_alias,valorDef,titulo);
+    scanf(titulo\n,%s);
+    sleep(1);
+    mover_Cte_Lista_DEC(&(listaReproduccion.lista),LDEC_POS_SIG);
+    if(!(es_Primero_Lista_DEC(&(listaReproduccion.lista))){contador=contador++;}}
+return contador;
 }
 
 int adelantar_Lista_Reproduccion(TLista_Reproduccion listaReproduccion)
