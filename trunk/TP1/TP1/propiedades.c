@@ -22,9 +22,11 @@ int Propiedades_Cargar(TPropiedades *propiedades, char *rutaArchivo)
     else{
         while (!feof(arch))
         {
-            fscanf(arch,"%[^=]=%s\n",auxclave,auxvalor);
+        	char format[255];
+        	strcpy(format, "%");/* Hay que conformar la cadena de formato con SIZE_CLAVE y SIZE_VALOR*/
+            fscanf(arch,"%12[^=]=%200s\n",auxclave,auxvalor);
             i=Diccionario_Asignar(&propiedades->diccionario,auxclave,auxvalor);
-            if (i)	error=1;
+            if (i){error=1;}
         }
 		fclose(arch);
 		if (error) return 2;
@@ -84,7 +86,6 @@ int Propiedades_Existe(TPropiedades propiedades, char *nombre)
 
 int Propiedades_Nombres(TPropiedades propiedades, char *nombres[])
 {   int b;
-    int i;
     b=Diccionario_CantidadEntradas(propiedades.diccionario);
     Diccionario_Claves(propiedades.diccionario,nombres);
     return(Diccionario_CantidadEntradas(propiedades.diccionario));
