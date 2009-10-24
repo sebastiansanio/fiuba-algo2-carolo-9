@@ -3,7 +3,7 @@
 #include "Lista de Reproduccion.h"
 
 
-int main()
+int main(int argc,char*argv[])
 {
     char op_menu_char[10];
     int op_menu_int;
