@@ -5,7 +5,6 @@
 
 int main()
 {
-    int contador;
     char op_menu_char[10];
     int op_menu_int;
     TLista_Reproduccion Lista_Reproduccion;
@@ -54,7 +53,7 @@ int main()
 			else
 			{
 			    printf("Ingrese cantidad de temas a reproducir");
-			    scanf("%d",cant_temas);
+			    scanf("%d",&cant_temas);
 			    printf("La lista recomenzo %d veces",reproducir_Lista_Reproduccion(Lista_Reproduccion,cant_temas));
 			}
             break;
