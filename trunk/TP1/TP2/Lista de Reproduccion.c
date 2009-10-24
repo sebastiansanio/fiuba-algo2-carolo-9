@@ -62,7 +62,7 @@ contador=0;
 Diccionario_Obtener(listaReproduccion.dicc_alias,"TITULO",clave_del_alias);
 for (i=0,i<cantidad,i++){
     obtener_Cte_Lista_DEC(listaReproduccion.lista,elemento);
-    Propiedades_Obtener((TPropiedades)**elemento,(char*)clave_del_alias,valorDef,titulo);
+    Propiedades_Obtener(*((TPropiedades*)*elemento),(char*)clave_del_alias,valorDef,titulo);
     scanf(titulo\n,%s);
     sleep(1);
     mover_Cte_Lista_DEC(&(listaReproduccion.lista),LDEC_POS_SIG);
