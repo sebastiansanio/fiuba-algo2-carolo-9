@@ -31,9 +31,9 @@ f_destruir destructor;
 
 enum posicion
 {
-    Anterior,
-    Primero,
-    Siguiente
+    LDEC_POS_PRI,
+    LDEC_POS_SIG,
+    LDEC_POS_ANT
     } ;
 
 int crear_Lista_DEC(TLista_DEC* listaDEC, f_clonar clonador, f_destruir destructor);
@@ -54,4 +54,4 @@ int vacia_Lista_DEC(TLista_DEC* listaDEC);
 
 int es_Primero_Lista_DEC(TLista_DEC* listaDEC);
 
-#endif // LISTA_DOBLEMENTE_ENLAZADA_CIRCULAR_H_INCLUDED
+#endif
