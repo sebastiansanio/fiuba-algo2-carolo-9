@@ -36,7 +36,7 @@ enum posicion
     Siguiente
     } ;
 
-int crear_Lista_DEC(TLista_DEC* listaDEC, f_clonar clonador, f_destruir destructor, int TamanioDato);
+int crear_Lista_DEC(TLista_DEC* listaDEC, f_clonar clonador, f_destruir destructor);
 
 int destruir_Lista_DEC(TLista_DEC* listaDEC);
 

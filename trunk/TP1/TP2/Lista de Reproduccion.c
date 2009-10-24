@@ -33,43 +33,43 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 		}
 		if (rutaProp[0]){
 			if(!Propiedades_Cargar(&propiedad, rutaProp)){
-				insertar_En_Lista_DEC(&listaReproduccion->lista,&propiedad,LDEC_POS_SIG); /*Insertar en la lista como siguiente.*/
+				insertar_En_Lista_DEC(&listaReproduccion->lista,&propiedad,Siguiente); /*Insertar en la lista como siguiente.*/
 			}
 		}
 	}
 
 	return 0;
-};
+}
 
 int reproducir_Lista_Reproduccion(TLista_Reproduccion listaReproduccion, int cantidad)
 {
 return 0;
-};
+}
 
 int adelantar_Lista_Reproduccion(TLista_Reproduccion listaReproduccion)
 {
 return 0;
-};
+}
 
 int retroceder_Lista_Reproduccion(TLista_Reproduccion listaReproduccion)
 {
 return 0;
-};
+}
 
 int ordenar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* orden)
 {
 return 0;
-};
+}
 
 int guardar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomArch)
 {
 return 0;
-};
+}
 
 int destruir_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion)
 {
 return 0;
-};
+}
 
 void* clonar_Propiedades(void* propiedades){
 	char *nombres[SIZE_CLAVE], *valor;
@@ -89,6 +89,6 @@ void* clonar_Propiedades(void* propiedades){
 }
 
 void destruir_Propiedades(void* propiedades){
-	propiedades = (TPropiedades*)propiedades;
+    propiedades = (TPropiedades*)propiedades;
 	Propiedades_Destruir(propiedades);
 }
