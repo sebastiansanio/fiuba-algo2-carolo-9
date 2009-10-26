@@ -52,6 +52,8 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 	return 0;
 }
 
+/*PRE: La lista debe estar creada, cantidad debe ser un parametro valido*/
+/*POST: Muestra por pantalla el número indicado de temas, repitiendoles en caso de ser necesario, devuelve la cantidad de veces que llego al ultimo elemento*/
 int reproducir_Lista_Reproduccion(TLista_Reproduccion listaReproduccion, int cantidad)
 {int i,contador;
 void** elemento;
