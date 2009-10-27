@@ -5,9 +5,7 @@
 
 int Propiedades_Crear(TPropiedades *propiedades)
 {
-int i;
-i=Diccionario_Crear(&(propiedades->diccionario),SIZE_VALOR);
-return i;
+	return Diccionario_Crear(&(propiedades->diccionario),SIZE_VALOR);
 }
 
 int Propiedades_Cargar(TPropiedades *propiedades, char *rutaArchivo)
@@ -71,22 +69,17 @@ int Propiedades_Obtener(TPropiedades propiedades, char *nombre, char *valorDefau
 
 int Propiedades_Asignar(TPropiedades *propiedades, char *nombre, char *valor)
 {
-    int i;
-    i=Diccionario_Asignar(&(propiedades->diccionario),nombre,valor);
-    return i;
+    return Diccionario_Asignar(&(propiedades->diccionario),nombre,valor);
 }
 
 
 int Propiedades_Existe(TPropiedades propiedades, char *nombre)
 {
-    int i;
-    i=Diccionario_Existe(propiedades.diccionario,nombre);
-    return i;
+    return Diccionario_Existe(propiedades.diccionario,nombre);
 }
 
 int Propiedades_Nombres(TPropiedades propiedades, char *nombres[])
-{   int b;
-    b=Diccionario_CantidadEntradas(propiedades.diccionario);
+{
     Diccionario_Claves(propiedades.diccionario,nombres);
     return(Diccionario_CantidadEntradas(propiedades.diccionario));
 }

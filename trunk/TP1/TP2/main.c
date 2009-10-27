@@ -17,8 +17,8 @@ int main(int argc,char*argv[])
         printf ("\nSeleccione la opcion deseada:\n");
 		printf ("1 Abrir nueva lista de reproduccion\n");
 		printf ("2 Reproducir canciones\n");
-		printf ("3 Avanzar canción\n");
-		printf ("4 Retroceder canción\n");
+		printf ("3 Avanzar canciï¿½n\n");
+		printf ("4 Retroceder canciï¿½n\n");
 		printf ("5 Ordenar canciones\n");
 		printf ("6 Guardar lista de reproduccion\n");
 		printf ("10 Salir\n");
@@ -28,20 +28,23 @@ int main(int argc,char*argv[])
 		{
 		case 1:
 		{
+			int res;
 		    printf ("Ingrese ruta del archivo lista de reproduccion.\n");
 		    scanf("%s",nomArch);
-			if (validaCreacion==0)
-			{
-				crear_Lista_Reproduccion(&Lista_Reproduccion,nomArch);
-				printf ("Lista de reproduccion cargada.\n");
-				validaCreacion=1;
+			if (validaCreacion!=0){
+				destruir_Lista_Reproduccion(&Lista_Reproduccion);
+				validaCreacion=0;
 			}
-            else
-            {
-                destruir_Lista_Reproduccion(&Lista_Reproduccion);
-                crear_Lista_Reproduccion(&Lista_Reproduccion,nomArch);
-                printf ("Nueva lista de reproduccion cargada.\n");
-            }
+			res = crear_Lista_Reproduccion(&Lista_Reproduccion,nomArch);
+			switch (res){
+				case 0:
+					printf ("Lista de reproduccion cargada.\n");
+					validaCreacion=1;
+					break;
+				case 2:
+					printf ("Error abriendo el archivo.\n");
+					break;
+			}
 			break;
 		}
 		case 2:
@@ -66,7 +69,7 @@ int main(int argc,char*argv[])
             }
 			else
 			{
-			    adelantar_Lista_Reproduccion(Lista_Reproduccion);
+			    adelantar_Lista_Reproduccion(&Lista_Reproduccion);
 			}
 			break;
 		}
@@ -78,7 +81,7 @@ int main(int argc,char*argv[])
             }
 			else
 			{
-			    retroceder_Lista_Reproduccion(Lista_Reproduccion);
+			    retroceder_Lista_Reproduccion(&Lista_Reproduccion);
 			}
 			break;
 		}

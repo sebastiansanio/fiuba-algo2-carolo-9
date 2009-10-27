@@ -42,7 +42,7 @@ int destruir_Lista_DEC(TLista_DEC* listaDEC);
 
 int insertar_En_Lista_DEC(TLista_DEC* listaDEC, void* elemento, int posicion);
 
-int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void** elemento);
+int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void* elemento);
 
 int eliminar_Cte_Lista_DEC(TLista_DEC* listaDEC);
 
