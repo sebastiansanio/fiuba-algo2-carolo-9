@@ -2,18 +2,18 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="Lista Doblemente Enlazada Circular.c" open="1" top="0" tabpos="3">
-		<Cursor position="2923" topLine="75" />
+		<Cursor position="2923" topLine="0" />
 	</File>
 	<File name="Lista Doblemente Enlazada Circular.h" open="1" top="0" tabpos="2">
-		<Cursor position="603" topLine="0" />
+		<Cursor position="318" topLine="3" />
 	</File>
 	<File name="Lista de Reproduccion.c" open="1" top="0" tabpos="4">
-		<Cursor position="2763" topLine="0" />
+		<Cursor position="3715" topLine="81" />
 	</File>
-	<File name="Lista de Reproduccion.h" open="1" top="0" tabpos="5">
+	<File name="Lista de Reproduccion.h" open="0" top="0" tabpos="5">
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="main.c" open="1" top="1" tabpos="1">
-		<Cursor position="452" topLine="0" />
+		<Cursor position="539" topLine="6" />
 	</File>
 </CodeBlocks_layout_file>

@@ -17,8 +17,8 @@ int main(int argc,char*argv[])
         printf ("\nSeleccione la opcion deseada:\n");
 		printf ("1 Abrir nueva lista de reproduccion\n");
 		printf ("2 Reproducir canciones\n");
-		printf ("3 Avanzar canci�n\n");
-		printf ("4 Retroceder canci�n\n");
+		printf ("3 Avanzar cancion\n");
+		printf ("4 Retroceder cancion\n");
 		printf ("5 Ordenar canciones\n");
 		printf ("6 Guardar lista de reproduccion\n");
 		printf ("10 Salir\n");

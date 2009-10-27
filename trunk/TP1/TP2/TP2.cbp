@@ -39,8 +39,22 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Lista de Reproduccion.h" />
+		<Unit filename="diccionario.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="diccionario.h">
+			<Option target="Debug" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="propiedades.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="propiedades.h">
+			<Option target="Debug" />
 		</Unit>
 		<Extensions>
 			<code_completion />
