@@ -18,6 +18,7 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 	FILE* arch_m3u;
 	f_destruir destructor = destruir_Propiedades;
 	f_clonar clonador = clonar_Propiedades;
+	char* nombreauxiliar;
 
 	arch_m3u = fopen(nomArch,"r");
 	if (!arch_m3u){return RES_FOPEN_FAILED;}
@@ -52,15 +53,25 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 	strcpy(alias,"");
 	Diccionario_Asignar(&listaReproduccion->dicc_alias, orden, alias);*/
 
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "ARTISTA", "artista");
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "ALBUM", "album");
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "TITULO", "titulo");
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "GENERO", "genero");
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "AUTOR", "autor");
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "ANIO_EDICION", "anio_edicion");
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "TAPA_ALBUM", "tapa_album");
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "SHUFFLE", "SHUFFLE");
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "INVERTIR", "INVERTIR");
+    nombreauxiliar="artista";
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "ARTISTA",(void*)nombreauxiliar);
+	nombreauxiliar="album";
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "ALBUM", (void*)nombreauxiliar);
+	nombreauxiliar="titulo";
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "TITULO", (void*)nombreauxiliar);
+	nombreauxiliar="genero";
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "GENERO", (void*)nombreauxiliar);
+	nombreauxiliar="autor";
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "AUTOR", (void*)nombreauxiliar);
+	nombreauxiliar="anio_edicion";
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "ANIO_EDICION", (void*)nombreauxiliar);
+	nombreauxiliar="tapa_album";
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "TAPA_ALBUM", (void*)nombreauxiliar);
+	nombreauxiliar="SHUFFLE";
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "SHUFFLE", (void*)nombreauxiliar);
+	nombreauxiliar="INVERTIR";
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "INVERTIR", (void*)nombreauxiliar);
+	nombreauxiliar="artista";
 
 	return 0;
 }
@@ -80,7 +91,7 @@ int reproducir_Lista_Reproduccion(TLista_Reproduccion listaReproduccion, int can
 		obtener_Cte_Lista_DEC(listaReproduccion.lista,&cancion);
 		Propiedades_Obtener(cancion, clave_del_alias, "N/A", titulo);
 		printf("%s\n",titulo);
-		sleep(1);
+		/*sleep(1);*/
 		mover_Cte_Lista_DEC(&(listaReproduccion.lista),LDEC_POS_SIG);
 		if(es_Primero_Lista_DEC(&(listaReproduccion.lista))){contador++;}}
 	return contador;
@@ -199,7 +210,7 @@ return 0;
 }
 
 void* clonar_Propiedades(void* propiedades){
-	char nombres[9][SIZE_CLAVE], valor[SIZE_VALOR];
+	char* nombres[SIZE_CLAVE], valor[SIZE_VALOR];
 	int i,cant;
 	TPropiedades *prop_clon = (TPropiedades*) malloc(sizeof(TPropiedades));
 	TPropiedades *prop_orig = (TPropiedades*)propiedades;
