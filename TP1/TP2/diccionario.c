@@ -23,6 +23,7 @@ int Diccionario_CantidadEntradas(TDiccionario dicc)
     while (dicc.entradas[i].clave[0]!=0) /* Recorre las entradas hasta que el primer char de una clave sea NULL */
     {
     	i++;
+    	if (i==SIZE_DICC)break;
     }
     return i;
 }
@@ -74,10 +75,10 @@ void Diccionario_Claves(TDiccionario dicc, char* claves[])
 {
     int i=0;
     while (dicc.entradas[i].clave[0]!=0){
-    	strncpy(claves[i], dicc.entradas[i].clave, SIZE_CLAVE);  /*Copia las claves al arreglo*/
+    	strcpy(claves[i], dicc.entradas[i].clave);  /*Copia las claves al arreglo*/
+    	/* aca a veces hay un SEGMENTATION FAULT */
     	i++;
     }
-    claves[i]=NULL;   /*Le asigna a la posicion siguiente al ultimo elemento del arreglo NULL, para representar el fin del arreglo*/
 }
 
 void Diccionario_Eliminar(TDiccionario* dicc, char* clave)

@@ -14,9 +14,9 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 
 int reproducir_Lista_Reproduccion(TLista_Reproduccion listaReproduccion, int cantidad);
 
-int adelantar_Lista_Reproduccion(TLista_Reproduccion listaReproduccion);
+int adelantar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion);
 
-int retroceder_Lista_Reproduccion(TLista_Reproduccion listaReproduccion);
+int retroceder_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion);
 
 int ordenar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* orden);
 

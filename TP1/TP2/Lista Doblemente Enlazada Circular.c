@@ -18,7 +18,8 @@ int crear_Lista_DEC(TLista_DEC* listaDEC, f_clonar clonador, f_destruir destruct
 /*POST: listaDEC no creada */
 int destruir_Lista_DEC(TLista_DEC* listaDEC)
 {
-    TNodoDoble *pAux;
+    TNodoDoble *pAux=(TNodoDoble*)malloc(sizeof(TNodoDoble));
+    if(!listaDEC->primero){return LISTA_VACIA;}
     listaDEC->corriente=listaDEC->primero->siguiente;
     while (listaDEC->corriente!=listaDEC->primero)
     {
@@ -37,7 +38,7 @@ int destruir_Lista_DEC(TLista_DEC* listaDEC)
 
 
 /*PRE: listaDEC creada */
-/*POST: Si la lista está vacía devuelve LISTA_VACIA, sino elimina el actual elemento corriente y el corriente pasa a ser el siguiente */
+/*POST: Si la lista estï¿½ vacï¿½a devuelve LISTA_VACIA, sino elimina el actual elemento corriente y el corriente pasa a ser el siguiente */
 int eliminar_Cte_Lista_DEC(TLista_DEC* listaDEC)
 {
     TNodoDoble *pAux;
@@ -69,22 +70,22 @@ int eliminar_Cte_Lista_DEC(TLista_DEC* listaDEC)
 
 
 /*PRE: listaDEC creada */
-/*POST: Si la lista está vacía devuelve 1, sino guarda en elemento una copia del dato en corriente */
-int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void** elemento)
+/*POST: Si la lista estï¿½ vacï¿½a devuelve 1, sino guarda en elemento una copia del dato en corriente */
+int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void* elemento)
 {
     if(!listaDEC.corriente)
         return LISTA_VACIA;
     else
         {
-            *elemento=listaDEC.clonador(listaDEC.corriente->Elem);
+            elemento=listaDEC.clonador(listaDEC.corriente->Elem);
             return ELEMENTO_OBTENIDO;
         }
 }
 
 
 /*PRE: listaDEC creada */
-/*POST: Si la lista está vacía devuelve LISTA_VACIA. Si posicion es 0 el corriente pasa al primero, sino el corriente se mueve la cantidad
-en posicion (hacia izquierda o derecha según el signo)  */
+/*POST: Si la lista estï¿½ vacï¿½a devuelve LISTA_VACIA. Si posicion es 0 el corriente pasa al primero, sino el corriente se mueve la cantidad
+en posicion (hacia izquierda o derecha segï¿½n el signo)  */
 int mover_Cte_Lista_DEC(TLista_DEC* listaDEC, int posicion)
 {
     if (!listaDEC->primero)
@@ -102,7 +103,7 @@ int mover_Cte_Lista_DEC(TLista_DEC* listaDEC, int posicion)
 }
 
 /*PRE: listaDEC creada */
-/*POST: Si la lista está vacía devuelve LISTA_VACIA, sino guarda en corriente elemento */
+/*POST: Si la lista estï¿½ vacï¿½a devuelve LISTA_VACIA, sino guarda en corriente elemento */
 int modificar_Cte_Lista_DEC(TLista_DEC* listaDEC, void* elemento)
 {
     if(!listaDEC->corriente)
@@ -116,7 +117,7 @@ int modificar_Cte_Lista_DEC(TLista_DEC* listaDEC, void* elemento)
 }
 
 /*PRE: listaDEC creada */
-/*POST: Si la lista está vacía devuelve 1, sino devuelve 0 */
+/*POST: Si la lista estï¿½ vacï¿½a devuelve 1, sino devuelve 0 */
 int vacia_Lista_DEC(TLista_DEC* listaDEC)
 {
     if(listaDEC->primero)
@@ -125,7 +126,7 @@ int vacia_Lista_DEC(TLista_DEC* listaDEC)
         return LISTA_SIN_ELEMENTOS;
 }
 
-/*PRE: listaDEC creada y no vacía */
+/*PRE: listaDEC creada y no vacï¿½a */
 /*POST: Si el corriente es el primer elemento de la lista devuelve 1, sino devuelve 0. */
 int es_Primero_Lista_DEC(TLista_DEC* listaDEC)
 {
@@ -135,17 +136,21 @@ int es_Primero_Lista_DEC(TLista_DEC* listaDEC)
         return ES_PRIMERO_FALSO;
 }
 
-/*PRE: ldec creada, elemento y posición validos*/
-/*POST: Inserta según posición el elemento en la lista, devuelve FALTA_MEMORIA si no pudo insertar, y ELEMENTO_INSERTADO si pudo*/
+/*PRE: ldec creada, elemento y posiciï¿½n validos*/
+/*POST: Inserta segï¿½n posiciï¿½n el elemento en la lista, devuelve FALTA_MEMORIA si no pudo insertar, y ELEMENTO_INSERTADO si pudo*/
 int insertar_En_Lista_DEC(TLista_DEC* ldec, void* elemento, int posicion)
 {
     TNodoDoble* pNodo=(TNodoDoble*)malloc(sizeof(TNodoDoble));
     if(!pNodo){return FALTA_MEMORIA;}
     pNodo->Elem=ldec->clonador(elemento);
-    if(!pNodo){
-        free(pNodo);
-        return FALTA_MEMORIA;}
-    if ((ldec->primero == NULL) || (posicion==LDEC_POS_PRI) ||
+    if(!pNodo->Elem){free(pNodo);return FALTA_MEMORIA;}
+
+    if (ldec->primero == NULL){
+    	pNodo->anterior=pNodo->siguiente= pNodo;
+    	ldec->primero=ldec->corriente= pNodo;
+    	return ELEMENTO_INSERTADO;
+    }
+    if ((posicion==LDEC_POS_PRI) ||
     ((posicion==LDEC_POS_ANT) && (ldec->primero==ldec->corriente))){
         pNodo->siguiente=ldec->primero;
         pNodo->anterior=ldec->primero->anterior;
