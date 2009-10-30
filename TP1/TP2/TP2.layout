@@ -7,8 +7,8 @@
 	<File name="Lista Doblemente Enlazada Circular.h" open="0" top="0" tabpos="2">
 		<Cursor position="318" topLine="3" />
 	</File>
-	<File name="Lista de Reproduccion.c" open="1" top="0" tabpos="2">
-		<Cursor position="895" topLine="22" />
+	<File name="Lista de Reproduccion.c" open="1" top="1" tabpos="2">
+		<Cursor position="657" topLine="15" />
 	</File>
 	<File name="Lista de Reproduccion.h" open="0" top="0" tabpos="5">
 		<Cursor position="0" topLine="0" />
@@ -16,7 +16,7 @@
 	<File name="diccionario.c" open="1" top="0" tabpos="5">
 		<Cursor position="88" topLine="0" />
 	</File>
-	<File name="main.c" open="1" top="1" tabpos="1">
+	<File name="main.c" open="1" top="0" tabpos="1">
 		<Cursor position="263" topLine="0" />
 	</File>
 	<File name="propiedades.c" open="1" top="0" tabpos="4">
