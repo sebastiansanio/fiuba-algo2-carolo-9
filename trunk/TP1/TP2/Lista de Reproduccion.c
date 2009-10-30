@@ -30,7 +30,7 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 		TPropiedades propiedad;
 		Propiedades_Crear(&propiedad);
 
-		fscanf(arch_m3u, "%[^\n]\n", &linea);
+		fscanf(arch_m3u, "%[^\n]\n", linea);
 		if(!sscanf(linea,"#%[^#\n]", rutaProp)){
 			rutaProp[0]='\0';
 		}else{
@@ -39,7 +39,7 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 				int i;
 				Propiedades_Asignar(&propiedad, "rutaProp", rutaProp);
 				do{
-					i=fscanf(arch_m3u, "%[^#\n]\n", &linea);
+					i=fscanf(arch_m3u, "%[^#\n]\n", linea);
 					if (!i){fscanf(arch_m3u, "%*[^\n]\n");}/* Leemos e ignoramos la linea */
 				}while(!i);
 				Propiedades_Asignar(&propiedad, "rutaCancion", linea);
