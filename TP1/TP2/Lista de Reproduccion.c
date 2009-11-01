@@ -86,6 +86,7 @@ int reproducir_Lista_Reproduccion(TLista_Reproduccion listaReproduccion, int can
 
 	if(vacia_Lista_DEC(&(listaReproduccion.lista))){return RES_EMPTY_LIST;}
 	contador=1;
+	Propiedades_Crear(&cancion);
 	Diccionario_Obtener(listaReproduccion.dicc_alias,"TITULO",clave_del_alias);
 	for (i=0;i<cantidad;i++){
 		obtener_Cte_Lista_DEC(listaReproduccion.lista,&cancion);
@@ -102,6 +103,7 @@ int adelantar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion)
 	TPropiedades cancion;
 	char titulo[SIZE_CLAVE], clave_del_alias[SIZE_CLAVE];
 
+	Propiedades_Crear(&cancion);
 	Diccionario_Obtener(listaReproduccion->dicc_alias,"TITULO",clave_del_alias);
 	if(mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_SIG)){return 1;}
 	obtener_Cte_Lista_DEC(listaReproduccion->lista,&cancion);
@@ -115,6 +117,7 @@ int retroceder_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion)
 	TPropiedades cancion;
 	char titulo[SIZE_CLAVE], clave_del_alias[SIZE_CLAVE];
 
+	Propiedades_Crear(&cancion);
 	Diccionario_Obtener(listaReproduccion->dicc_alias,"TITULO",clave_del_alias);
 	if(mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_ANT)){return 1;}
 	obtener_Cte_Lista_DEC(listaReproduccion->lista,&cancion);
@@ -210,11 +213,21 @@ return 0;
 }
 
 void* clonar_Propiedades(void* propiedades){
-	char* nombres[SIZE_CLAVE], valor[SIZE_VALOR];
+	char *nombres[9], valor[SIZE_VALOR];
 	int i,cant;
 	TPropiedades *prop_clon = (TPropiedades*) malloc(sizeof(TPropiedades));
 	TPropiedades *prop_orig = (TPropiedades*)propiedades;
+
 	if (!prop_clon){return NULL;}
+	for (i=0; i<9; i++){
+		nombres[i] = malloc(SIZE_CLAVE * sizeof(char));
+		if(!nombres[i]){
+			for (; i>-1; i--){
+				free(nombres[i]);
+			}
+			return NULL;
+		}
+	}
 
 	Propiedades_Crear(prop_clon);
 	cant=Propiedades_Nombres(*prop_orig,nombres);
@@ -222,7 +235,9 @@ void* clonar_Propiedades(void* propiedades){
 		Propiedades_Obtener(*prop_orig,nombres[i],NULL,valor);
 		Propiedades_Asignar(prop_clon,nombres[i],valor);
 	}
-
+	for (i=0; i<9; i++){
+		free(nombres[i]);
+	}
 	return prop_clon;
 }
 
