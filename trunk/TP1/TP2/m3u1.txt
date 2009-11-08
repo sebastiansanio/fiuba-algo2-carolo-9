@@ -1,0 +1,7 @@
+artista=prueba1
+album=album1
+titulo=titulo1
+genero=genero1
+autor=autor1
+anio_edicion=2009
+tapa_album=tapa_album1

@@ -109,10 +109,10 @@ int main(int argc,char*argv[])
             }
 			else
 			{
-			    printf("Ingrese ruta donde desea guardar el archivo");
+			    printf("Ingrese ruta donde desea guardar el archivo \n");
 			    scanf("%s",nomArch);
                 guardar_Lista_Reproduccion(&Lista_Reproduccion,nomArch);
-                printf("Lista de reproduccion guardada");
+                printf("Lista de reproduccion guardada \n");
 			}
 			break;
 		}
