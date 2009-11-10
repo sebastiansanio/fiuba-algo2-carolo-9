@@ -20,9 +20,9 @@ int Propiedades_Cargar(TPropiedades *propiedades, char *rutaArchivo)
     else{
         while (!feof(arch))
         {
-        	char format[255];
-        	strcpy(format, "%");/* Hay que conformar la cadena de formato con SIZE_CLAVE y SIZE_VALOR*/
-            fscanf(arch,"%12[^=]=%200s\n",auxclave,auxvalor);
+        	char format[50];
+        	sprintf(format, "%%%d[^=]=%%%d[^\n]\n", SIZE_CLAVE,SIZE_VALOR);
+            fscanf(arch, format, auxclave, auxvalor);
             i=Diccionario_Asignar(&propiedades->diccionario,auxclave,auxvalor);
             if (i){error=1;}
         }
