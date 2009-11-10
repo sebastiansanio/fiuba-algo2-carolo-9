@@ -109,10 +109,15 @@ int main(int argc,char*argv[])
             }
 			else
 			{
+				int res;
 			    printf("Ingrese ruta donde desea guardar el archivo \n");
 			    scanf("%s",nomArch);
-                guardar_Lista_Reproduccion(&Lista_Reproduccion,nomArch);
-                printf("Lista de reproduccion guardada \n");
+                res = guardar_Lista_Reproduccion(&Lista_Reproduccion,nomArch);
+                switch (res){
+					case 0:	printf("Lista de reproduccion guardada. \n"); break;
+					case 3:	printf("No se pudo crear el archivo. \n"); break;
+					case 4:	printf("Ya existe un archivo con ese nombre. \n"); break;
+                }
 			}
 			break;
 		}
