@@ -4,7 +4,7 @@
 #include <unistd.h>  /*libreria de la funci�n sleep. NOTA: Es UNIX no ANSI*/
 #include "Lista de Reproduccion.h"
 #define RES_FOPEN_FAILED 2
-#define RES_OUT_OF_MEM 1
+#define RES_OUT_OF_MEM -2
 #define RES_COULD_NOT_CREATE_FILE 3
 #define RES_FILE_EXISTS 4
 #define RES_EMPTY_LIST 5
@@ -18,7 +18,6 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 	FILE* arch_m3u;
 	f_destruir destructor = destruir_Propiedades;
 	f_clonar clonador = clonar_Propiedades;
-	char* nombreauxiliar;
 
 	arch_m3u = fopen(nomArch,"r");
 	if (!arch_m3u){return RES_FOPEN_FAILED;}
@@ -30,7 +29,7 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 		TPropiedades propiedad;
 		Propiedades_Crear(&propiedad);
 
-		fscanf(arch_m3u, "%[^\n]\n", linea);
+		fscanf(arch_m3u, "%[^\n]\n", &linea);
 		if(!sscanf(linea,"#%[^#\n]", rutaProp)){
 			rutaProp[0]='\0';
 		}else{
@@ -39,7 +38,7 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 				int i;
 				Propiedades_Asignar(&propiedad, "rutaProp", rutaProp);
 				do{
-					i=fscanf(arch_m3u, "%[^#\n]\n", linea);
+					i=fscanf(arch_m3u, "%[^#\n]\n", &linea);
 					if (!i){fscanf(arch_m3u, "%*[^\n]\n");}/* Leemos e ignoramos la linea */
 				}while(!i);
 				Propiedades_Asignar(&propiedad, "rutaCancion", linea);
@@ -53,25 +52,15 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 	strcpy(alias,"");
 	Diccionario_Asignar(&listaReproduccion->dicc_alias, orden, alias);*/
 
-    nombreauxiliar="artista";
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "ARTISTA",(void*)nombreauxiliar);
-	nombreauxiliar="album";
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "ALBUM", (void*)nombreauxiliar);
-	nombreauxiliar="titulo";
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "TITULO", (void*)nombreauxiliar);
-	nombreauxiliar="genero";
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "GENERO", (void*)nombreauxiliar);
-	nombreauxiliar="autor";
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "AUTOR", (void*)nombreauxiliar);
-	nombreauxiliar="anio_edicion";
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "ANIO_EDICION", (void*)nombreauxiliar);
-	nombreauxiliar="tapa_album";
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "TAPA_ALBUM", (void*)nombreauxiliar);
-	nombreauxiliar="SHUFFLE";
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "SHUFFLE", (void*)nombreauxiliar);
-	nombreauxiliar="INVERTIR";
-	Diccionario_Asignar(&listaReproduccion->dicc_alias, "INVERTIR", (void*)nombreauxiliar);
-	nombreauxiliar="artista";
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "ARTISTA", "artista");
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "ALBUM", "album");
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "TITULO", "titulo");
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "GENERO", "genero");
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "AUTOR", "autor");
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "ANIO_EDICION", "anio_edicion");
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "TAPA_ALBUM", "tapa_album");
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "SHUFFLE", "SHUFFLE");
+	Diccionario_Asignar(&listaReproduccion->dicc_alias, "INVERTIR", "INVERTIR");
 
 	return 0;
 }
@@ -81,18 +70,17 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 int reproducir_Lista_Reproduccion(TLista_Reproduccion listaReproduccion, int cantidad)
 {
 	int i,contador;
-	TPropiedades cancion;
-	char titulo[SIZE_CLAVE], clave_del_alias[SIZE_CLAVE];
+	TPropiedades* cancion;
+	char titulo[SIZE_VALOR], clave_del_alias[SIZE_CLAVE];
 
 	if(vacia_Lista_DEC(&(listaReproduccion.lista))){return RES_EMPTY_LIST;}
-	contador=1;
-	Propiedades_Crear(&cancion);
+	contador=0;
 	Diccionario_Obtener(listaReproduccion.dicc_alias,"TITULO",clave_del_alias);
 	for (i=0;i<cantidad;i++){
 		obtener_Cte_Lista_DEC(listaReproduccion.lista,&cancion);
-		Propiedades_Obtener(cancion, clave_del_alias, "N/A", titulo);
+		Propiedades_Obtener(*cancion, clave_del_alias, "N/A", titulo);
 		printf("%s\n",titulo);
-		/*sleep(1);*/
+		sleep(1);
 		mover_Cte_Lista_DEC(&(listaReproduccion.lista),LDEC_POS_SIG);
 		if(es_Primero_Lista_DEC(&(listaReproduccion.lista))){contador++;}}
 	return contador;
@@ -100,28 +88,26 @@ int reproducir_Lista_Reproduccion(TLista_Reproduccion listaReproduccion, int can
 
 int adelantar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion)
 {
-	TPropiedades cancion;
-	char titulo[SIZE_CLAVE], clave_del_alias[SIZE_CLAVE];
+	TPropiedades* cancion;
+	char titulo[SIZE_VALOR], clave_del_alias[SIZE_CLAVE];
 
-	Propiedades_Crear(&cancion);
 	Diccionario_Obtener(listaReproduccion->dicc_alias,"TITULO",clave_del_alias);
 	if(mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_SIG)){return 1;}
 	obtener_Cte_Lista_DEC(listaReproduccion->lista,&cancion);
-	Propiedades_Obtener(cancion, clave_del_alias, "N/A", titulo);
+	Propiedades_Obtener(*cancion, clave_del_alias, "N/A", titulo);
 	printf("%s\n",titulo);
 	return 0;
 }
 
 int retroceder_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion)
 {
-	TPropiedades cancion;
-	char titulo[SIZE_CLAVE], clave_del_alias[SIZE_CLAVE];
+	TPropiedades* cancion;
+	char titulo[SIZE_VALOR], clave_del_alias[SIZE_CLAVE];
 
-	Propiedades_Crear(&cancion);
 	Diccionario_Obtener(listaReproduccion->dicc_alias,"TITULO",clave_del_alias);
 	if(mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_ANT)){return 1;}
 	obtener_Cte_Lista_DEC(listaReproduccion->lista,&cancion);
-	Propiedades_Obtener(cancion, clave_del_alias, "N/A", titulo);
+	Propiedades_Obtener(*cancion, clave_del_alias, "N/A", titulo);
 	printf("%s\n",titulo);
 	return 0;
 }
@@ -129,10 +115,10 @@ int retroceder_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion)
 int ordenar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* orden)
 {
 	TLista_DEC *LDEC_aux;
-	TPropiedades cancion1, cancion2;
+	TPropiedades *cancion1, *cancion2;
 	f_destruir destructor = destruir_Propiedades;
 	f_clonar clonador = clonar_Propiedades;
-	char *valor1, *valor2, nombre_campo[SIZE_CLAVE];
+	char valor1[SIZE_VALOR], valor2[SIZE_VALOR], nombre_campo[SIZE_CLAVE];
 	int res_cmp;
 
 	LDEC_aux = (TLista_DEC *) malloc(sizeof(TLista_DEC));
@@ -146,25 +132,25 @@ int ordenar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* ord
 	Se copia a LDEC_aux la primera cancion de LDEC y si no hay una segunda cancion, LDEC ya estaba ordenada.
 	*/
 	obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion1);
-	insertar_En_Lista_DEC(LDEC_aux,&cancion1,LDEC_POS_PRI);
-	mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_SIG);
+	insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_PRI);
+	mover_Cte_Lista_DEC(&(listaReproduccion->lista), LDEC_POS_SIG);
 	if (es_Primero_Lista_DEC(&listaReproduccion->lista))return RES_OK;
 
 	do {
 		obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion1);
-		Propiedades_Obtener(cancion1, nombre_campo, NULL, valor1);
+		Propiedades_Obtener(*cancion1, nombre_campo, NULL, valor1);
 		while (!0){
 			obtener_Cte_Lista_DEC(*LDEC_aux, &cancion2);
-			Propiedades_Obtener(cancion2, nombre_campo, NULL, valor2);
-			res_cmp=strcmp(valor1,valor2);
+			Propiedades_Obtener(*cancion2, nombre_campo, NULL, valor2);
+			res_cmp=strcmp(valor1, valor2);
 			if (res_cmp<0){
-				insertar_En_Lista_DEC(LDEC_aux,&cancion1,LDEC_POS_ANT);
+				insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_ANT);
 				break;
 			}
-			mover_Cte_Lista_DEC(LDEC_aux,LDEC_POS_SIG);
+			mover_Cte_Lista_DEC(LDEC_aux, LDEC_POS_SIG);
 			if (es_Primero_Lista_DEC(LDEC_aux)){
-				mover_Cte_Lista_DEC(LDEC_aux,LDEC_POS_ANT);
-				insertar_En_Lista_DEC(LDEC_aux,&cancion1,LDEC_POS_SIG);
+				mover_Cte_Lista_DEC(LDEC_aux, LDEC_POS_ANT);
+				insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_SIG);
 				break;
 			}
 		}
@@ -181,8 +167,8 @@ return RES_OK;
 int guardar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomArch)
 {
 	FILE* nuevo_m3u;
-	TPropiedades cancion;
-	char rutaProp[200], rutaCancion[200];
+	TPropiedades* cancion;
+	char rutaProp[SIZE_VALOR], rutaCancion[SIZE_VALOR];
 
 	nuevo_m3u = fopen(nomArch, "rt");
 	if (nuevo_m3u){return RES_FILE_EXISTS;}
@@ -192,8 +178,8 @@ int guardar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nom
 	mover_Cte_Lista_DEC(&listaReproduccion->lista, LDEC_POS_PRI);
 	obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion);
 	do{
-		Propiedades_Obtener(cancion, "rutaProp", "N/A", rutaProp);
-		Propiedades_Obtener(cancion, "rutaCancion", "N/A", rutaCancion);
+		Propiedades_Obtener(*cancion, "rutaProp", "N/A", rutaProp);
+		Propiedades_Obtener(*cancion, "rutaCancion", "N/A", rutaCancion);
 		fputs("#",nuevo_m3u);
 		fputs(rutaProp,nuevo_m3u);
 		fputs("\n",nuevo_m3u);
@@ -202,6 +188,7 @@ int guardar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nom
 		mover_Cte_Lista_DEC(&listaReproduccion->lista, LDEC_POS_SIG);
 		obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion);
 	} while (!es_Primero_Lista_DEC(&listaReproduccion->lista));
+	fclose(nuevo_m3u);
 return 0;
 }
 

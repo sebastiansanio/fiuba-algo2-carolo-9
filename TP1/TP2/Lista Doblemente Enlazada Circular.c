@@ -18,7 +18,7 @@ int crear_Lista_DEC(TLista_DEC* listaDEC, f_clonar clonador, f_destruir destruct
 /*POST: listaDEC no creada */
 int destruir_Lista_DEC(TLista_DEC* listaDEC)
 {
-    TNodoDoble *pAux;
+    TNodoDoble *pAux=(TNodoDoble*)malloc(sizeof(TNodoDoble));
     if(!listaDEC->primero){return LISTA_VACIA;}
     listaDEC->corriente=listaDEC->primero->siguiente;
     while (listaDEC->corriente!=listaDEC->primero)
@@ -71,13 +71,13 @@ int eliminar_Cte_Lista_DEC(TLista_DEC* listaDEC)
 
 /*PRE: listaDEC creada */
 /*POST: Si la lista est� vac�a devuelve 1, sino guarda en elemento una copia del dato en corriente */
-int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void* elemento)
+int obtener_Cte_Lista_DEC(TLista_DEC listaDEC, void** elemento)
 {
     if(!listaDEC.corriente)
         return LISTA_VACIA;
     else
         {
-            elemento=listaDEC.clonador(listaDEC.corriente->Elem);
+            *elemento=listaDEC.clonador(listaDEC.corriente->Elem);
             return ELEMENTO_OBTENIDO;
         }
 }
