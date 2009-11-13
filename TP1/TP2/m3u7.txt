@@ -1,0 +1,7 @@
+artista=aab
+album=zzz
+titulo=tyu
+genero=sdf
+autor=vnb
+anio_edicion=2010
+tapa_album=bvc

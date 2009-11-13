@@ -1,0 +1,7 @@
+artista=stu
+album=pqr
+titulo=mno
+genero=jkl
+autor=def
+anio_edicion=2008
+tapa_album=abc

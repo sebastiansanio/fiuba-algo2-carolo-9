@@ -1,0 +1,7 @@
+artista=zzz
+album=aaa
+titulo=ggg
+genero=hhh
+autor=www
+anio_edicion=2055
+tapa_album=rty

@@ -80,7 +80,7 @@ int reproducir_Lista_Reproduccion(TLista_Reproduccion listaReproduccion, int can
 		obtener_Cte_Lista_DEC(listaReproduccion.lista,&cancion);
 		Propiedades_Obtener(*cancion, clave_del_alias, "N/A", titulo);
 		printf("%s\n",titulo);
-		sleep(1);
+	/*	sleep(1);  */
 		mover_Cte_Lista_DEC(&(listaReproduccion.lista),LDEC_POS_SIG);
 		if(es_Primero_Lista_DEC(&(listaReproduccion.lista))){contador++;}}
 	return contador;
