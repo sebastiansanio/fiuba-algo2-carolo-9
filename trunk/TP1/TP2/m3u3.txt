@@ -1,0 +1,7 @@
+artista=abc
+album=def
+titulo=ghi
+genero=jkl
+autor=mno
+anio_edicion=2007
+tapa_album=pqr

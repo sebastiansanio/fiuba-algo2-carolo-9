@@ -1,0 +1,7 @@
+artista=asd
+album=fgh
+titulo=jkl
+genero=qwe
+autor=rty
+anio_edicion=2006
+tapa_album=hhh
