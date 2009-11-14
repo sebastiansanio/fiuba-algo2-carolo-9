@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1258232321 source:c:\users\svn\c\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Pantalla.h"
+
+1258232343 c:\users\svn\c\tp3\pantalla.h
+
+1258232212 source:c:\users\svn\c\tp3\pantalla.c
+
