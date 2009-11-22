@@ -93,9 +93,10 @@
 
 1256860551 c:\users\svn\c\tp1\tp2\diccionario.h
 
-1257977727 source:c:\users\svn\c\tp1\tp2\main.c
+1258902646 source:c:\users\svn\c\tp1\tp2\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"Lista de Reproduccion.h"
 
 1256860550 c:\users\svn\c\tp1\tp2\lista de reproduccion.h
@@ -119,7 +120,7 @@
 	<stdlib.h>
 	"Lista Doblemente Enlazada Circular.h"
 
-1258110632 source:c:\users\svn\c\tp1\tp2\lista de reproduccion.c
+1258902787 source:c:\users\svn\c\tp1\tp2\lista de reproduccion.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

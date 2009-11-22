@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>  /*libreria de la funci�n sleep. NOTA: Es UNIX no ANSI*/
+#include <unistd.h>  /*libreria de la funcion sleep. NOTA: Es UNIX no ANSI*/
 #include "Lista de Reproduccion.h"
 #define RES_FOPEN_FAILED 2
 #define RES_OUT_OF_MEM -2
@@ -46,7 +46,7 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 			}
 		}
 	}
-
+    mover_Cte_Lista_DEC(&listaReproduccion->lista,LDEC_POS_SIG);
 	Diccionario_Crear(&(listaReproduccion->dicc_alias),SIZE_CLAVE);/* Guarda las claves representadas por los ordenes validos. */
 	/*strcpy(orden,"");
 	strcpy(alias,"");

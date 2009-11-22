@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "Lista de Reproduccion.h"
 
 
@@ -55,9 +56,9 @@ int main(int argc,char*argv[])
             }
 			else
 			{
-			    printf("Ingrese cantidad de temas a reproducir");
+			    printf("Ingrese cantidad de temas a reproducir\n");
 			    scanf("%d",&cant_temas);
-			    printf("La lista recomenzo %d veces",reproducir_Lista_Reproduccion(Lista_Reproduccion,cant_temas));
+			    printf("La lista recomenzo %d veces\n",reproducir_Lista_Reproduccion(Lista_Reproduccion,cant_temas));
 			}
             break;
 		}
@@ -93,11 +94,26 @@ int main(int argc,char*argv[])
             }
 			else
 			{
+			    do
+			    {
 			    printf("Ingrese criterio de ordenamiento\n");
                 printf("\"ARTISTA\",\"ALBUM\",\"TITULO\",\"GENERO\",\"AUTOR\",\"ANIO_EDICION\",\"TAPA_ALBUM\",\"SHUFFLE\",\"INVERTIR\"\n");
                 scanf("%s",criterio_orden);
-                ordenar_Lista_Reproduccion(&Lista_Reproduccion,criterio_orden);
-                printf("Lista ordenada segun %s\n",criterio_orden);
+                    if (!strcmp(criterio_orden,"\"ARTISTA\"") || !strcmp(criterio_orden,"\"ALBUM\"") || !strcmp(criterio_orden,"\"TITULO\"")
+                    || !strcmp(criterio_orden,"\"AUTOR\"") || !strcmp(criterio_orden,"\"GENERO\"") ||
+                     !strcmp(criterio_orden,"\"ANIO_EDICION\"") || !strcmp(criterio_orden,"\"TAPA_ALBUM\"") ||
+                     !strcmp(criterio_orden,"\"SHUFFLE\"") || !strcmp(criterio_orden,"\"INVERTIR\""))
+                    {
+                        ordenar_Lista_Reproduccion(&Lista_Reproduccion,criterio_orden);
+                        printf("Lista ordenada segun %s\n",criterio_orden);
+                        break;
+                    }
+                    else
+                        printf("Criterio incorrecto \n \n");
+			    }
+                while (criterio_orden!="\"ARTISTA\"" || criterio_orden!="\"ALBUM\"" || criterio_orden!="\"TITULO\"" ||
+                criterio_orden!="\"GENERO\"" || criterio_orden!="\"AUTOR\"" || criterio_orden!="\"ANIO_EDICION\"" ||
+                criterio_orden!="\"TAPA_ALBUM\"" || criterio_orden!="\"SHUFFLE\"" || criterio_orden!="\"INVERTIR\"");
 			}
 			break;
 		}
@@ -121,6 +137,16 @@ int main(int argc,char*argv[])
 			}
 			break;
 		}
+		case 10:
+		{
+		    if (validaCreacion!=0)
+		    {
+				destruir_Lista_Reproduccion(&Lista_Reproduccion);
+				validaCreacion=0;
+			}
+		    break;
+		}
+		default: printf("Opcion incorrecta\n\n");
         } /* cierra el Switch*/
 	}while (op_menu_int!=10);
 	return 0;
