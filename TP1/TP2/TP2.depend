@@ -25,7 +25,7 @@
 	<stdlib.h>
 	"Lista Doblemente Enlazada Circular.h"
 
-1256671476 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp2\lista de reproduccion.c
+1258924276 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp2\lista de reproduccion.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -37,7 +37,7 @@
 	"propiedades.h"
 	"diccionario.h"
 
-1256669927 c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp2\lista doblemente enlazada circular.h
+1258904233 c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp2\lista doblemente enlazada circular.h
 
 1256415844 c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp2\propiedades.h
 	"diccionario.h"
@@ -50,18 +50,19 @@
 	<stdlib.h>
 	<string.h>
 
-1256671507 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp2\main.c
+1258924276 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp2\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"Lista de Reproduccion.h"
 
-1256669927 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp2\propiedades.c
+1258904233 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp2\propiedades.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"propiedades.h"
 
-1256669927 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp2\lista doblemente enlazada circular.c
+1258904233 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp1\tp2\lista doblemente enlazada circular.c
 	<stdio.h>
 	<stdlib.h>
 	"Lista Doblemente Enlazada Circular.h"

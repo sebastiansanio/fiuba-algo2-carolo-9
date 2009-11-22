@@ -119,46 +119,59 @@ int ordenar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* ord
 	f_destruir destructor = destruir_Propiedades;
 	f_clonar clonador = clonar_Propiedades;
 	char valor1[SIZE_VALOR], valor2[SIZE_VALOR], nombre_campo[SIZE_CLAVE];
-	int res_cmp;
+	int res_cmp,n,i;
 
 	LDEC_aux = (TLista_DEC *) malloc(sizeof(TLista_DEC));
 	if(!LDEC_aux){return RES_OUT_OF_MEM;}
 	crear_Lista_DEC(LDEC_aux, clonador, destructor);
-	mover_Cte_Lista_DEC(&listaReproduccion->lista,LDEC_POS_PRI);
+	mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_PRI);
+    if (orden=="INVERTIR"){
+            mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_ANT);
+            mover_Cte_Lista_DEC(LDEC_aux,LDEC_POS_PRI);
+            obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion1);
+            insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_PRI);
+            while(!es_Primero_Lista_DEC(&listaReproduccion->lista)){
+                mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_ANT);
+                obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion1);
+                insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_SIG);}
+            mover_Cte_Lista_DEC(LDEC_aux,LDEC_POS_PRI);}
+    else{
+        if(orden=="SHUFFLE"){}
+    }
+        else{
+            Diccionario_Obtener(listaReproduccion->dicc_alias, orden, nombre_campo);/* Obtengo en "nombre_campo" la clave para la propiedad.*/
+            /*
+            El siguiente codigo depende de que LDEC_aux tenga al menos una primera cancion.
+            Se copia a LDEC_aux la primera cancion de LDEC y si no hay una segunda cancion, LDEC ya estaba ordenada.
+            */
+            obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion1);
+            insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_PRI);
+            mover_Cte_Lista_DEC(&(listaReproduccion->lista), LDEC_POS_SIG);
+            if (es_Primero_Lista_DEC(&listaReproduccion->lista))return RES_OK;
 
-	Diccionario_Obtener(listaReproduccion->dicc_alias, orden, nombre_campo);/* Obtengo en "nombre_campo" la clave para la propiedad.*/
-	/*
-	El siguiente codigo depende de que LDEC_aux tenga al menos una primera cancion.
-	Se copia a LDEC_aux la primera cancion de LDEC y si no hay una segunda cancion, LDEC ya estaba ordenada.
-	*/
-	obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion1);
-	insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_PRI);
-	mover_Cte_Lista_DEC(&(listaReproduccion->lista), LDEC_POS_SIG);
-	if (es_Primero_Lista_DEC(&listaReproduccion->lista))return RES_OK;
-
-	do {
-		obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion1);
-		Propiedades_Obtener(*cancion1, nombre_campo, NULL, valor1);
-		while (!0){
-			obtener_Cte_Lista_DEC(*LDEC_aux, &cancion2);
-			Propiedades_Obtener(*cancion2, nombre_campo, NULL, valor2);
-			res_cmp=strcmp(valor1, valor2);
-			if (res_cmp<0){
-				insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_ANT);
-				break;
-			}
-			mover_Cte_Lista_DEC(LDEC_aux, LDEC_POS_SIG);
-			if (es_Primero_Lista_DEC(LDEC_aux)){
-				mover_Cte_Lista_DEC(LDEC_aux, LDEC_POS_ANT);
-				insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_SIG);
-				break;
-			}
-		}
-		mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_SIG);
-		mover_Cte_Lista_DEC(LDEC_aux,LDEC_POS_PRI);
-	} while (!es_Primero_Lista_DEC(&listaReproduccion->lista));
-
-	destruir_Lista_DEC(&(listaReproduccion->lista));
+            do {
+                obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion1);
+                Propiedades_Obtener(*cancion1, nombre_campo, NULL, valor1);
+                while (!0){
+                    obtener_Cte_Lista_DEC(*LDEC_aux, &cancion2);
+                    Propiedades_Obtener(*cancion2, nombre_campo, NULL, valor2);
+                    res_cmp=strcmp(valor1, valor2);
+                    if (res_cmp<0){
+                        insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_ANT);
+                        break;
+                    }
+                    mover_Cte_Lista_DEC(LDEC_aux, LDEC_POS_SIG);
+                    if (es_Primero_Lista_DEC(LDEC_aux)){
+                        mover_Cte_Lista_DEC(LDEC_aux, LDEC_POS_ANT);
+                        insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_SIG);
+                        break;
+                    }
+                }
+                mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_SIG);
+                mover_Cte_Lista_DEC(LDEC_aux,LDEC_POS_PRI);
+            } while (!es_Primero_Lista_DEC(&listaReproduccion->lista));}
+        }
+    destruir_Lista_DEC(&(listaReproduccion->lista));
 	listaReproduccion->lista=*LDEC_aux;
 
 return RES_OK;
@@ -204,7 +217,6 @@ void* clonar_Propiedades(void* propiedades){
 	int i,cant;
 	TPropiedades *prop_clon = (TPropiedades*) malloc(sizeof(TPropiedades));
 	TPropiedades *prop_orig = (TPropiedades*)propiedades;
-
 	if (!prop_clon){return NULL;}
 	for (i=0; i<9; i++){
 		nombres[i] = malloc(SIZE_CLAVE * sizeof(char));
