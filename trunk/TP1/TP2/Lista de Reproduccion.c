@@ -77,7 +77,7 @@ int reproducir_Lista_Reproduccion(TLista_Reproduccion listaReproduccion, int can
 	contador=0;
 	Diccionario_Obtener(listaReproduccion.dicc_alias,"TITULO",clave_del_alias);
 	for (i=0;i<cantidad;i++){
-		obtener_Cte_Lista_DEC(listaReproduccion.lista,&cancion);
+		obtener_Cte_Lista_DEC(listaReproduccion.lista,(void**)&cancion);
 		Propiedades_Obtener(*cancion, clave_del_alias, "N/A", titulo);
 		printf("%s\n",titulo);
 	/*	sleep(1);  */
@@ -93,7 +93,7 @@ int adelantar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion)
 
 	Diccionario_Obtener(listaReproduccion->dicc_alias,"TITULO",clave_del_alias);
 	if(mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_SIG)){return 1;}
-	obtener_Cte_Lista_DEC(listaReproduccion->lista,&cancion);
+	obtener_Cte_Lista_DEC(listaReproduccion->lista,(void**)&cancion);
 	Propiedades_Obtener(*cancion, clave_del_alias, "N/A", titulo);
 	printf("%s\n",titulo);
 	return 0;
@@ -106,7 +106,7 @@ int retroceder_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion)
 
 	Diccionario_Obtener(listaReproduccion->dicc_alias,"TITULO",clave_del_alias);
 	if(mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_ANT)){return 1;}
-	obtener_Cte_Lista_DEC(listaReproduccion->lista,&cancion);
+	obtener_Cte_Lista_DEC(listaReproduccion->lista,(void**)&cancion);
 	Propiedades_Obtener(*cancion, clave_del_alias, "N/A", titulo);
 	printf("%s\n",titulo);
 	return 0;
@@ -119,41 +119,46 @@ int ordenar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* ord
 	f_destruir destructor = destruir_Propiedades;
 	f_clonar clonador = clonar_Propiedades;
 	char valor1[SIZE_VALOR], valor2[SIZE_VALOR], nombre_campo[SIZE_CLAVE];
-	int res_cmp,n,i;
+	int res_cmp;
 
 	LDEC_aux = (TLista_DEC *) malloc(sizeof(TLista_DEC));
 	if(!LDEC_aux){return RES_OUT_OF_MEM;}
 	crear_Lista_DEC(LDEC_aux, clonador, destructor);
 	mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_PRI);
-    if (orden=="INVERTIR"){
+    if (!strcmp(orden,"INVERTIR")){
             mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_ANT);
-            mover_Cte_Lista_DEC(LDEC_aux,LDEC_POS_PRI);
-            obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion1);
+            obtener_Cte_Lista_DEC(listaReproduccion->lista,(void**)&cancion1);
             insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_PRI);
             while(!es_Primero_Lista_DEC(&listaReproduccion->lista)){
-                mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_ANT);
-                obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion1);
-                insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_SIG);}
-            mover_Cte_Lista_DEC(LDEC_aux,LDEC_POS_PRI);}
-    else{
-        if(orden=="SHUFFLE"){}
-    }
-        else{
+            	mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_ANT);
+                obtener_Cte_Lista_DEC(listaReproduccion->lista,(void**)&cancion1);
+                insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_SIG);
+            }
+            mover_Cte_Lista_DEC(LDEC_aux,LDEC_POS_PRI);
+    }else if(!strcmp(orden,"SHUFFLE")){
+    	do {
+    		int i = rand() / (int)(RAND_MAX / 30);
+			obtener_Cte_Lista_DEC(listaReproduccion->lista,(void**)&cancion1);
+			for (;i>0;i--){mover_Cte_Lista_DEC(LDEC_aux, LDEC_POS_SIG);}
+			insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_ANT);
+			mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_SIG);
+		} while (!es_Primero_Lista_DEC(&listaReproduccion->lista));
+    }else{
             Diccionario_Obtener(listaReproduccion->dicc_alias, orden, nombre_campo);/* Obtengo en "nombre_campo" la clave para la propiedad.*/
             /*
             El siguiente codigo depende de que LDEC_aux tenga al menos una primera cancion.
             Se copia a LDEC_aux la primera cancion de LDEC y si no hay una segunda cancion, LDEC ya estaba ordenada.
             */
-            obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion1);
+            obtener_Cte_Lista_DEC(listaReproduccion->lista,(void**)&cancion1);
             insertar_En_Lista_DEC(LDEC_aux, cancion1, LDEC_POS_PRI);
             mover_Cte_Lista_DEC(&(listaReproduccion->lista), LDEC_POS_SIG);
             if (es_Primero_Lista_DEC(&listaReproduccion->lista))return RES_OK;
 
             do {
-                obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion1);
+                obtener_Cte_Lista_DEC(listaReproduccion->lista,(void**)&cancion1);
                 Propiedades_Obtener(*cancion1, nombre_campo, NULL, valor1);
                 while (!0){
-                    obtener_Cte_Lista_DEC(*LDEC_aux, &cancion2);
+                    obtener_Cte_Lista_DEC(*LDEC_aux,(void**)&cancion2);
                     Propiedades_Obtener(*cancion2, nombre_campo, NULL, valor2);
                     res_cmp=strcmp(valor1, valor2);
                     if (res_cmp<0){
@@ -169,7 +174,7 @@ int ordenar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* ord
                 }
                 mover_Cte_Lista_DEC(&(listaReproduccion->lista),LDEC_POS_SIG);
                 mover_Cte_Lista_DEC(LDEC_aux,LDEC_POS_PRI);
-            } while (!es_Primero_Lista_DEC(&listaReproduccion->lista));}
+            } while (!es_Primero_Lista_DEC(&listaReproduccion->lista));
         }
     destruir_Lista_DEC(&(listaReproduccion->lista));
 	listaReproduccion->lista=*LDEC_aux;
@@ -189,7 +194,7 @@ int guardar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nom
 	if (!nuevo_m3u){return RES_COULD_NOT_CREATE_FILE;}
 	/* Aca hay que escribir en el archivo las rutas a las propiedades y las canciones en el orden actual. */
 	mover_Cte_Lista_DEC(&listaReproduccion->lista, LDEC_POS_PRI);
-	obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion);
+	obtener_Cte_Lista_DEC(listaReproduccion->lista,(void**)&cancion);
 	do{
 		Propiedades_Obtener(*cancion, "rutaProp", "N/A", rutaProp);
 		Propiedades_Obtener(*cancion, "rutaCancion", "N/A", rutaCancion);
@@ -199,7 +204,7 @@ int guardar_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nom
 		fputs(rutaCancion,nuevo_m3u);
 		fputs("\n",nuevo_m3u);
 		mover_Cte_Lista_DEC(&listaReproduccion->lista, LDEC_POS_SIG);
-		obtener_Cte_Lista_DEC(listaReproduccion->lista, &cancion);
+		obtener_Cte_Lista_DEC(listaReproduccion->lista,(void**)&cancion);
 	} while (!es_Primero_Lista_DEC(&listaReproduccion->lista));
 	fclose(nuevo_m3u);
 return 0;
