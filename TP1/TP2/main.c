@@ -99,10 +99,10 @@ int main(int argc,char*argv[])
 			    printf("Ingrese criterio de ordenamiento\n");
                 printf("\"ARTISTA\",\"ALBUM\",\"TITULO\",\"GENERO\",\"AUTOR\",\"ANIO_EDICION\",\"TAPA_ALBUM\",\"SHUFFLE\",\"INVERTIR\"\n");
                 scanf("%s",criterio_orden);
-                    if (!strcmp(criterio_orden,"\"ARTISTA\"") || !strcmp(criterio_orden,"\"ALBUM\"") || !strcmp(criterio_orden,"\"TITULO\"")
-                    || !strcmp(criterio_orden,"\"AUTOR\"") || !strcmp(criterio_orden,"\"GENERO\"") ||
-                     !strcmp(criterio_orden,"\"ANIO_EDICION\"") || !strcmp(criterio_orden,"\"TAPA_ALBUM\"") ||
-                     !strcmp(criterio_orden,"\"SHUFFLE\"") || !strcmp(criterio_orden,"\"INVERTIR\""))
+                    if (!strcmp(criterio_orden,"ARTISTA") || !strcmp(criterio_orden,"ALBUM") || !strcmp(criterio_orden,"TITULO")
+                    || !strcmp(criterio_orden,"AUTOR") || !strcmp(criterio_orden,"GENERO") ||
+                     !strcmp(criterio_orden,"ANIO_EDICION") || !strcmp(criterio_orden,"TAPA_ALBUM") ||
+                     !strcmp(criterio_orden,"SHUFFLE") || !strcmp(criterio_orden,"INVERTIR"))
                     {
                         ordenar_Lista_Reproduccion(&Lista_Reproduccion,criterio_orden);
                         printf("Lista ordenada segun %s\n",criterio_orden);
@@ -111,9 +111,7 @@ int main(int argc,char*argv[])
                     else
                         printf("Criterio incorrecto \n \n");
 			    }
-                while (criterio_orden!="\"ARTISTA\"" || criterio_orden!="\"ALBUM\"" || criterio_orden!="\"TITULO\"" ||
-                criterio_orden!="\"GENERO\"" || criterio_orden!="\"AUTOR\"" || criterio_orden!="\"ANIO_EDICION\"" ||
-                criterio_orden!="\"TAPA_ALBUM\"" || criterio_orden!="\"SHUFFLE\"" || criterio_orden!="\"INVERTIR\"");
+                while (!0);
 			}
 			break;
 		}
