@@ -25,14 +25,20 @@ int crear_Lista_Reproduccion(TLista_Reproduccion* listaReproduccion, char* nomAr
 	crear_Lista_DEC(&listaReproduccion->lista, clonador, destructor);
 
 	while (!feof(arch_m3u)){
-		char linea[255],rutaProp[255];
+		char linea[256],rutaProp[256],ruta_rel[256];
 		TPropiedades propiedad;
 		Propiedades_Crear(&propiedad);
 
 		fscanf(arch_m3u, "%[^\n]\n", linea);
-		if(!sscanf(linea,"#%[^#\n]", rutaProp)){
-			rutaProp[0]='\0';
+		if(!sscanf(linea, "#%[^#\n]", ruta_rel)){
+			ruta_rel[0]='\0';
 		}else{
+			int len = strlen(nomArch), j;
+			for (j=len;j>0;j--){
+				if (nomArch[j]=='\\' || nomArch[j]=='/'){j++; break;}
+			}
+			nomArch[j]='\0';
+			sprintf(rutaProp, "%s%s", nomArch, ruta_rel);
 			if(!Propiedades_Cargar(&propiedad, rutaProp)){
 				/* se cargo la propiedad y agrego la ruta a los archivos*/
 				int i;
