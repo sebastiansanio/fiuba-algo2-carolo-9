@@ -94,7 +94,7 @@
 
 1256860551 c:\users\svn\c\tp1\tp2\diccionario.h
 
-1258902646 source:c:\users\svn\c\tp1\tp2\main.c
+1259025131 source:c:\users\svn\c\tp1\tp2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -121,7 +121,7 @@
 	<stdlib.h>
 	"Lista Doblemente Enlazada Circular.h"
 
-1258902787 source:c:\users\svn\c\tp1\tp2\lista de reproduccion.c
+1259025199 source:c:\users\svn\c\tp1\tp2\lista de reproduccion.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
