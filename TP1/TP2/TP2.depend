@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1255729578 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp2\main.c
+1257999250 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp2\main.c
 	<stdio.h>
 	<stdlib.h>
+	"Lista de Reproduccion.h"
 
 1256860551 source:c:\users\sebastián\documents\c\tp1\tp2\main.c
 	<stdio.h>
@@ -127,4 +128,40 @@
 	<string.h>
 	<unistd.h>
 	"Lista de Reproduccion.h"
+
+1256768307 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp2\diccionario.c
+	"diccionario.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1256768307 c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp2\diccionario.h
+
+1258503505 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp2\lista de reproduccion.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	"Lista de Reproduccion.h"
+
+1256768307 c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp2\lista de reproduccion.h
+	"Lista Doblemente Enlazada Circular.h"
+	"propiedades.h"
+	"diccionario.h"
+
+1257999250 c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp2\lista doblemente enlazada circular.h
+
+1256522461 c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp2\propiedades.h
+	"diccionario.h"
+
+1257999250 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp2\propiedades.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"propiedades.h"
+
+1257999250 source:c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp2\lista doblemente enlazada circular.c
+	<stdio.h>
+	<stdlib.h>
+	"Lista Doblemente Enlazada Circular.h"
 
