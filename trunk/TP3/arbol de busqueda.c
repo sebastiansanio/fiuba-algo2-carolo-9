@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#define ABB_NO_MEM -1
+#define RES_ELEM_EXISTE -2
+#define RES_OK 0
 
 
 TNodoAB_BUSQ* AB_Busq_Rec(TAB_BUSQ*a,void* elem)
@@ -72,12 +75,12 @@ TNodoAB_BUSQ* AB_Busq_Buscar(TAB_BUSQ*a,void*elem)
     return(AB_Busq_Rec(a,elem));
 }
 
-int AB_Busq_Insertar(TAB_BUSQ*a,void*elem)
+int AB_Busq_Insertar(TAB_BUSQ* a,void*elem)
 {
     TNodoAB_BUSQ* nodo;
     TNodoAB_BUSQ* nodoaux;
     a->cte=a->raiz;
-    nodo=(TNodo_AB_BUSQ*)malloc(sizeof(TNodo_AB_BUSQ);
+    nodo=(TNodoAB_BUSQ*)malloc(sizeof(TNodoAB_BUSQ));
     if (!nodo)
         return ABB_NO_MEM;
     else
@@ -88,25 +91,36 @@ int AB_Busq_Insertar(TAB_BUSQ*a,void*elem)
             return ABB_NO_MEM;
         }
         else
-            memcpy(nodo->elem,elem,tamdato);
+            memcpy(nodo->elem,elem,a->tamdato);
     if (!a->cte)
         {
             a->cte=a->raiz=nodo;
             return RES_OK;
         }
     else
-
-        if(!AB_Busq_Rec_Ins(a,elem))
         {
-            free(nodo->elem);
-            free(nodo);
-            return RES_ELEM_EXISTE;
-        }
+            nodoaux=(AB_Busq_Rec_Ins(a,elem));
+            if (!nodoaux)
+            {
+                free(nodo->elem);
+                free(nodo);
+                return RES_ELEM_EXISTE;
+            }
             else
-
-
-
-
-
-
+                if (comparar(nodoaux->elem,elem)==-1)
+                    nodoaux->der=nodo;
+                else
+                    nodoaux->izq=nodo;
+        }
+    return RES_OK;
 }
+
+
+
+
+
+
+
+
+
+
