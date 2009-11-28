@@ -5,6 +5,7 @@
 #define ABB_NO_MEM -1
 #define RES_ELEM_EXISTE -2
 #define RES_OK 0
+#define ELEM_NO_ENCONTRADO -1
 
 
 TNodoAB_BUSQ* AB_Busq_Rec(TAB_BUSQ*a,void* elem)
@@ -69,10 +70,18 @@ void AB_Busq_Crear(TAB_BUSQ*a,int tamdato)
 }
 
 
-TNodoAB_BUSQ* AB_Busq_Buscar(TAB_BUSQ*a,void*elem)
+int AB_Busq_Buscar(TAB_BUSQ*a,void*elem_a_comparar,void*elem_devuelto)
 {
+    TNodoAB_BUSQ* nodoaux;
     a->cte=a->raiz;
-    return(AB_Busq_Rec(a,elem));
+    nodoaux=(AB_Busq_Rec(a,elem_a_comparar));
+    if (!nodoaux)
+        return ELEM_NO_ENCONTRADO;
+    else
+    {
+        elem_devuelto=nodoaux->elem;
+        return RES_OK;
+    }
 }
 
 int AB_Busq_Insertar(TAB_BUSQ* a,void*elem)
