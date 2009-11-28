@@ -19,6 +19,6 @@ void AB_Busq_Crear(TAB_BUSQ*a,int tamdato);
 
 TNodoAB_BUSQ* AB_Busq_Buscar(TAB_BUSQ*a,void*elem);
 
-void AB_Busq_Insertar(TAB_BUSQ*a,void*elem);
+int AB_Busq_Insertar(TAB_BUSQ*a,void*elem);
 
 #endif

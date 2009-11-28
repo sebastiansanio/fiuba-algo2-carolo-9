@@ -22,3 +22,26 @@
 1258252153 c:\users\antonio\facultad\algoritmos ii\trabajos prácticos (svn)\tp3\arbol.h
 	<stdlib.h>
 
+1257977726 source:c:\users\svn\c\tp3\lista doblemente enlazada circular.c
+	<stdio.h>
+	<stdlib.h>
+	"Lista Doblemente Enlazada Circular.h"
+
+1257977726 c:\users\svn\c\tp3\lista doblemente enlazada circular.h
+
+1258232212 source:c:\users\svn\c\tp3\pantalla.c
+
+1258232321 source:c:\users\svn\c\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Pantalla.h"
+
+1258232343 c:\users\svn\c\tp3\pantalla.h
+
+1258242443 source:c:\users\svn\c\tp3\arbol.c
+	"Arbol.h"
+	<memory.h>
+
+1258242476 c:\users\svn\c\tp3\arbol.h
+	<stdlib.h>
+
