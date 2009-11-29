@@ -24,4 +24,6 @@ int AB_Busq_Insertar(TAB_BUSQ*a,void*elem);
 
 void AB_Busq_Destruir(TAB_BUSQ*a);
 
+
+
 #endif

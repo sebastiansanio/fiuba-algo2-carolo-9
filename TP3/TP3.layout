@@ -2,16 +2,16 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="Arbol.c" open="1" top="0" tabpos="7">
-		<Cursor position="1450" topLine="63" />
+		<Cursor position="41" topLine="0" />
 	</File>
 	<File name="Arbol.h" open="1" top="0" tabpos="6">
-		<Cursor position="0" topLine="6" />
+		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="Lista Doblemente Enlazada Circular.c" open="1" top="0" tabpos="5">
-		<Cursor position="668" topLine="20" />
+		<Cursor position="668" topLine="0" />
 	</File>
 	<File name="Lista Doblemente Enlazada Circular.h" open="1" top="0" tabpos="4">
-		<Cursor position="0" topLine="29" />
+		<Cursor position="920" topLine="27" />
 	</File>
 	<File name="Pantalla.c" open="1" top="0" tabpos="3">
 		<Cursor position="0" topLine="0" />
@@ -19,13 +19,13 @@
 	<File name="Pantalla.h" open="1" top="0" tabpos="2">
 		<Cursor position="70" topLine="0" />
 	</File>
-	<File name="arbol de busqueda.c" open="1" top="1" tabpos="10">
-		<Cursor position="3585" topLine="122" />
+	<File name="arbol de busqueda.c" open="1" top="1" tabpos="9">
+		<Cursor position="3585" topLine="129" />
 	</File>
 	<File name="arbol de busqueda.h" open="1" top="0" tabpos="8">
-		<Cursor position="561" topLine="0" />
+		<Cursor position="565" topLine="0" />
 	</File>
 	<File name="main.c" open="1" top="0" tabpos="1">
-		<Cursor position="51" topLine="0" />
+		<Cursor position="99" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
