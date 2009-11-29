@@ -1,5 +1,6 @@
 #include "Arbol.h"
 #include <memory.h>
+
 void AB_Crear(TAB *a,int tdato)
 {
     a->tamdato = tdato;
