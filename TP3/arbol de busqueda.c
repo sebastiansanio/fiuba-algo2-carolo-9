@@ -10,10 +10,10 @@
 
 TNodoAB_BUSQ* AB_Busq_Rec(TAB_BUSQ*a,void* elem)
 {
-    if (!comparar(elem,a->cte->elem))
+    if (!a->comparar(elem,a->cte->elem))
         return (a->cte);
     else
-        if (comparar(elem,a->cte->elem)<0)
+        if (a->comparar(elem,a->cte->elem)<0)
             {
                 if(a->cte->izq)
                 {
@@ -37,10 +37,10 @@ TNodoAB_BUSQ* AB_Busq_Rec(TAB_BUSQ*a,void* elem)
 
 TNodoAB_BUSQ* AB_Busq_Rec_Ins(TAB_BUSQ*a,void* elem)
 {
-    if (!comparar(elem,a->cte->elem))
+    if (!a->comparar(elem,a->cte->elem))
         return NULL;
     else
-        if (comparar(elem,a->cte->elem)<0)
+        if (a->comparar(elem,a->cte->elem)<0)
             {
                 if(a->cte->izq)
                 {
@@ -62,7 +62,7 @@ TNodoAB_BUSQ* AB_Busq_Rec_Ins(TAB_BUSQ*a,void* elem)
             }
 }
 
-void AB_Busq_Crear(TAB_BUSQ*a,int tamdato)
+void AB_Busq_Crear(TAB_BUSQ*a,int tamdato,f_comparar comparar)
 {
     a->tamdato=tamdato;
     a->raiz=NULL;
@@ -116,13 +116,42 @@ int AB_Busq_Insertar(TAB_BUSQ* a,void*elem)
                 return RES_ELEM_EXISTE;
             }
             else
-                if (comparar(nodoaux->elem,elem)==-1)
+                if (a->comparar(nodoaux->elem,elem)==-1)
                     nodoaux->der=nodo;
                 else
                     nodoaux->izq=nodo;
         }
     return RES_OK;
 }
+
+void AB_Busq_Rec_Destruir(TNodoAB_BUSQ *pnodo)
+{
+    if (pnodo != NULL)
+    {
+        if ((pnodo->izq == NULL) && (pnodo->der == NULL))
+        {
+            free(pnodo->elem);
+            free(pnodo);
+        }
+        else
+        {
+            AB_Busq_Rec_Destruir(pnodo->izq);
+            AB_Busq_Rec_Destruir(pnodo->der);
+            free(pnodo->elem);
+            free(pnodo);
+        }
+    }
+}
+
+void AB_Busq_Destruir(TAB_BUSQ*a)
+{
+    AB_Busq_Rec_Destruir(a->raiz);
+    a->raiz = NULL;
+    a->cte = NULL;
+    a->comparar = NULL;
+    a->tamdato = 0;
+}
+
 
 
 
