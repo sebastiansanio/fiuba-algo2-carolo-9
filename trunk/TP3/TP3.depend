@@ -31,25 +31,31 @@
 
 1258232212 source:c:\users\svn\c\tp3\pantalla.c
 
-1258232321 source:c:\users\svn\c\tp3\main.c
+1259547010 source:c:\users\svn\c\tp3\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Pantalla.h"
+	"agenda.h"
 
 1258232343 c:\users\svn\c\tp3\pantalla.h
 
-1258242443 source:c:\users\svn\c\tp3\arbol.c
+1259455715 source:c:\users\svn\c\tp3\arbol.c
 	"Arbol.h"
 	<memory.h>
 
 1258242476 c:\users\svn\c\tp3\arbol.h
 	<stdlib.h>
 
-1259452418 source:c:\users\svn\c\tp3\arbol de busqueda.c
+1259547047 source:c:\users\svn\c\tp3\arbol de busqueda.c
 	"arbol de busqueda.h"
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 
-1259453046 c:\users\svn\c\tp3\arbol de busqueda.h
+1259455713 c:\users\svn\c\tp3\arbol de busqueda.h
+
+1259547029 source:c:\users\svn\c\tp3\agenda.c
+	"agenda.h"
+
+1259547010 c:\users\svn\c\tp3\agenda.h
 

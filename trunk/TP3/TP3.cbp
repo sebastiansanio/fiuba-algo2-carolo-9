@@ -43,6 +43,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Pantalla.h" />
+		<Unit filename="agenda.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="agenda.h" />
 		<Unit filename="arbol de busqueda.c">
 			<Option compilerVar="CC" />
 		</Unit>
