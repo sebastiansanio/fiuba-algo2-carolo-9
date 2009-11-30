@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="Arbol.c" open="1" top="0" tabpos="7">
+	<File name="Arbol.c" open="1" top="0" tabpos="6">
 		<Cursor position="41" topLine="0" />
 	</File>
-	<File name="Arbol.h" open="1" top="0" tabpos="6">
+	<File name="Arbol.h" open="1" top="0" tabpos="7">
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="Lista Doblemente Enlazada Circular.c" open="1" top="0" tabpos="5">
@@ -19,13 +19,13 @@
 	<File name="Pantalla.h" open="1" top="0" tabpos="2">
 		<Cursor position="70" topLine="0" />
 	</File>
-	<File name="arbol de busqueda.c" open="1" top="1" tabpos="9">
-		<Cursor position="3585" topLine="129" />
+	<File name="arbol de busqueda.c" open="1" top="0" tabpos="9">
+		<Cursor position="3613" topLine="131" />
 	</File>
 	<File name="arbol de busqueda.h" open="1" top="0" tabpos="8">
 		<Cursor position="565" topLine="0" />
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="1">
-		<Cursor position="99" topLine="0" />
+	<File name="main.c" open="1" top="1" tabpos="1">
+		<Cursor position="83" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
