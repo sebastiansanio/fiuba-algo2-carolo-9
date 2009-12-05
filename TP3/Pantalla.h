@@ -1,7 +1,7 @@
 #ifndef PANTALLA_H_INCLUDED
 #define PANTALLA_H_INCLUDED
 #include "ListaSimple.h"
-#include "ABO.h"
+#include "Arbol.h"
 #define TPAN_ERR -1
 #define TPAN_OK 0
 #define TPAN_NO_HAY_ELEM 1

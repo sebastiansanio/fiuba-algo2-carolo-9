@@ -37,7 +37,9 @@
 	"Pantalla.h"
 	"agenda.h"
 
-1258232343 c:\users\svn\c\tp3\pantalla.h
+1260047150 c:\users\svn\c\tp3\pantalla.h
+	"ListaSimple.h"
+	"Arbol.h"
 
 1259455715 source:c:\users\svn\c\tp3\arbol.c
 	"Arbol.h"
@@ -52,10 +54,13 @@
 	<string.h>
 	<stdlib.h>
 
-1259455713 c:\users\svn\c\tp3\arbol de busqueda.h
+1260047100 c:\users\svn\c\tp3\arbol de busqueda.h
 
 1259547029 source:c:\users\svn\c\tp3\agenda.c
 	"agenda.h"
 
-1259547010 c:\users\svn\c\tp3\agenda.h
+1260047918 c:\users\svn\c\tp3\agenda.h
+	"arbol de busqueda.h"
+
+1259884303 c:\users\svn\c\tp3\listasimple.h
 

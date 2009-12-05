@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="Arbol.c" open="1" top="0" tabpos="6">
+	<File name="Arbol.c" open="1" top="0" tabpos="5">
 		<Cursor position="41" topLine="0" />
 	</File>
-	<File name="Arbol.h" open="1" top="0" tabpos="7">
+	<File name="Arbol.h" open="1" top="0" tabpos="6">
 		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="Lista Doblemente Enlazada Circular.c" open="1" top="0" tabpos="5">
+	<File name="Lista Doblemente Enlazada Circular.c" open="1" top="0" tabpos="4">
 		<Cursor position="668" topLine="0" />
 	</File>
-	<File name="Lista Doblemente Enlazada Circular.h" open="1" top="0" tabpos="4">
+	<File name="Lista Doblemente Enlazada Circular.h" open="1" top="0" tabpos="3">
 		<Cursor position="920" topLine="27" />
 	</File>
-	<File name="Pantalla.c" open="1" top="0" tabpos="3">
-		<Cursor position="0" topLine="0" />
+	<File name="Pantalla.c" open="1" top="0" tabpos="2">
+		<Cursor position="404" topLine="0" />
 	</File>
-	<File name="Pantalla.h" open="1" top="0" tabpos="2">
-		<Cursor position="70" topLine="0" />
+	<File name="Pantalla.h" open="1" top="0" tabpos="11">
+		<Cursor position="239" topLine="0" />
 	</File>
-	<File name="arbol de busqueda.c" open="1" top="0" tabpos="9">
-		<Cursor position="3613" topLine="131" />
+	<File name="agenda.c" open="1" top="0" tabpos="10">
+		<Cursor position="337" topLine="6" />
 	</File>
-	<File name="arbol de busqueda.h" open="1" top="0" tabpos="8">
-		<Cursor position="565" topLine="0" />
+	<File name="agenda.h" open="1" top="1" tabpos="9">
+		<Cursor position="487" topLine="0" />
 	</File>
-	<File name="main.c" open="1" top="1" tabpos="1">
+	<File name="arbol de busqueda.c" open="1" top="0" tabpos="8">
+		<Cursor position="3656" topLine="70" />
+	</File>
+	<File name="arbol de busqueda.h" open="1" top="0" tabpos="7">
+		<Cursor position="401" topLine="0" />
+	</File>
+	<File name="main.c" open="1" top="0" tabpos="1">
 		<Cursor position="83" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

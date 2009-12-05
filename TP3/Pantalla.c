@@ -1,4 +1,37 @@
 #include "Pantalla.h"
+#include "memory.h"
+
+int P_Insertar_Div(TPantalla* P, TListaSimple* divisiones, TPunto a, TPunto b, int mov){
+	TDivision div;
+	TElemPantalla elemP;
+	int i, err;
+	elemP.elem = NULL;
+
+	ls_MoverCorriente(divisiones, LS_PRIMERO);
+	do{
+		ls_ElemCorriente(divisiones, &div);
+		if ((div.inicio.x == a.x && div.fin.x == b.x)||(div.inicio.y == a.y && div.fin.y == b.y)){
+			memcpy(elemP.div, div, sizeof(TDivision));
+			AB_Insertar(&P->AB, mov, &elem, &err);
+			if (err){return TPAN_ERR;}
+
+			err = P_Insertar_Div(pantalla, divisiones, a, div.fin, IZQ);
+			if (err){return TPAN_ERR;}
+			AB_MoverCte(&P->AB, PAD, &err);
+			err = P_Insertar_Div(pantalla, divisiones, div.inicio, DER);
+			if (err){return TPAN_ERR;}
+			AB_MoverCte(&P->AB, PAD, &err);
+
+			return TPAN_OK;
+		}
+		i = ls_MoverCorriente(divisiones, LS_SIGUIENTE);
+	} while(i!=FALSE);
+
+	AB_Insertar(&P->AB, mov, &elem, &err);/*HOJA*/
+	if (err){return TPAN_ERR;}
+	return TPAN_OK;
+}
+
 
 int Pantalla_Crear(TPantalla* pantalla, TListaSimple* divisiones, int tamdato){
 	int i;
@@ -80,33 +113,3 @@ TElemPantalla* Obtener_Sector(TPantalla* P, TPunto punto, int mov){
 	return Obtener_Sector(P, punto, IZQ);
 }
 
-int P_Insertar_Div(TPantalla* P, TListaSimple* divisiones, TPunto a, TPunto b, int mov){
-	TDivision div;
-	TElemPantalla elemP;
-	int i, err;
-	elemP.elem = NULL;
-
-	ls_MoverCorriente(divisiones, LS_PRIMERO);
-	do{
-		ls_ElemCorriente(divisiones, &div);
-		if ((div.inicio.x == a.x && div.fin.x == b.x)||(div.inicio.y == a.y && div.fin.y == b.y)){
-			memcpy(elemP.div, div, sizeof(TDivision));
-			AB_Insertar(&P->AB, mov, &elem, &err);
-			if (err){return TPAN_ERR;}
-
-			err = P_Insertar_Div(pantalla, divisiones, a, div.fin, IZQ);
-			if (err){return TPAN_ERR;}
-			AB_MoverCte(&P->AB, PAD, &err);
-			err = P_Insertar_Div(pantalla, divisiones, div.inicio, DER);
-			if (err){return TPAN_ERR;}
-			AB_MoverCte(&P->AB, PAD, &err);
-
-			return TPAN_OK;
-		}
-		i = ls_MoverCorriente(divisiones, LS_SIGUIENTE);
-	} while(i!=FALSE);
-
-	AB_Insertar(&P->AB, mov, &elem, &err);/*HOJA*/
-	if (err){return TPAN_ERR;}
-	return TPAN_OK;
-}
