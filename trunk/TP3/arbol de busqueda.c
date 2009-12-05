@@ -153,6 +153,7 @@ void AB_Busq_Destruir(TAB_BUSQ*a)
 }
 
 
+int AB_Busq_Borrar(TAB_BUSQ*a,void*elem);
 
 
 
