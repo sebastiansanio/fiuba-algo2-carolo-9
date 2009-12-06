@@ -45,7 +45,7 @@ TNodoAB_BUSQ* AB_Busq_Rec_Ins(TAB_BUSQ*a,void* elem)
                 if(a->cte->izq)
                 {
                     a->cte=a->cte->izq;
-                    return(AB_Busq_Rec(a,elem));
+                    return(AB_Busq_Rec_Ins(a,elem));
                 }
                 else
                     return a->cte;
@@ -55,7 +55,7 @@ TNodoAB_BUSQ* AB_Busq_Rec_Ins(TAB_BUSQ*a,void* elem)
                 if(a->cte->der)
                 {
                     a->cte=a->cte->der;
-                    return(AB_Busq_Rec(a,elem));
+                    return(AB_Busq_Rec_Ins(a,elem));
                 }
                 else
                     return a->cte;
@@ -67,6 +67,7 @@ void AB_Busq_Crear(TAB_BUSQ*a,int tamdato,f_comparar comparar)
     a->tamdato=tamdato;
     a->raiz=NULL;
     a->cte=NULL;
+    a->comparar=comparar;
 }
 
 
@@ -79,7 +80,7 @@ int AB_Busq_Buscar(TAB_BUSQ*a,void*elem_a_comparar,void*elem_devuelto)
         return ELEM_NO_ENCONTRADO;
     else
     {
-        elem_devuelto=nodoaux->elem;
+        memcpy(elem_devuelto,nodoaux->elem,a->tamdato);
         return RES_OK;
     }
 }
@@ -94,6 +95,8 @@ int AB_Busq_Insertar(TAB_BUSQ* a,void*elem)
         return ABB_NO_MEM;
     else
         nodo->elem=malloc(a->tamdato);
+        nodo->izq=NULL;
+        nodo->der=NULL;
         if(!nodo->elem)
         {
             free(nodo);
@@ -101,7 +104,7 @@ int AB_Busq_Insertar(TAB_BUSQ* a,void*elem)
         }
         else
             memcpy(nodo->elem,elem,a->tamdato);
-    if (!a->cte)
+    if (!a->raiz)
         {
             a->cte=a->raiz=nodo;
             return RES_OK;
