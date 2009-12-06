@@ -48,19 +48,20 @@
 1258242476 c:\users\svn\c\tp3\arbol.h
 	<stdlib.h>
 
-1259547047 source:c:\users\svn\c\tp3\arbol de busqueda.c
+1260112728 source:c:\users\svn\c\tp3\arbol de busqueda.c
 	"arbol de busqueda.h"
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 
-1260047100 c:\users\svn\c\tp3\arbol de busqueda.h
+1260066828 c:\users\svn\c\tp3\arbol de busqueda.h
 
-1259547029 source:c:\users\svn\c\tp3\agenda.c
+1260068888 source:c:\users\svn\c\tp3\agenda.c
 	"agenda.h"
 
-1260047918 c:\users\svn\c\tp3\agenda.h
+1260068835 c:\users\svn\c\tp3\agenda.h
 	"arbol de busqueda.h"
+	<string.h>
 
 1259884303 c:\users\svn\c\tp3\listasimple.h
 
