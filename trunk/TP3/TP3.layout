@@ -20,12 +20,12 @@
 		<Cursor position="239" topLine="0" />
 	</File>
 	<File name="agenda.c" open="1" top="0" tabpos="10">
-		<Cursor position="337" topLine="6" />
+		<Cursor position="337" topLine="12" />
 	</File>
-	<File name="agenda.h" open="1" top="1" tabpos="9">
+	<File name="agenda.h" open="1" top="0" tabpos="9">
 		<Cursor position="487" topLine="0" />
 	</File>
-	<File name="arbol de busqueda.c" open="1" top="0" tabpos="8">
+	<File name="arbol de busqueda.c" open="1" top="1" tabpos="8">
 		<Cursor position="3656" topLine="70" />
 	</File>
 	<File name="arbol de busqueda.h" open="1" top="0" tabpos="7">

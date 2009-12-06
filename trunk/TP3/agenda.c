@@ -37,6 +37,11 @@ int agenda_buscar(TAgenda agenda,char*nombre,char*telefono)
     return i;
 }
 
-
+void agenda_borrar(TAgenda*agenda,char*nombre)
+{
+    TContacto contacto_a_borrar;
+    strcpy(contacto_a_borrar.nombre,nombre);
+    AB_Busq_Borrar(&(agenda->arbol),&contacto_a_borrar);
+}
 
 

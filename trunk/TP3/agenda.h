@@ -22,4 +22,6 @@ int agenda_agregar(TAgenda*agenda,char*nombre, char*telefono);
 
 int agenda_buscar(TAgenda agenda,char*nombre,char*telefono);
 
+void agenda_borrar(TAgenda*agenda,char*nombre);
+
 #endif
