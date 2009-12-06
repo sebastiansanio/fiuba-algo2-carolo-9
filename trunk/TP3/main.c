@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "Pantalla.h"
 #include "agenda.h"
 #include "ListaSimple.h"
@@ -18,17 +19,21 @@ int main(int argc,char*argv[])
     nomArch=(char*)malloc(255*sizeof(char));
     printf("Inserte ruta del archivo para crear pantalla: \n");
     scanf("%s",nomArch);
-    arch=fopen(nomArch,"rt");
+    arch=fopen(nomArch,"r");
     free(nomArch);
+    if (arch==NULL)
+    {
+        fclose(arch);
+        return RES_ERROR_ABRIENDO_ARCHIVO;
+    }
     ls_Crear(&lista,sizeof(TDivision));
     agenda_crear(&agenda);
-    if (arch==NULL)
-        return RES_ERROR_ABRIENDO_ARCHIVO;
     while (!feof(arch))
     {
         fscanf(arch,"%lf,%lf;%lf,%lf",&(division.inicio.x),&division.inicio.y,&division.fin.x,&division.fin.y);
         ls_Insertar(&lista,LS_SIGUIENTE,&division);
     }
+    fclose(arch);
     Pantalla_Crear(&pantalla,&lista,sizeof(TElemPantalla));
     do
 		{

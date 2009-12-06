@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="agenda.c" open="1" top="0" tabpos="3">
+		<Cursor position="1135" topLine="17" />
+	</File>
+	<File name="agenda.h" open="1" top="0" tabpos="2">
+		<Cursor position="558" topLine="0" />
+	</File>
+	<File name="arbol de busqueda.c" open="1" top="1" tabpos="5">
+		<Cursor position="532" topLine="0" />
+	</File>
+	<File name="arbol de busqueda.h" open="1" top="0" tabpos="4">
+		<Cursor position="540" topLine="0" />
+	</File>
+	<File name="prueba de agenda.c" open="1" top="0" tabpos="1">
+		<Cursor position="1049" topLine="15" />
+	</File>
+</CodeBlocks_layout_file>
