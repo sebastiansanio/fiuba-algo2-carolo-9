@@ -9,7 +9,7 @@ typedef struct TNodoAB_BUSQ
     struct TNodoAB_BUSQ *izq, *der;
 } TNodoAB_BUSQ;
 
-typedef struct TAB
+typedef struct
 {
     TNodoAB_BUSQ *raiz,*cte;
     int tamdato;
