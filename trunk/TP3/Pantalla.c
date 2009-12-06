@@ -9,9 +9,9 @@ int P_Insertar_Div(TPantalla* P, TListaSimple* divisiones, TPunto a, TPunto b, i
 
 	ls_MoverCorriente(divisiones, LS_PRIMERO);
 	do{
-		ls_ElemCorriente(divisiones, &div);
+		ls_ElemCorriente(*divisiones, &div);
 		if ((div.inicio.x == a.x && div.fin.x == b.x)||(div.inicio.y == a.y && div.fin.y == b.y)){
-			memcpy(elemP.div, div, sizeof(TDivision));
+			memcpy(&elemP.div, &div, sizeof(TDivision));
 			AB_Insertar(&P->AB, mov, &elem, &err);
 			if (err){return TPAN_ERR;}
 
