@@ -155,8 +155,102 @@ void AB_Busq_Destruir(TAB_BUSQ*a)
     a->tamdato = 0;
 }
 
+TNodoAB_BUSQ* BuscarPadre(TNodoAB_BUSQ *padre,TNodoAB_BUSQ *hijo)
+{
+    TNodoAB_BUSQ *paux = NULL;
+    if ((padre->izq == hijo) ||(padre->der == hijo))
+        return padre;
+    else
+    {
+        if (padre->izq != NULL)
+            paux = BuscarPadre(padre->izq,hijo);
+        if ((padre->der != NULL) && (paux == NULL))
+            paux = BuscarPadre(padre->der,hijo);
+        return paux;
+    }
+}
 
-int AB_Busq_Borrar(TAB_BUSQ*a,void*elem);
+TNodoAB_BUSQ* BuscarMayor(TNodoAB_BUSQ*nodo)
+{
+    if(nodo->der)
+    {
+        nodo=nodo->der;
+        return(BuscarMayor(nodo));
+    }
+    else
+        return nodo;
+}
+
+
+void AB_Busq_Borrar_Rec(TNodoAB_BUSQ*nodopadre,TNodoAB_BUSQ*nodohijo,TNodoAB_BUSQ**raiz)
+{
+    if ((nodohijo->izq==NULL) && (nodohijo->der==NULL))
+    {
+        if(nodopadre==NULL)
+            *raiz=NULL;
+        else
+            if (nodopadre->izq==nodohijo)
+                nodopadre->izq=NULL;
+            else
+                nodopadre->der=NULL;
+        free(nodohijo->elem);
+        free(nodohijo);
+    }
+    else
+        if ((nodohijo->der)==NULL)
+        {
+            if(nodopadre==NULL)
+                *raiz=nodohijo->izq;
+            else
+                if (nodopadre->izq==nodohijo)
+                    nodopadre->izq=nodohijo->izq;
+                else
+                    nodopadre->der=nodohijo->izq;
+            free(nodohijo->elem);
+            free(nodohijo);
+        }
+        else
+            if((nodohijo->izq)==NULL)
+            {
+                if(nodopadre==NULL)
+                    *raiz=nodohijo->der;
+                else
+                    if (nodopadre->izq==nodohijo)
+                        nodopadre->izq=nodohijo->der;
+                    else
+                        nodopadre->der=nodohijo->der;
+                free(nodohijo->elem);
+                free(nodohijo);
+            }
+            else
+            {
+                TNodoAB_BUSQ* aux;
+                void*elem;
+                aux=BuscarMayor(nodohijo->izq);
+                elem=nodohijo->elem;
+                nodohijo->elem=aux->elem;
+                aux->elem=elem;
+                nodohijo=aux;
+                aux=BuscarPadre(*raiz,nodohijo);
+                AB_Busq_Borrar_Rec(aux,nodohijo,raiz);
+            }
+
+}
+
+void AB_Busq_Borrar(TAB_BUSQ*a,void*elem)
+{
+    TNodoAB_BUSQ* nodoauxhijo;
+    TNodoAB_BUSQ* nodoauxpadre;
+    a->cte=a->raiz;
+    nodoauxhijo=(AB_Busq_Rec(a,elem));
+    nodoauxpadre=BuscarPadre(a->raiz,nodoauxhijo);
+    AB_Busq_Borrar_Rec(nodoauxpadre,nodoauxhijo,&(a->raiz));
+}
+
+
+
+
+
 
 
 
