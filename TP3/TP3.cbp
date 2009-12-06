@@ -35,10 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Arbol.h" />
-		<Unit filename="Lista Doblemente Enlazada Circular.c">
+		<Unit filename="ListaSimple.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Lista Doblemente Enlazada Circular.h" />
+		<Unit filename="ListaSimple.h" />
 		<Unit filename="Pantalla.c">
 			<Option compilerVar="CC" />
 		</Unit>
