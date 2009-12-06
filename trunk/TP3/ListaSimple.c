@@ -80,10 +80,10 @@ int ls_BorrarCorriente(TListaSimple *pLs) {
               while (PAux->Siguiente!=pLs->Corriente)
                      PAux = PAux->Siguiente;
               PAux->Siguiente=pLs->Corriente->Siguiente;
-              if (PAux->Siguiente) //Si no es el último
+              if (PAux->Siguiente)
               pLs->Corriente = PAux->Siguiente;
          else
-                     pLs->Corriente = PAux; //Si es el último queda en el anterior al borrado
+                     pLs->Corriente = PAux;
        }
        free(PNodo->Elem);
        free(PNodo);
@@ -99,11 +99,10 @@ Post: E se agregó a la lista y es el actual elemento corriente.
 int ls_Insertar(TListaSimple *pLs, TMovimiento_Ls M, void* pE) {
        TNodoSimple *pNodo = (TNodoSimple*) malloc(sizeof(TNodoSimple));
        if (!pNodo)
-              return FALSE; //No hay memoria disponible
+              return FALSE;
        if ((ls_Vacia(*pLs)) || (M==LS_PRIMERO) ||
                             ((M==LS_ANTERIOR) && (pLs->Primero==pLs->Corriente))) {
-              //Si está vacía o hay que insertar en el primero o
-              //hay que insertar en el anterior y el actual es el primero
+
               pNodo->Siguiente = pLs->Primero;
               pLs->Primero = pLs->Corriente = pNodo;
        }
@@ -112,7 +111,7 @@ int ls_Insertar(TListaSimple *pLs, TMovimiento_Ls M, void* pE) {
                      pNodo->Siguiente = pLs->Corriente->Siguiente;
                      pLs->Corriente->Siguiente = pNodo;
               }
-              else { //LS_ANTERIOR
+              else {
                      TNodoSimple *pAux=pLs->Primero;
                      while (pAux->Siguiente!=pLs->Corriente)
                             pAux = pAux->Siguiente;

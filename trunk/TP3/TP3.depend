@@ -29,13 +29,16 @@
 
 1257977726 c:\users\svn\c\tp3\lista doblemente enlazada circular.h
 
-1258232212 source:c:\users\svn\c\tp3\pantalla.c
+1260135779 source:c:\users\svn\c\tp3\pantalla.c
+	"Pantalla.h"
+	"memory.h"
 
-1259547010 source:c:\users\svn\c\tp3\main.c
+1260138865 source:c:\users\svn\c\tp3\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Pantalla.h"
 	"agenda.h"
+	"ListaSimple.h"
 
 1260047150 c:\users\svn\c\tp3\pantalla.h
 	"ListaSimple.h"
@@ -48,7 +51,7 @@
 1258242476 c:\users\svn\c\tp3\arbol.h
 	<stdlib.h>
 
-1260112728 source:c:\users\svn\c\tp3\arbol de busqueda.c
+1260136422 source:c:\users\svn\c\tp3\arbol de busqueda.c
 	"arbol de busqueda.h"
 	<stdio.h>
 	<string.h>
@@ -64,4 +67,9 @@
 	<string.h>
 
 1259884303 c:\users\svn\c\tp3\listasimple.h
+
+1260135923 source:c:\users\svn\c\tp3\listasimple.c
+	"ListaSimple.h"
+	<malloc.h>
+	<memory.h>
 

@@ -155,7 +155,7 @@ void AB_Busq_Destruir(TAB_BUSQ*a)
     a->tamdato = 0;
 }
 
-TNodoAB_BUSQ* BuscarPadre(TNodoAB_BUSQ *padre,TNodoAB_BUSQ *hijo)
+TNodoAB_BUSQ* BuscarPadreBusq(TNodoAB_BUSQ *padre,TNodoAB_BUSQ *hijo)
 {
     TNodoAB_BUSQ *paux = NULL;
     if ((padre->izq == hijo) ||(padre->der == hijo))
@@ -163,9 +163,9 @@ TNodoAB_BUSQ* BuscarPadre(TNodoAB_BUSQ *padre,TNodoAB_BUSQ *hijo)
     else
     {
         if (padre->izq != NULL)
-            paux = BuscarPadre(padre->izq,hijo);
+            paux = BuscarPadreBusq(padre->izq,hijo);
         if ((padre->der != NULL) && (paux == NULL))
-            paux = BuscarPadre(padre->der,hijo);
+            paux = BuscarPadreBusq(padre->der,hijo);
         return paux;
     }
 }
@@ -231,7 +231,7 @@ void AB_Busq_Borrar_Rec(TNodoAB_BUSQ*nodopadre,TNodoAB_BUSQ*nodohijo,TNodoAB_BUS
                 nodohijo->elem=aux->elem;
                 aux->elem=elem;
                 nodohijo=aux;
-                aux=BuscarPadre(*raiz,nodohijo);
+                aux=BuscarPadreBusq(*raiz,nodohijo);
                 AB_Busq_Borrar_Rec(aux,nodohijo,raiz);
             }
 
@@ -243,7 +243,7 @@ void AB_Busq_Borrar(TAB_BUSQ*a,void*elem)
     TNodoAB_BUSQ* nodoauxpadre;
     a->cte=a->raiz;
     nodoauxhijo=(AB_Busq_Rec(a,elem));
-    nodoauxpadre=BuscarPadre(a->raiz,nodoauxhijo);
+    nodoauxpadre=BuscarPadreBusq(a->raiz,nodoauxhijo);
     AB_Busq_Borrar_Rec(nodoauxpadre,nodoauxhijo,&(a->raiz));
 }
 
