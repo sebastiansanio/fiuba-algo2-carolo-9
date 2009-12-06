@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1260051151 source:c:\users\svn\c\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Pantalla.h"
+	"agenda.h"
+
+1260047150 c:\users\svn\c\tp3\pantalla.h
+	"ListaSimple.h"
+	"Arbol.h"
+
+1259884303 c:\users\svn\c\tp3\listasimple.h
+
+1258242476 c:\users\svn\c\tp3\arbol.h
+	<stdlib.h>
+
+1260068835 c:\users\svn\c\tp3\agenda.h
+	"arbol de busqueda.h"
+	<string.h>
+
+1260066828 c:\users\svn\c\tp3\arbol de busqueda.h
+
+1260112728 source:c:\users\svn\c\tp3\arbol de busqueda.c
+	"arbol de busqueda.h"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1260068888 source:c:\users\svn\c\tp3\agenda.c
+	"agenda.h"
+
+1260068875 source:c:\users\svn\c\tp3\prueba de agenda.c
+	<stdio.h>
+	<stdlib.h>
+	"Pantalla.h"
+	"agenda.h"
+

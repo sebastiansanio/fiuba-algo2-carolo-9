@@ -33,9 +33,10 @@
 	"Pantalla.h"
 	"memory.h"
 
-1260138865 source:c:\users\svn\c\tp3\main.c
+1260140222 source:c:\users\svn\c\tp3\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"Pantalla.h"
 	"agenda.h"
 	"ListaSimple.h"
