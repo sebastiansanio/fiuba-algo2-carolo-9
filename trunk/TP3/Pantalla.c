@@ -47,9 +47,11 @@ TElemPantalla* Obtener_Sector(TPantalla* P, TPunto punto, int mov)
 
 int Pantalla_Obtener_Elemento(TPantalla* pantalla, TPunto punto, void* elem){
 	TElemPantalla* elemP = Obtener_Sector(pantalla, punto, RAIZ);
-	if (!elemP->elem)
-		return TPAN_NO_HAY_ELEM;
+	if (!elemP->elem){
+        free(elemP);
+		return TPAN_NO_HAY_ELEM;}
 	memcpy(elem, elemP->elem, pantalla->tamdato);
+	free(elemP);
 	return TPAN_OK;
 }
 
@@ -104,6 +106,8 @@ int Pantalla_Asociar_Elemento(TPantalla* pantalla, TPunto punto, void* elem){
 	elemP->elem = malloc(pantalla->tamdato);
 	if (!elemP->elem){return TPAN_ERR;}
 	memcpy(elemP->elem, elem, pantalla->tamdato);
+	AB_ModifCte(&(pantalla->AB),elemP);
+	free(elemP);
 	return TPAN_OK;
 }
 
@@ -111,13 +115,17 @@ int Pantalla_Desasociar_Elemento(TPantalla* pantalla, TPunto punto){
 	TElemPantalla* elemP = Obtener_Sector(pantalla, punto, RAIZ);
 	free(elemP->elem);
 	elemP->elem = NULL;
+	AB_ModifCte(&(pantalla->AB),elemP);
+	free(elemP);
 	return TPAN_OK;
 }
 
 int Pantalla_Hay_Elemento(TPantalla* pantalla, TPunto punto){
 	TElemPantalla* elemP = Obtener_Sector(pantalla, punto, RAIZ);
-	if (elemP->elem)
-		return TPAN_HAY_ELEM;
+	if (elemP->elem){
+        free(elemP);
+		return TPAN_HAY_ELEM;}
+    free(elemP);
 	return TPAN_NO_HAY_ELEM;
 }
 
