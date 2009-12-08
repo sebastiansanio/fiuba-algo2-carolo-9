@@ -27,6 +27,9 @@ typedef struct {
 	int tamdato;
 } TPantalla;
 
+void Punto_Cargar(TPunto* punto,double x,double y);
+
+void Division_Crear(TDivision*division,TPunto inicio,TPunto fin);
 
 int Pantalla_Crear(TPantalla* pantalla, TListaSimple* divisiones, int tamdato);
 /*

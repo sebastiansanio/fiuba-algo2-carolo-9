@@ -1,6 +1,18 @@
 #include "Pantalla.h"
 #include "memory.h"
 
+void Division_Crear(TDivision*division,TPunto inicio,TPunto fin)
+{
+    division->inicio=inicio;
+    division->fin=fin;
+}
+
+void Punto_Cargar(TPunto* punto,double x,double y)
+{
+    punto->x=x;
+    punto->y=y;
+}
+
 TElemPantalla* Obtener_Sector(TPantalla* P, TPunto punto, int mov){
 	TElemPantalla* elemP;
 	int err;

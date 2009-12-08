@@ -12,6 +12,7 @@ int main(int argc,char*argv[])
     int op_menu_int;
     char* nomArch;
     TDivision division;
+    TPunto punto1,punto2;
     TAgenda agenda;
     TPantalla pantalla;
     FILE*arch;
@@ -30,7 +31,11 @@ int main(int argc,char*argv[])
     agenda_crear(&agenda);
     while (!feof(arch))
     {
-        fscanf(arch,"%lf,%lf;%lf,%lf",&(division.inicio.x),&division.inicio.y,&division.fin.x,&division.fin.y);
+        double aux1,aux2,aux3,aux4;
+        fscanf(arch,"%lf,%lf;%lf,%lf",&aux1,&aux2,&aux3,&aux4);
+        Punto_Cargar(&punto1,aux1,aux2);
+        Punto_Cargar(&punto2,aux3,aux4);
+        Division_Crear(&division,punto1,punto2);
         ls_Insertar(&lista,LS_SIGUIENTE,&division);
     }
     fclose(arch);
@@ -47,8 +52,15 @@ int main(int argc,char*argv[])
 		    case 1:
 		    {
 		        TPunto punto;
-		        punto.x=0.2;
-		        punto.y=0.2;
+		        double aux_x,aux_y;
+		        do
+		        {
+                    printf("Ingrese coordenadas con formato x:y (entre 0 y 1)");
+                    scanf("%lf:%lf",&aux_x,&aux_y);
+                    if (aux_x<0 || aux_x>1 || aux_y<0 || aux_y>1)
+                        printf("Coordenadas incorrectas");
+		        } while (aux_x<0 || aux_x>1 || aux_y<0 || aux_y>1);
+		        Punto_Cargar(&punto,aux_x,aux_y);
 		        Pantalla_Asociar_Elemento(&pantalla,punto,&printf);
 		    }
 		    case 10:
