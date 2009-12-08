@@ -111,6 +111,7 @@ void Liberar_Elementos(TPantalla* pantalla, int mov){
 	TElemPantalla* elemP;
 	int err;
 	AB_MoverCte(&pantalla->AB, mov, &err);
+	elemP=(TElemPantalla*)malloc(sizeof(TElemPantalla));
 	AB_ElemCte(pantalla->AB, elemP);
 	if (err){
 		if(elemP->elem)
@@ -120,6 +121,7 @@ void Liberar_Elementos(TPantalla* pantalla, int mov){
 		Liberar_Elementos(pantalla, IZQ);
 		Liberar_Elementos(pantalla, DER);
 	}
+	free(elemP);
 }
 
 
