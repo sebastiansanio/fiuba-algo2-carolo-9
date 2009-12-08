@@ -55,10 +55,10 @@ int main(int argc,char*argv[])
 		        double aux_x,aux_y;
 		        do
 		        {
-                    printf("Ingrese coordenadas con formato x:y (entre 0 y 1)");
+                    printf("Ingrese coordenadas con formato x:y (entre 0 y 1)\n");
                     scanf("%lf:%lf",&aux_x,&aux_y);
                     if (aux_x<0 || aux_x>1 || aux_y<0 || aux_y>1)
-                        printf("Coordenadas incorrectas");
+                        printf("Coordenadas incorrectas \n");
 		        } while (aux_x<0 || aux_x>1 || aux_y<0 || aux_y>1);
 		        Punto_Cargar(&punto,aux_x,aux_y);
 		        Pantalla_Asociar_Elemento(&pantalla,punto,&printf);

@@ -13,20 +13,35 @@ void Punto_Cargar(TPunto* punto,double x,double y)
     punto->y=y;
 }
 
-TElemPantalla* Obtener_Sector(TPantalla* P, TPunto punto, int mov){
-	TElemPantalla* elemP;
+TElemPantalla* Obtener_Sector(TPantalla* P, TPunto punto, int mov)
+{
+    TElemPantalla* elemP;
 	int err;
 	AB_MoverCte(&P->AB, mov, &err);
+	elemP=(TElemPantalla*)malloc(sizeof(TElemPantalla));
 	AB_ElemCte(P->AB, elemP);
-	if (err){return elemP;}/*Llegamos a una hoja.*/
+	if (err)
+	{
+	    free(elemP);
+	    return elemP;
+	}/*Llegamos a una hoja.*/
 
-	if (elemP->div.inicio.x == elemP->div.fin.x){/*division vertical*/
-		if (punto.x > elemP->div.fin.x)
-			return Obtener_Sector(P, punto, DER);
+	if (elemP->div.inicio.x == elemP->div.fin.x)/*division vertical*/
+	{
+        if (punto.x > elemP->div.fin.x)
+        {
+            free(elemP);
+            return Obtener_Sector(P, punto, DER);
+        }
+        free(elemP);
 		return Obtener_Sector(P, punto, IZQ);
 	}
 	if (punto.y > elemP->div.fin.y)
+	{
+	    free(elemP);
 		return Obtener_Sector(P, punto, DER);
+	}
+	free(elemP);
 	return Obtener_Sector(P, punto, IZQ);
 }
 
@@ -116,7 +131,7 @@ void Liberar_Elementos(TPantalla* pantalla, int mov){
 	if (err){
 		if(elemP->elem)
 			free(elemP->elem);
-		elemP->elem = NULL;
+
 	}else{
 		Liberar_Elementos(pantalla, IZQ);
 		Liberar_Elementos(pantalla, DER);
