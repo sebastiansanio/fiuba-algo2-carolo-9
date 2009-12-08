@@ -29,11 +29,11 @@
 
 1257977726 c:\users\svn\c\tp3\lista doblemente enlazada circular.h
 
-1260298555 source:c:\users\svn\c\tp3\pantalla.c
+1260303545 source:c:\users\svn\c\tp3\pantalla.c
 	"Pantalla.h"
 	"memory.h"
 
-1260300332 source:c:\users\svn\c\tp3\main.c
+1260303595 source:c:\users\svn\c\tp3\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
