@@ -22,7 +22,6 @@ TElemPantalla* Obtener_Sector(TPantalla* P, TPunto punto, int mov)
 	AB_ElemCte(P->AB, elemP);
 	if (err)
 	{
-	    free(elemP);
 	    return elemP;
 	}/*Llegamos a una hoja.*/
 
