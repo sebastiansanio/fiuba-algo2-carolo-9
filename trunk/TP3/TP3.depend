@@ -74,3 +74,48 @@
 	<malloc.h>
 	<memory.h>
 
+1260284602 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp3\listasimple.c
+	"ListaSimple.h"
+	<malloc.h>
+	<memory.h>
+
+1259880047 c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp3\listasimple.h
+
+1260294088 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp3\agenda.c
+	"agenda.h"
+
+1260127130 c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp3\agenda.h
+	"arbol de busqueda.h"
+	<string.h>
+
+1260127130 c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp3\arbol de busqueda.h
+
+1260284905 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp3\arbol de busqueda.c
+	"arbol de busqueda.h"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1260294132 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Pantalla.h"
+	"agenda.h"
+	"ListaSimple.h"
+
+1260294132 c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp3\pantalla.h
+	"ListaSimple.h"
+	"Arbol.h"
+
+1258904235 c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp3\arbol.h
+	<stdlib.h>
+
+1259880047 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp3\arbol.c
+	"Arbol.h"
+	<memory.h>
+
+1260297771 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp3\pantalla.c
+	"Pantalla.h"
+	"memory.h"
+
