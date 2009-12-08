@@ -43,8 +43,8 @@ int main(int argc,char*argv[])
     do
 		{
         printf ("\nSeleccione la opcion deseada:\n");
+        printf ("1 Asociar accion \n");
 		printf ("10 Salir\n");
-		printf ("1 Asociar accion");
 		scanf ("%s",op_menu_char);
 		op_menu_int=atoi(op_menu_char);
 		switch (op_menu_int)
@@ -62,10 +62,12 @@ int main(int argc,char*argv[])
 		        } while (aux_x<0 || aux_x>1 || aux_y<0 || aux_y>1);
 		        Punto_Cargar(&punto,aux_x,aux_y);
 		        Pantalla_Asociar_Elemento(&pantalla,punto,&printf);
+		        break;
 		    }
 		    case 10:
 		    {
-		    }
+		        break;
+            }
             default: printf("Opcion incorrecta\n\n");
         } /* cierra el Switch*/
 	}while (op_menu_int!=10);

@@ -2,7 +2,7 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="Arbol.c" open="1" top="0" tabpos="4">
-		<Cursor position="1983" topLine="66" />
+		<Cursor position="188" topLine="0" />
 	</File>
 	<File name="Arbol.h" open="1" top="0" tabpos="5">
 		<Cursor position="0" topLine="0" />
@@ -13,8 +13,8 @@
 	<File name="ListaSimple.h" open="1" top="0" tabpos="11">
 		<Cursor position="0" topLine="37" />
 	</File>
-	<File name="Pantalla.c" open="1" top="0" tabpos="2">
-		<Cursor position="2357" topLine="53" />
+	<File name="Pantalla.c" open="1" top="1" tabpos="2">
+		<Cursor position="3436" topLine="101" />
 	</File>
 	<File name="Pantalla.h" open="1" top="0" tabpos="3">
 		<Cursor position="502" topLine="9" />
@@ -31,7 +31,7 @@
 	<File name="arbol de busqueda.h" open="1" top="0" tabpos="6">
 		<Cursor position="401" topLine="0" />
 	</File>
-	<File name="main.c" open="1" top="1" tabpos="1">
-		<Cursor position="1196" topLine="27" />
+	<File name="main.c" open="1" top="0" tabpos="1">
+		<Cursor position="2174" topLine="34" />
 	</File>
 </CodeBlocks_layout_file>
