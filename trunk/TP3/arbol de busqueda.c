@@ -75,6 +75,8 @@ int AB_Busq_Buscar(TAB_BUSQ*a,void*elem_a_comparar,void*elem_devuelto)
 {
     TNodoAB_BUSQ* nodoaux;
     a->cte=a->raiz;
+    if(!(a->raiz))
+        return ELEM_NO_ENCONTRADO;
     nodoaux=(AB_Busq_Rec(a,elem_a_comparar));
     if (!nodoaux)
         return ELEM_NO_ENCONTRADO;
@@ -241,10 +243,12 @@ void AB_Busq_Borrar(TAB_BUSQ*a,void*elem)
 {
     TNodoAB_BUSQ* nodoauxhijo;
     TNodoAB_BUSQ* nodoauxpadre;
-    a->cte=a->raiz;
-    nodoauxhijo=(AB_Busq_Rec(a,elem));
-    nodoauxpadre=BuscarPadreBusq(a->raiz,nodoauxhijo);
-    AB_Busq_Borrar_Rec(nodoauxpadre,nodoauxhijo,&(a->raiz));
+    if(a->raiz){
+        a->cte=a->raiz;
+        nodoauxhijo=(AB_Busq_Rec(a,elem));
+        nodoauxpadre=BuscarPadreBusq(a->raiz,nodoauxhijo);
+        AB_Busq_Borrar_Rec(nodoauxpadre,nodoauxhijo,&(a->raiz));
+    }
 }
 
 
