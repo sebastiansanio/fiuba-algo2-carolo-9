@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1260135923 source:c:\users\svn\c\tp3\listasimple.c
+	"ListaSimple.h"
+	<malloc.h>
+	<memory.h>
+
+1259884303 c:\users\svn\c\tp3\listasimple.h
+
+1259455715 source:c:\users\svn\c\tp3\arbol.c
+	"Arbol.h"
+	<memory.h>
+
+1258242476 c:\users\svn\c\tp3\arbol.h
+	<stdlib.h>
+
+1260315144 source:c:\users\svn\c\tp3\pantalla.c
+	"Pantalla.h"
+	"memory.h"
+
+1260288940 c:\users\svn\c\tp3\pantalla.h
+	"ListaSimple.h"
+	"Arbol.h"
+
+1260316709 source:c:\users\svn\c\tp3\prueba de pantalla.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Pantalla.h"
+	"ListaSimple.h"
+
