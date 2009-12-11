@@ -4,6 +4,7 @@
 #include "Pantalla.h"
 #include "agenda.h"
 #include "ListaSimple.h"
+#include "aplicacion.h"
 #define RES_ERROR_ABRIENDO_ARCHIVO -1
 
 int main(int argc,char*argv[])
@@ -11,6 +12,7 @@ int main(int argc,char*argv[])
     char op_menu_char[10];
     int op_menu_int;
     char* nomArch;
+    TSector sector;
     TDivision division;
     TPunto punto1,punto2;
     TAgenda agenda;
@@ -39,7 +41,7 @@ int main(int argc,char*argv[])
         ls_Insertar(&lista,LS_SIGUIENTE,&division);
     }
     fclose(arch);
-    Pantalla_Crear(&pantalla,&lista,sizeof(TElemPantalla));
+    Pantalla_Crear(&pantalla,&lista,sizeof(TSector));
     do
 		{
         printf ("\nSeleccione la opcion deseada:\n");
@@ -53,6 +55,8 @@ int main(int argc,char*argv[])
 		    {
 		        TPunto punto;
 		        double aux_x,aux_y;
+		        char opaux_char[10];
+		        int opaux_int;
 		        do
 		        {
                     printf("Ingrese coordenadas con formato x:y (entre 0 y 1)\n");
@@ -61,7 +65,31 @@ int main(int argc,char*argv[])
                         printf("Coordenadas incorrectas \n");
 		        } while (aux_x<0 || aux_x>1 || aux_y<0 || aux_y>1);
 		        Punto_Cargar(&punto,aux_x,aux_y);
-		        Pantalla_Asociar_Elemento(&pantalla,punto,&printf);
+		        do
+		        {
+		        printf("Que accion desea asociar? \n");
+		        printf("1 Imprimir mensaje por pantalla \n");
+		        scanf("%s",opaux_char);
+		        opaux_int=atoi(opaux_char);
+		        if (opaux_int!=1)
+                    printf("Opcion incorrecta \n \n");
+		        }
+		        while (opaux_int!=1);
+		        switch (opaux_int)
+		        {
+		        case 1:
+                    {
+		            char mensaje[255];
+		            printf("Ingrese mensaje \n");
+		            scanf("%s",mensaje);
+		            sector.funcion=&printf;
+		            sector.arg=mensaje;
+		            Pantalla_Asociar_Elemento(&pantalla,punto,&sector);
+		            break;
+                    }
+		        }
+
+
 		        break;
 		    }
 		    case 10:

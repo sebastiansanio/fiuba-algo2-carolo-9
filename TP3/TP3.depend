@@ -29,17 +29,18 @@
 
 1257977726 c:\users\svn\c\tp3\lista doblemente enlazada circular.h
 
-1260303545 source:c:\users\svn\c\tp3\pantalla.c
+1260317499 source:c:\users\svn\c\tp3\pantalla.c
 	"Pantalla.h"
 	"memory.h"
 
-1260303595 source:c:\users\svn\c\tp3\main.c
+1260543517 source:c:\users\svn\c\tp3\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"Pantalla.h"
 	"agenda.h"
 	"ListaSimple.h"
+	"aplicacion.h"
 
 1260288940 c:\users\svn\c\tp3\pantalla.h
 	"ListaSimple.h"
@@ -118,4 +119,11 @@
 1260297771 source:c:\documents and settings\emperor\mis documentos\trabajo\facultad\algoritmos ii\servervn\tp3\pantalla.c
 	"Pantalla.h"
 	"memory.h"
+
+1260542675 c:\users\svn\c\tp3\aplicacion.h
+
+1260542691 source:c:\users\svn\c\tp3\aplicacion.c
+	"agenda.h"
+	<stdio.h>
+	"aplicacion.h"
 
