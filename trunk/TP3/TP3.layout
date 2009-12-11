@@ -13,7 +13,7 @@
 	<File name="ListaSimple.h" open="1" top="0" tabpos="11">
 		<Cursor position="0" topLine="37" />
 	</File>
-	<File name="Pantalla.c" open="1" top="1" tabpos="2">
+	<File name="Pantalla.c" open="1" top="0" tabpos="2">
 		<Cursor position="514" topLine="0" />
 	</File>
 	<File name="Pantalla.h" open="1" top="0" tabpos="3">
@@ -25,13 +25,19 @@
 	<File name="agenda.h" open="1" top="0" tabpos="8">
 		<Cursor position="487" topLine="0" />
 	</File>
+	<File name="aplicacion.c" open="1" top="0" tabpos="13">
+		<Cursor position="38" topLine="0" />
+	</File>
+	<File name="aplicacion.h" open="1" top="0" tabpos="12">
+		<Cursor position="303" topLine="0" />
+	</File>
 	<File name="arbol de busqueda.c" open="1" top="0" tabpos="7">
 		<Cursor position="1752" topLine="66" />
 	</File>
 	<File name="arbol de busqueda.h" open="1" top="0" tabpos="6">
 		<Cursor position="401" topLine="0" />
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="1">
-		<Cursor position="1894" topLine="44" />
+	<File name="main.c" open="1" top="1" tabpos="1">
+		<Cursor position="2519" topLine="68" />
 	</File>
 </CodeBlocks_layout_file>
