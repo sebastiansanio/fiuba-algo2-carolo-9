@@ -33,7 +33,7 @@
 	"Pantalla.h"
 	"memory.h"
 
-1260543517 source:c:\users\svn\c\tp3\main.c
+1260638559 source:c:\users\svn\c\tp3\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -120,10 +120,12 @@
 	"Pantalla.h"
 	"memory.h"
 
-1260542675 c:\users\svn\c\tp3\aplicacion.h
+1260638559 c:\users\svn\c\tp3\aplicacion.h
 
-1260542691 source:c:\users\svn\c\tp3\aplicacion.c
+1260638769 source:c:\users\svn\c\tp3\aplicacion.c
+	"pantalla.h"
 	"agenda.h"
 	<stdio.h>
+	<stdlib.h>
 	"aplicacion.h"
 
