@@ -3,19 +3,26 @@
 
 typedef int (*TFuncion)(void* arg);
 
-typedef struct{
-    char*nombre;
-    char*telefono;
-    TAgenda* agenda;
-} TFAgenda;
-
-
-
 typedef struct {
-TFuncion funcion;
-void* arg;
+    TFuncion funcion;
+    void* arg;
 } TSector;
 
-void imprimir_por_pantalla(char*mensaje);
+typedef struct {
+    TPantalla*pantalla;
+    TAgenda*agenda;
+    int codigo_salida;
+} TExit;
+
+
+void imprimir_por_pantalla(void*arg);
+
+void agregar_numero(void*arg);
+
+void buscar_numero(void*arg);
+
+void eliminar_numero(void*arg);
+
+void exit_f(void*arg);
 
 #endif

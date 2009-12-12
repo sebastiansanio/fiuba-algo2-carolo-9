@@ -5,7 +5,7 @@
 		<Cursor position="188" topLine="0" />
 	</File>
 	<File name="Arbol.h" open="1" top="0" tabpos="5">
-		<Cursor position="0" topLine="0" />
+		<Cursor position="0" topLine="6" />
 	</File>
 	<File name="ListaSimple.c" open="1" top="0" tabpos="10">
 		<Cursor position="930" topLine="17" />
@@ -14,30 +14,30 @@
 		<Cursor position="0" topLine="37" />
 	</File>
 	<File name="Pantalla.c" open="1" top="0" tabpos="2">
-		<Cursor position="514" topLine="0" />
+		<Cursor position="514" topLine="25" />
 	</File>
 	<File name="Pantalla.h" open="1" top="0" tabpos="3">
-		<Cursor position="502" topLine="9" />
+		<Cursor position="502" topLine="0" />
 	</File>
 	<File name="agenda.c" open="1" top="0" tabpos="9">
-		<Cursor position="275" topLine="0" />
+		<Cursor position="275" topLine="11" />
 	</File>
 	<File name="agenda.h" open="1" top="0" tabpos="8">
-		<Cursor position="487" topLine="0" />
+		<Cursor position="557" topLine="0" />
 	</File>
 	<File name="aplicacion.c" open="1" top="0" tabpos="13">
-		<Cursor position="38" topLine="0" />
+		<Cursor position="1053" topLine="22" />
 	</File>
 	<File name="aplicacion.h" open="1" top="0" tabpos="12">
-		<Cursor position="303" topLine="0" />
+		<Cursor position="192" topLine="0" />
 	</File>
 	<File name="arbol de busqueda.c" open="1" top="0" tabpos="7">
-		<Cursor position="1752" topLine="66" />
+		<Cursor position="3646" topLine="0" />
 	</File>
 	<File name="arbol de busqueda.h" open="1" top="0" tabpos="6">
 		<Cursor position="401" topLine="0" />
 	</File>
 	<File name="main.c" open="1" top="1" tabpos="1">
-		<Cursor position="2519" topLine="68" />
+		<Cursor position="4430" topLine="106" />
 	</File>
 </CodeBlocks_layout_file>
