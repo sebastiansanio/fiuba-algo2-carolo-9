@@ -26,7 +26,7 @@
 		<Cursor position="557" topLine="0" />
 	</File>
 	<File name="aplicacion.c" open="1" top="0" tabpos="13">
-		<Cursor position="1053" topLine="22" />
+		<Cursor position="289" topLine="22" />
 	</File>
 	<File name="aplicacion.h" open="1" top="0" tabpos="12">
 		<Cursor position="192" topLine="0" />
@@ -38,6 +38,6 @@
 		<Cursor position="401" topLine="0" />
 	</File>
 	<File name="main.c" open="1" top="1" tabpos="1">
-		<Cursor position="4430" topLine="106" />
+		<Cursor position="4473" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
