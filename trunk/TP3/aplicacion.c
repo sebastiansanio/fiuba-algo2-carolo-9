@@ -14,7 +14,7 @@ void agregar_numero(void*arg)
 {
     char nombre[255];
     char telefono[255];
-    printf("Ingrese datos del contacto\n");
+    printf("Ingrese datos del contacto a agregar\n");
     printf("Nombre:\n");
     scanf("%s",nombre);
     printf("Telefono:\n");

@@ -85,7 +85,8 @@ int main(int argc,char*argv[])
 		        {
 		        case 1:
                     {
-                        char mensaje[255];
+                        char* mensaje;
+                        mensaje=(char*)malloc(255*sizeof(char));
                         printf("Ingrese mensaje \n");
                         scanf("%s",mensaje);
                         sector.funcion=&imprimir_por_pantalla;
@@ -116,12 +117,13 @@ int main(int argc,char*argv[])
                     }
                 case 5:
                     {
-                        TExit aux_exit;
-                        aux_exit.codigo_salida=0;
-                        aux_exit.agenda=&agenda;
-                        aux_exit.pantalla=&pantalla;
+                        TExit*aux_exit;
+                        aux_exit=(TExit*)malloc(sizeof(TExit));
+                        aux_exit->codigo_salida=0;
+                        aux_exit->agenda=&agenda;
+                        aux_exit->pantalla=&pantalla;
                         sector.funcion=&exit_f;
-                        sector.arg=&aux_exit;
+                        sector.arg=aux_exit;
                         Pantalla_Asociar_Elemento(&pantalla,punto,&sector);
                         break;
                     }
