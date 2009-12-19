@@ -89,28 +89,28 @@ int main(int argc,char*argv[])
                         mensaje=(char*)malloc(255*sizeof(char));
                         printf("Ingrese mensaje \n");
                         scanf("%s",mensaje);
-                        sector.funcion=&imprimir_por_pantalla;
+                        sector.funcion=(TFuncion)imprimir_por_pantalla;
                         sector.arg=mensaje;
                         Pantalla_Asociar_Elemento(&pantalla,punto,&sector);
                         break;
                     }
                 case 2:
                     {
-                        sector.funcion=&agregar_numero;
+                        sector.funcion=(TFuncion)agregar_numero;
                         sector.arg=&agenda;
                         Pantalla_Asociar_Elemento(&pantalla,punto,&sector);
                         break;
                     }
                 case 3:
                     {
-                        sector.funcion=&buscar_numero;
+                        sector.funcion=(TFuncion)buscar_numero;
                         sector.arg=&agenda;
                         Pantalla_Asociar_Elemento(&pantalla,punto,&sector);
                         break;
                     }
                 case 4:
                     {
-                        sector.funcion=&eliminar_numero;
+                        sector.funcion=(TFuncion)eliminar_numero;
                         sector.arg=&agenda;
                         Pantalla_Asociar_Elemento(&pantalla,punto,&sector);
                         break;
@@ -122,7 +122,7 @@ int main(int argc,char*argv[])
                         aux_exit->codigo_salida=0;
                         aux_exit->agenda=&agenda;
                         aux_exit->pantalla=&pantalla;
-                        sector.funcion=&exit_f;
+                        sector.funcion=(TFuncion)exit_f;
                         sector.arg=aux_exit;
                         Pantalla_Asociar_Elemento(&pantalla,punto,&sector);
                         break;
